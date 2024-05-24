@@ -10,6 +10,10 @@
 
 
 #define AS(keycode) &as LS(keycode) keycode
+#define BASE    0
+#define CODE    1
+#define Num     2
+#define Func    3
 
 / {
     chosen {
@@ -27,11 +31,7 @@
                 <&kp R>,
                 <&macro_release>,
                 <&kp LEFT_GUI>,
-                <&macro_wait_time 50>,
-                <&macro_tap>,
-                <&kp DELETE>,
-                <&macro_wait_time 10>,
-                <&macro_tap>,
+               <&macro_tap>,
                 <&kp W &kp T &kp ENTER>;
 
             label = "TERMINAL_WIN";
@@ -173,7 +173,7 @@
 
         combo_BT_CLR {
             bindings = <&bt BT_CLR>;
-            key-positions = <18 22>;
+            key-positions = <16 20>;
             timeout-ms = <20>;
             layers = <3 7>;
         };
@@ -209,16 +209,6 @@
                 <&recording_mac>;
         };
 
-        sm: space_mod {
-            compatible = "zmk,behavior-hold-tap";
-            label = "SPACE_MOD";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
-        };
-
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -230,7 +220,7 @@
         keymap {
                 compatible = "zmk,keymap";
 
-                default_layer {
+                base_layer {
 // -----------------------------------------------------------------------------------------
 // |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U   |  I   |  O   | P |
 // |  A  |  S  |  D  |  F  |  G  |     |  H  |  J   |  K   |  L   | ' | 
@@ -245,13 +235,13 @@
                         >;
                 };
 
-                lower_layer {
+                code_layer {
 // -----------------------------------------------------------------------------------------
 // | !     |  @  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  (  |  )  |
 // | BT1   | BT2 | BT3 | BT4 | BT5 |     | LFT | DWN |  UP | RGT |     |
 // | BTCLR |     |     |     |     |     |     |     |     |     |     |
 //               | GUI |     | SPC |     | ENT | ESC | TAB |
-                        display-name = "Lower";
+                        display-name = "Code";
                         bindings = <
    &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET &kp AMPS  &kp KP_MULTIPLY &kp LPAR  &kp RPAR
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT  &kp DOWN  &kp UP          &kp RIGHT &trans 
@@ -260,13 +250,13 @@
                         >;
                 };
 
-                raise_layer {
+                num_layer {
 // -----------------------------------------------------------------------------------------
 // | 1! |  2@ |  3# |  4$ |  5% |     |  6^ |  7& |  8* |  9(  |  0)  |
 // | -_ |  =+ |  {  |  [  |  (  |     |  )  |  ]  |  }  |  /?  |  \|  |
 // | `~ |     |     |  ,< |  :  |     |  ;  |  .> | CTRL| META |      |
 //            | GUI | ESC | SPC |     | ENT |     | TAB |
-                        display-name = "Raise";
+                        display-name = "Num";
                         bindings = <
 
    AS(N1)    AS(N2)    AS(N3)    AS(N4)    AS(N5)        AS(N6)    AS(N7)    AS(N8)    AS(N9)   AS(N0)
@@ -275,5 +265,29 @@
                        &kp LGUI  &kp ESC   &kp SPACE     AS(RET)   &trans    &kp TAB
                         >;
                 };
+
+                func_layer {
+// -----------------------------------------------------------------------------------------
+// | 1! |  2@ |  3# |  4$ |  5% |     |  6^ |  7& |  8* |  9(  |  0)  |
+// | -_ |  =+ |  {  |  [  |  (  |     |  )  |  ]  |  }  |  /?  |  \|  |
+// | `~ |     |     |  ,< |  :  |     |  ;  |  .> | CTRL| META |      |
+//            | GUI | ESC | SPC |     | ENT |     | TAB |
+                        display-name = "Func";
+                        bindings = <
+
+   &kp F1 &kp F2 &kp F3   &kp F4  &kp F5      &kp F6   &kp F7 &kp F8    &kp F9 &kp F10
+   &trans &trans &trans   &trans  &kp F11     &kp F12  &trans &trans    &trans &trans
+   &trans &trans &trans   &trans  &trans      &kp SEMI &trans &kp LCTRL &trans &trans
+                 &kp LGUI &kp ESC &kp SPACE   AS(RET)  &trans &kp TAB
+                        >;
+                };
         };
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        windows_function {
+            if-layers = <1 2>;
+            then-layer = <3>;
+        };
+    };
 };
