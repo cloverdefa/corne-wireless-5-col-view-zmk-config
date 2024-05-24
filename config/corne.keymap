@@ -16,6 +16,169 @@
       zmk,matrix_transform = &five_column_transform;
     };
 
+    macros {
+        terminal_win: terminal_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LEFT_GUI>,
+                <&macro_wait_time 50>,
+                <&macro_tap>,
+                <&kp DELETE>,
+                <&macro_wait_time 10>,
+                <&macro_tap>,
+                <&kp W &kp T &kp ENTER>;
+
+            label = "TERMINAL_WIN";
+        };
+
+        windowsmax_win: windowsmax_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WINDOWMAX_WIN";
+        };
+
+        windowmin_win: windowmin_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp DOWN_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WINDOWMIN_WIN";
+        };
+
+        screenshot_win: screenshot_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LEFT_SHIFT)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LG(LEFT_SHIFT)>;
+
+            label = "SCREENSHOW_WIN";
+        };
+
+        spotlight: spotlight {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "SPOTLIGHT";
+        };
+
+        windowsmax_mac: windowsmax_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
+            label = "WINDOWSMAX_MAC";
+        };
+
+        screenshot_mac: screenshot_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LS(LEFT_CONTROL))>,
+                <&macro_tap>,
+                <&kp NUMBER_4>,
+                <&macro_release>,
+                <&kp LG(LS(LEFT_CONTROL))>;
+
+            label = "SCREENSHOT_MAC";
+        };
+
+        recording_mac: recording_mac {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LEFT_SHIFT)>,
+                <&macro_tap>,
+                <&kp NUMBER_5>,
+                <&macro_release>,
+                <&kp LG(LEFT_SHIFT)>;
+
+            label = "RECORDING_MAC";
+        };
+
+        tmux_column: tmux_column {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
+
+            label = "TMUX_COLUMN";
+        };
+
+        tmux_row: tmux_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
+
+            label = "TMUX_ROW";
+        };
+
+        tmux_list: tmux_list {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
+
+            label = "TMUX_LIST";
+        };
+
+        tmux_create: tmux_create {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
+
+            label = "TMUX_CREATE";
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_BT_CLR {
+            bindings = <&bt BT_CLR>;
+            key-positions = <18 22>;
+            timeout-ms = <20>;
+            layers = <3 7>;
+        };
+   };
+
     behaviors {
         as: auto_shift {
             compatible = "zmk,behavior-hold-tap";
@@ -24,6 +187,44 @@
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+        };
+
+        td_win: tap_dance_multi_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MULTI_WIN";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&sk LEFT_GUI>, <&terminal_win>, <&screenshot_win>;
+        };
+
+        td_mac: tap_dance_multi_mac {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MULTI_MAC";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings =
+                <&kp LEFT_ALT>,
+                <&spotlight>,
+                <&screenshot_mac>,
+                <&recording_mac>;
+        };
+
+        sm: space_mod {
+            compatible = "zmk,behavior-hold-tap";
+            label = "SPACE_MOD";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <125>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        bspc_del: backspace_delete {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp BACKSPACE>, <&kp DELETE>;
+
+            mods = <(MOD_LSFT)>;
         };
     };
         keymap {
