@@ -177,26 +177,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        td_win: tap_dance_multi_win {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MULTI_WIN";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&sk LEFT_GUI>, <&terminal_win>, <&screenshot_win>;
-        };
-
-        td_mac: tap_dance_multi_mac {
-            compatible = "zmk,behavior-tap-dance";
-            label = "TAP_DANCE_MULTI_MAC";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings =
-                <&kp LEFT_ALT>,
-                <&spotlight>,
-                <&screenshot_mac>,
-                <&recording_mac>;
-        };
-
         bspc_del: backspace_delete {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
@@ -218,10 +198,10 @@
 
             display-name = "Base";
             bindings = <
-  &kp Q  &kp W  &kp E     &kp R     &kp T                   &kp Y               &kp U    &kp I      &kp O       &kp P
-  &kp A  &kp S  &kp D     &kp F     &kt G                   &kp H               &kp J    &kp K      &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C     &kp V     &kp B                   &kp N               &kp M    &kp COMMA  &kp PERIOD  &kp SLASH
-                &kp LGUI  &mo CODE  &as LEFT_SHIFT SPACE    &as LEFT_SHIFT RET  &mo NUM  &kp BSPC
+  &kp Q  &kp W  &kp E     &kp R     &kp T                   &kp Y          &kp U    &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D     &kp F     &kt G                   &kp H          &kp J    &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C     &kp V     &kp B                   &kp N          &kp M    &kp COMMA  &kp PERIOD  &kp SLASH
+                &kp LGUI  &mo CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo NUM  &bspc_del
             >;
         };
 
@@ -250,10 +230,10 @@
 
             display-name = "Num";
             bindings = <
-  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6        &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
-  &none         &none         &none         &kp MINUS     &kp HOME        &kp LEFT_ARROW      &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
-  &none         &none         &none         &none         &kp END         &kp C_PREVIOUS      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp LGUI      &kp ESC       &kp SPACE       &as LEFT_SHIFT RET  &trans             &kp TAB
+  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3     &kp NUMBER_4   &kp NUMBER_5    &kp NUMBER_6        &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
+  &trans        &none         &screenshot_win  &kp MINUS      &kp HOME        &kp LEFT_ARROW      &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
+  &trans        &none         &none            &terminal_win  &kp END         &kp C_PREVIOUS      &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
+                              &kp LGUI         &kp ESC        &kp SPACE       &as LEFT_SHIFT RET  &trans             &kp TAB
             >;
         };
 
