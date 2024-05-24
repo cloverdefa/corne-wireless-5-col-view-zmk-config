@@ -197,18 +197,16 @@
         compatible = "zmk,keymap";
 
         WIN_DEF_layer {
-
             display-name = "Windows";
             bindings = <
-  &kp Q  &kp W  &kp E     &kp R     &kp T                   &kp Y          &kp U    &kp I      &kp O       &kp P
-  &kp A  &kp S  &kp D     &kp F     &kt G                   &kp H          &kp J    &kp K      &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C     &kp V     &kp B                   &kp N          &kp M    &kp COMMA  &kp PERIOD  &kp SLASH
-                &gui_alt  &mo CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo NUM  &bspc_del
+  &kp Q  &kp W  &kp E     &kp R  &kp T                   &kp Y          &kp U  &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D     &kp F  &kt G                   &kp H          &kp J  &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C     &kp V  &kp B                   &kp N          &kp M  &kp COMMA  &kp PERIOD  &kp SLASH
+                &gui_alt  &mo 1  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo 2  &bspc_del
             >;
         };
 
         WIN_CODE_ayer {
-
             display-name = "WinCode";
             bindings = <
   &kp EXCLAMATION  &kp AT           &kp HASH      &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
@@ -219,7 +217,6 @@
         };
 
         WIN_NUM_layer {
-
             display-name = "WinNum";
             bindings = <
   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3     &kp NUMBER_4   &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
@@ -230,7 +227,6 @@
         };
 
         WIN_FUNC_layer {
-
             display-name = "WinFunc";
             bindings = <
   &kp F1  &kp F2  &kp F3    &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
