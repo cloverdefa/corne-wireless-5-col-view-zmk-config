@@ -228,10 +228,10 @@
                         display-name = "Base";
                         bindings = <
 
-   &auto_shift LS Q &auto_shift LS W &auto_shift LS E &auto_shift LS R &auto_shift LS T    &auto_shift LS Y   &auto_shift LS U &auto_shift LS I &auto_shift LS O &auto_shift LS P
-   &auto_shift LS A &auto_shift LS S &auto_shift LS D &auto_shift LS F &auto_shift LS G    &auto_shift LS H   &auto_shift LS J &auto_shift LS K &auto_shift LS L &auto_shift LS SQT
-   &auto_shift LS Z &auto_shift LS X &auto_shift LS C &auto_shift LS V &auto_shift LS B    &auto_shift LS N   &auto_shift LS M &kp LCTL         &kp RALT         &auto_shift LS DOT
-                                     &kp LGUI         &mo CODE         &kp SPACE           &auto_shift LS RET &mo NUM          &kp BSPC
+   &as LEFT_SHIFT Q &as LEFT_SHIFT W &as LEFT_SHIFT E &as LEFT_SHIFT R &as LEFT_SHIFT T     &as LEFT_SHIFT Y   &as LEFT_SHIFT U &as LEFT_SHIFT I &as LEFT_SHIFT O &as LEFT_SHIFT P
+   &as LEFT_SHIFT A &as LEFT_SHIFT S &as LEFT_SHIFT D &as LEFT_SHIFT F &as LEFT_SHIFT G     &as LEFT_SHIFT H   &as LEFT_SHIFT J &as LEFT_SHIFT K &as LEFT_SHIFT L &as LEFT_SHIFT SQT
+   &as LEFT_SHIFT Z &as LEFT_SHIFT X &as LEFT_SHIFT C &as LEFT_SHIFT V &as LEFT_SHIFT B     &as LEFT_SHIFT N   &as LEFT_SHIFT M &kp LCTRL        &kp RALT         &as LEFT_SHIFT DOT
+                                     &kp LGUI         &mo CODE         &kp SPACE            &as LEFT_SHIFT RET &mo NUM          &kp BSPC
             >;
         };
 
@@ -247,7 +247,7 @@
    &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET          &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT           &kp DOWN &kp UP          &kp RIGHT &trans 
    &bt BT_CLR   &trans       &trans       &trans       &trans           &trans             &trans   &trans          &trans    &trans 
-                             &kp LGUI     &trans       &kp SPACE        &auto_shift LS RET &kp ESC  &kp TAB
+                             &kp LGUI     &trans       &kp SPACE        &as LEFT_SHIFT RET &kp ESC  &kp TAB
             >;
         };
 
@@ -260,10 +260,10 @@
                         display-name = "Num";
                         bindings = <
       
-   &auto_shift LS N1    &auto_shift LS N2)    &auto_shift LS N3 &auto_shift LS N4    &auto_shift LS N5    &auto_shift LS N6  &auto_shift LS N7  &auto_shift LS N8 &auto_shift LS N9   &auto_shift LS N0
-   &auto_shift LS MINUS &auto_shift LS EQUAL) &kp LBRC          &kp LBKT             &kp LPAR             &kp RPAR           &kp RBKT           &kp RBRC          &auto_shift LS FSLH &auto_shift LS BSLH
-   &auto_shift LS GRAVE &trans                &trans            &auto_shift LS COMMA &kp COLON            &kp SEMI           &auto_shift LS DOT &kp LCTRL         &kp RALT            &trans
-                                              &kp LGUI          &kp ESC              &kp SPACE            &auto_shift LS RET &trans             &kp TAB
+   &as LEFT_SHIFT N1    &as LEFT_SHIFT N2    &as LEFT_SHIFT N3 &as LEFT_SHIFT N4    &as LEFT_SHIFT N5    &as LEFT_SHIFT N6  &as LEFT_SHIFT N7  &as LEFT_SHIFT N8 &as LEFT_SHIFT N9   &as LEFT_SHIFT N0
+   &as LEFT_SHIFT MINUS &as LEFT_SHIFT EQUAL &kp LBRC          &kp LBKT             &kp LPAR             &kp RPAR           &kp RBKT           &kp RBRC          &as LEFT_SHIFT FSLH &as LEFT_SHIFT BSLH
+   &as LEFT_SHIFT GRAVE &trans               &trans            &as LEFT_SHIFT COMMA &kp COLON            &kp SEMI           &as LEFT_SHIFT DOT &kp LCTRL         &kp RALT            &trans
+                                             &kp LGUI          &kp ESC              &kp SPACE            &as LEFT_SHIFT RET &trans             &kp TAB
             >;
         };
 
@@ -276,10 +276,10 @@
                         display-name = "Func";
                         bindings = <
 
-   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6              &kp F7 &kp F8    &kp F9   &kp F10
-   &trans &trans &trans   &trans &kp F11     &kp F12             &trans &trans    &trans   &trans
-   &trans &trans &trans   &trans &trans      &trans              &trans &kp LCTRL &kp RALT &trans
-                 &kp LGUI &trans &kp SPACE   &auto_shift LS RET) &trans &kp TAB
+   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6             &kp F7 &kp F8    &kp F9   &kp F10
+   &trans &trans &trans   &trans &kp F11     &kp F12            &trans &trans    &trans   &trans
+   &trans &trans &trans   &trans &trans      &trans             &trans &kp LCTRL &kp RALT &trans
+                 &kp LGUI &trans &kp SPACE   &as LEFT_SHIFT RET &trans &kp TAB
             >;
         };
     };
