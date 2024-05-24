@@ -228,10 +228,10 @@
                         display-name = "Base";
                         bindings = <
 
-   &as LS Q &as LS W &as LS E &as LS R &as LS T     &as LS Y   &as LS U &as LS I &as LS O &as LS P
-   &as LS A &as LS S &as LS D &as LS F &as LS G     &as LS H   &as LS J &as LS K &as LS L &as LS SQT
-   &as LS Z &as LS X &as LS C &as LS V &as LS B     &as LS N   &as LS M &kp LCTL &kp RALT &as LS DOT
-                     &kp LGUI &mo CODE &kp SPACE    &as LS RET &mo NUM  &kp BSPC
+   &as Left_Shift Q &as Left_Shift W &as Left_Shift E &as Left_Shift R &as Left_Shift T     &as Left_Shift Y   &as Left_Shift U &as Left_Shift I &as Left_Shift O &as Left_Shift P
+   &as Left_Shift A &as Left_Shift S &as Left_Shift D &as Left_Shift F &as Left_Shift G     &as Left_Shift H   &as Left_Shift J &as Left_Shift K &as Left_Shift L &as Left_Shift SQT
+   &as Left_Shift Z &as Left_Shift X &as Left_Shift C &as Left_Shift V &as Left_Shift B     &as Left_Shift N   &as Left_Shift M &kp LCTL &kp RALT &as Left_Shift DOT
+                                     &kp LGUI         &mo CODE         &kp SPACE            &as Left_Shift RET &mo NUM          &kp BSPC
             >;
         };
 
@@ -247,7 +247,7 @@
    &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET          &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT           &kp DOWN &kp UP          &kp RIGHT &trans 
    &bt BT_CLR   &trans       &trans       &trans       &trans           &trans             &trans   &trans          &trans    &trans 
-                             &kp LGUI     &trans       &kp SPACE        &as LS RET &kp ESC &kp TAB
+                             &kp LGUI     &trans       &kp SPACE        &as Left_Shift RET &kp ESC &kp TAB
             >;
         };
 
@@ -260,10 +260,10 @@
                         display-name = "Num";
                         bindings = <
       
-   &as LS N1    &as LS N2    &as LS N3 &as LS N4    &as LS N5    &as LS N6  &as LS N7  &as LS N8 &as LS N9   &as LS N0
-   &as LS MINUS &as LS EQUAL &kp LBRC  &kp LBKT     &kp LPAR     &kp RPAR   &kp RBKT   &kp RBRC  &as LS FSLH &as LS BSLH
-   &as LS GRAVE &trans       &trans    &as LS COMMA &kp COLON    &kp SEMI   &as LS DOT &kp LCTRL &kp RALT    &trans
-                             &kp LGUI  &kp ESC      &kp SPACE    &as LS RET &trans     &kp TAB
+   &as Left_Shift N1    &as Left_Shift N2    &as Left_Shift N3 &as Left_Shift N4    &as Left_Shift N5    &as Left_Shift N6  &as Left_Shift N7  &as Left_Shift N8 &as Left_Shift N9   &as Left_Shift N0
+   &as Left_Shift MINUS &as Left_Shift EQUAL &kp LBRC          &kp LBKT             &kp LPAR             &kp RPAR           &kp RBKT           &kp RBRC          &as Left_Shift FSLH &as Left_Shift BSLH
+   &as Left_Shift GRAVE &trans               &trans            &as Left_Shift COMMA &kp COLON            &kp SEMI           &as Left_Shift DOT &kp LCTRL         &kp RALT            &trans
+                                             &kp LGUI          &kp ESC              &kp SPACE            &as Left_Shift RET &trans             &kp TAB
             >;
         };
 
@@ -276,10 +276,10 @@
                         display-name = "Func";
                         bindings = <
 
-   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6     &kp F7 &kp F8    &kp F9   &kp F10
-   &trans &trans &trans   &trans &kp F11     &kp F12    &trans &trans    &trans   &trans
-   &trans &trans &trans   &trans &trans      &trans     &trans &kp LCTRL &kp RALT &trans
-                 &kp LGUI &trans &kp SPACE   &as LS RET &trans &kp TAB
+   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6             &kp F7 &kp F8    &kp F9   &kp F10
+   &trans &trans &trans   &trans &kp F11     &kp F12            &trans &trans    &trans   &trans
+   &trans &trans &trans   &trans &trans      &trans             &trans &kp LCTRL &kp RALT &trans
+                 &kp LGUI &trans &kp SPACE   &as Left_Shift RET &trans &kp TAB
             >;
         };
     };
