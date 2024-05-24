@@ -216,7 +216,7 @@
   &kp EXCLAMATION  &kp AT           &kp HASH      &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
   &tmux_list       &windowsmax_mac  &tmux_column  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
   &tmux_create     &trans           &tmux_row     &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
-                                    &kp LGUI      &trans      &trans            &trans     &kp ESC            &kp TAB
+                                    &kp ESC       &trans      &trans            &trans     &trans             &kp TAB
             >;
         };
 
@@ -226,17 +226,17 @@
   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3     &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
   &trans        &none         &screenshot_mac  &kp MINUS     &kp HOME        &kp LEFT_ARROW  &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
   &trans        &none         &recording_mac   &spotlight    &kp END         &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp LGUI         &kp ESC       &trans          &trans          &trans             &kp TAB
+                              &kp ESC          &trans        &trans          &trans          &trans             &kp TAB
             >;
         };
 
         MAC_FUNC_layer {
             display-name = "macFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-  &trans  &trans  &trans    &trans  &kp F11    &kp F12       &to WIN_DEF   &trans        &trans        &bt BT_CLR
-  &trans  &trans  &trans    &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                  &kp LGUI  &trans  &trans     &trans        &trans        &kp TAB
+  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+  &trans  &trans  &trans   &trans  &kp F11    &kp F12       &to WIN_DEF   &trans        &trans        &bt BT_CLR
+  &trans  &trans  &trans   &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                  &kp ESC  &trans  &trans     &trans        &trans        &kp TAB
             >;
         };
 
@@ -256,7 +256,7 @@
   &kp EXCLAMATION  &kp AT           &kp HASH      &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
   &tmux_list       &windowsmax_win  &tmux_column  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
   &tmux_create     &windowmin_win   &tmux_row     &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
-                                    &kp LGUI      &trans      &trans            &trans     &kp ESC            &kp TAB
+                                    &kp ESC       &trans      &trans            &trans     &trans             &kp TAB
             >;
         };
 
@@ -266,17 +266,17 @@
   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3     &kp NUMBER_4   &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
   &trans        &none         &screenshot_win  &kp MINUS      &kp HOME        &kp LEFT_ARROW  &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
   &trans        &none         &none            &terminal_win  &kp END         &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp LGUI         &kp ESC        &trans          &trans          &trans             &kp TAB
+                              &kp ESC          &trans         &trans          &trans          &trans             &kp TAB
             >;
         };
 
         WIN_FUNC_layer {
             display-name = "WinFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-  &trans  &trans  &trans    &trans  &kp F11    &kp F12       &to MAC_DEF   &trans        &trans        &bt BT_CLR
-  &trans  &trans  &trans    &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                  &kp LGUI  &trans  &trans     &trans        &trans        &kp TAB
+  &kp F1  &kp F2  &kp F3   &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
+  &trans  &trans  &trans   &trans  &kp F11    &kp F12       &to MAC_DEF   &trans        &trans        &bt BT_CLR
+  &trans  &trans  &trans   &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                  &kp ESC  &trans  &trans     &trans        &trans        &kp TAB
             >;
         };
     };
