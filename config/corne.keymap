@@ -228,10 +228,10 @@
                         display-name = "Base";
                         bindings = <
 
-   &auto_shift LS Q &auto_shift LS W &auto_shift LS E &auto_shift LS R &auto_shift LS T    &auto_shift LS Y   &auto_shift LS U &auto_shift LS I &auto_shift LS O &auto_shift LS P
-   &auto_shift LS A &auto_shift LS S &auto_shift LS D &auto_shift LS F &auto_shift LS G    &auto_shift LS H   &auto_shift LS J &auto_shift LS K &auto_shift LS L &auto_shift LS SQT
-   &auto_shift LS Z &auto_shift LS X &auto_shift LS C &auto_shift LS V &auto_shift LS B    &auto_shift LS N   &auto_shift LS M &kp LCTL         &kp RALT         &auto_shift LS DOT
-                                     &kp LGUI         &mo CODE         &kp SPACE           &auto_shift LS RET &mo NUM          &kp BSPC
+   &as LS Q &as LS W &as LS E &as LS R &as LS T     &as LS Y   &as LS U &as LS I &as LS O &as LS P
+   &as LS A &as LS S &as LS D &as LS F &as LS G     &as LS H   &as LS J &as LS K &as LS L &as LS SQT
+   &as LS Z &as LS X &as LS C &as LS V &as LS B     &as LS N   &as LS M &kp LCTL &kp RALT &as LS DOT
+                     &kp LGUI &mo CODE &kp SPACE    &as LS RET &mo NUM  &kp BSPC
             >;
         };
 
@@ -247,7 +247,7 @@
    &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET          &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT           &kp DOWN &kp UP          &kp RIGHT &trans 
    &bt BT_CLR   &trans       &trans       &trans       &trans           &trans             &trans   &trans          &trans    &trans 
-                             &kp LGUI     &trans       &kp SPACE        &auto_shift LS RET &kp ESC  &kp TAB
+                             &kp LGUI     &trans       &kp SPACE        &as LS RET &kp ESC &kp TAB
             >;
         };
 
@@ -260,10 +260,10 @@
                         display-name = "Num";
                         bindings = <
       
-   &auto_shift LS N1    &auto_shift LS N2)    &auto_shift LS N3 &auto_shift LS N4    &auto_shift LS N5    &auto_shift LS N6  &auto_shift LS N7  &auto_shift LS N8 &auto_shift LS N9   &auto_shift LS N0
-   &auto_shift LS MINUS &auto_shift LS EQUAL) &kp LBRC          &kp LBKT             &kp LPAR             &kp RPAR           &kp RBKT           &kp RBRC          &auto_shift LS FSLH &auto_shift LS BSLH
-   &auto_shift LS GRAVE &trans                &trans            &auto_shift LS COMMA &kp COLON            &kp SEMI           &auto_shift LS DOT &kp LCTRL         &kp RALT            &trans
-                                              &kp LGUI          &kp ESC              &kp SPACE            &auto_shift LS RET &trans             &kp TAB
+   &as LS N1    &as LS N2    &as LS N3 &as LS N4    &as LS N5    &as LS N6  &as LS N7  &as LS N8 &as LS N9   &as LS N0
+   &as LS MINUS &as LS EQUAL &kp LBRC  &kp LBKT     &kp LPAR     &kp RPAR   &kp RBKT   &kp RBRC  &as LS FSLH &as LS BSLH
+   &as LS GRAVE &trans       &trans    &as LS COMMA &kp COLON    &kp SEMI   &as LS DOT &kp LCTRL &kp RALT    &trans
+                             &kp LGUI  &kp ESC      &kp SPACE    &as LS RET &trans     &kp TAB
             >;
         };
 
@@ -276,10 +276,10 @@
                         display-name = "Func";
                         bindings = <
 
-   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6              &kp F7 &kp F8    &kp F9   &kp F10
-   &trans &trans &trans   &trans &kp F11     &kp F12             &trans &trans    &trans   &trans
-   &trans &trans &trans   &trans &trans      &trans              &trans &kp LCTRL &kp RALT &trans
-                 &kp LGUI &trans &kp SPACE   &auto_shift LS RET) &trans &kp TAB
+   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6     &kp F7 &kp F8    &kp F9   &kp F10
+   &trans &trans &trans   &trans &kp F11     &kp F12    &trans &trans    &trans   &trans
+   &trans &trans &trans   &trans &trans      &trans     &trans &kp LCTRL &kp RALT &trans
+                 &kp LGUI &trans &kp SPACE   &as LS RET &trans &kp TAB
             >;
         };
     };
