@@ -5,9 +5,9 @@
  */
 
 #include <behaviors.dtsi>
-#include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/keys.h>
 
 #define BASE    0
 #define CODE    1
@@ -15,9 +15,7 @@
 #define FUNC    3
 
 / {
-    chosen {
-      zmk,matrix_transform = &five_column_transform;
-    };
+    chosen { zmk,matrix_transform = &five_column_transform; };
 
     macros {
         terminal_win: terminal_win {
@@ -30,7 +28,7 @@
                 <&kp R>,
                 <&macro_release>,
                 <&kp LEFT_GUI>,
-               <&macro_tap>,
+                <&macro_tap>,
                 <&kp W &kp T &kp ENTER>;
 
             label = "TERMINAL_WIN";
@@ -176,7 +174,7 @@
             timeout-ms = <20>;
             layers = <3 7>;
         };
-   };
+    };
 
     behaviors {
         as: auto_shift {
@@ -216,73 +214,75 @@
             mods = <(MOD_LSFT)>;
         };
     };
-        keymap {
-                compatible = "zmk,keymap";
 
-                base_layer {
-// -----------------------------------------------------------------------------------------
-// |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U   |  I   |  O   | P |
-// |  A  |  S  |  D  |  F  |  G  |     |  H  |  J   |  K   |  L   | ' | 
-// |  Z  |  X  |  C  |  V  |  B  |     |  N  |  M   | CTRL | META | . |
-//             | GUI | Code| SPC |     | ENT | Num  | BSPC |
-                        display-name = "Base";
-                        bindings = <
+    keymap {
+        compatible = "zmk,keymap";
 
-   &as LEFT_SHIFT Q &as LEFT_SHIFT W &as LEFT_SHIFT E &as LEFT_SHIFT R &as LEFT_SHIFT T     &as LEFT_SHIFT Y   &as LEFT_SHIFT U &as LEFT_SHIFT I &as LEFT_SHIFT O &as LEFT_SHIFT P
-   &as LEFT_SHIFT A &as LEFT_SHIFT S &as LEFT_SHIFT D &as LEFT_SHIFT F &as LEFT_SHIFT G     &as LEFT_SHIFT H   &as LEFT_SHIFT J &as LEFT_SHIFT K &as LEFT_SHIFT L &as LEFT_SHIFT SQT
-   &as LEFT_SHIFT Z &as LEFT_SHIFT X &as LEFT_SHIFT C &as LEFT_SHIFT V &as LEFT_SHIFT B     &as LEFT_SHIFT N   &as LEFT_SHIFT M &kp LCTRL        &kp RALT         &as LEFT_SHIFT DOT
-                                     &kp LGUI         &mo CODE         &kp SPACE            &as LEFT_SHIFT RET &mo NUM          &kp BSPC
+        base_layer {
+            // -----------------------------------------------------------------------------------------
+            // |  Q  |  W  |  E  |  R  |  T  |     |  Y  |  U   |  I   |  O   | P |
+            // |  A  |  S  |  D  |  F  |  G  |     |  H  |  J   |  K   |  L   | ' | 
+            // |  Z  |  X  |  C  |  V  |  B  |     |  N  |  M   | CTRL | META | . |
+            //             | GUI | Code| SPC |     | ENT | Num  | BSPC |
+
+            display-name = "Base";
+            bindings = <
+  &kp Q  &kp W  &kp E     &kp R     &kp T                   &kp Y               &kp U    &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D     &kp F     &kt G                   &kp H               &kp J    &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C     &kp V     &kp B                   &kp N               &kp M    &kp COMMA  &kp PERIOD  &kp SLASH
+                &kp LGUI  &mo CODE  &as LEFT_SHIFT SPACE    &as LEFT_SHIFT RET  &mo NUM  &kp BSPC
             >;
         };
 
-                code_layer {
-// -----------------------------------------------------------------------------------------
-// | !     |  @  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  (  |  )  |
-// | BT1   | BT2 | BT3 | BT4 | BT5 |     | LFT | DWN |  UP | RGT |     |
-// | BTCLR |     |     |     |     |     |     |     |     |     |     |
-//               | GUI |     | SPC |     | ENT | ESC | TAB |
-                        display-name = "Code";
-                        bindings = <
+        code_layer {
+            // -----------------------------------------------------------------------------------------
+            // | !     |  @  |  #  |  $  |  %  |     |  ^  |  &  |  *  |  (  |  )  |
+            // | BT1   | BT2 | BT3 | BT4 | BT5 |     | LFT | DWN |  UP | RGT |     |
+            // | BTCLR |     |     |     |     |     |     |     |     |     |     |
+            //               | GUI |     | SPC |     | ENT | ESC | TAB |
 
-   &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET          &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR
-   &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT           &kp DOWN &kp UP          &kp RIGHT &trans 
-   &bt BT_CLR   &trans       &trans       &trans       &trans           &trans             &trans   &trans          &trans    &trans 
-                             &kp LGUI     &trans       &kp SPACE        &as LEFT_SHIFT RET &kp ESC  &kp TAB
+            display-name = "Code";
+            bindings = <
+  &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT       &kp CARET           &kp AMPS  &kp ASTERISK  &kp LPAR   &kp RPAR
+  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &kp LEFT            &kp DOWN  &kp UP        &kp RIGHT  &trans
+  &bt BT_CLR    &trans        &trans        &trans        &trans          &trans              &trans    &trans        &trans     &trans
+                              &kp LGUI      &trans        &kp SPACE       &as LEFT_SHIFT RET  &kp ESC   &kp TAB
             >;
         };
 
-                num_layer {
-// -----------------------------------------------------------------------------------------
-// | 1! |  2@ |  3# |  4$ |  5% |     |  6^ |  7& |  8* |  9(  |  0)  |
-// | -_ |  =+ |  {  |  [  |  (  |     |  )  |  ]  |  }  |  /?  |  \|  |
-// | `~ |     |     |  ,< |  :  |     |  ;  |  .> | CTRL| META |      |
-//            | GUI | ESC | SPC |     | ENT |     | TAB |
-                        display-name = "Num";
-                        bindings = <
-      
-   &as LEFT_SHIFT N1    &as LEFT_SHIFT N2    &as LEFT_SHIFT N3 &as LEFT_SHIFT N4    &as LEFT_SHIFT N5    &as LEFT_SHIFT N6  &as LEFT_SHIFT N7  &as LEFT_SHIFT N8 &as LEFT_SHIFT N9   &as LEFT_SHIFT N0
-   &as LEFT_SHIFT MINUS &as LEFT_SHIFT EQUAL &kp LBRC          &kp LBKT             &kp LPAR             &kp RPAR           &kp RBKT           &kp RBRC          &as LEFT_SHIFT FSLH &as LEFT_SHIFT BSLH
-   &as LEFT_SHIFT GRAVE &trans               &trans            &as LEFT_SHIFT COMMA &kp COLON            &kp SEMI           &as LEFT_SHIFT DOT &kp LCTRL         &kp RALT            &trans
-                                             &kp LGUI          &kp ESC              &kp SPACE            &as LEFT_SHIFT RET &trans             &kp TAB
+        num_layer {
+            // -----------------------------------------------------------------------------------------
+            // | 1! |  2@ |  3# |  4$ |  5% |     |  6^ |  7& |  8* |  9(  |  0)  |
+            // | -_ |  =+ |  {  |  [  |  (  |     |  )  |  ]  |  }  |  /?  |  \|  |
+            // | `~ |     |     |  ,< |  :  |     |  ;  |  .> | CTRL| META |      |
+            //            | GUI | ESC | SPC |     | ENT |     | TAB |
+
+            display-name = "Num";
+            bindings = <
+  &as LEFT_SHIFT N1     &as LEFT_SHIFT N2     &as LEFT_SHIFT N3  &as LEFT_SHIFT N4     &as LEFT_SHIFT N5    &as LEFT_SHIFT N6   &as LEFT_SHIFT N7   &as LEFT_SHIFT N8  &as LEFT_SHIFT N9    &as LEFT_SHIFT N0
+  &as LEFT_SHIFT MINUS  &as LEFT_SHIFT EQUAL  &kp LBRC           &kp LBKT              &kp LPAR             &kp RPAR            &kp RBKT            &kp RBRC           &as LEFT_SHIFT FSLH  &as LEFT_SHIFT BSLH
+  &as LEFT_SHIFT GRAVE  &trans                &trans             &as LEFT_SHIFT COMMA  &kp COLON            &kp SEMI            &as LEFT_SHIFT DOT  &kp LCTRL          &kp RALT             &trans
+                                              &kp LGUI           &kp ESC               &kp SPACE            &as LEFT_SHIFT RET  &trans              &kp TAB
             >;
         };
 
-                func_layer {
-// -----------------------------------------------------------------------------------------
-// | F1 |  F2 |  F3 |  F4 |  F5 |     |  F6 |  F7 |  F8 |  F9  |  F10 |
-// |    |     |     |     | F11 |     | F12 |     |     |      |      |
-// |    |     |     |     |     |     |     |     | CTRL| META |      |
-//            | GUI |     | SPC |     | ENT |     | TAB |
-                        display-name = "Func";
-                        bindings = <
+        func_layer {
+            // -----------------------------------------------------------------------------------------
+            // | F1 |  F2 |  F3 |  F4 |  F5 |     |  F6 |  F7 |  F8 |  F9  |  F10 |
+            // |    |     |     |     | F11 |     | F12 |     |     |      |      |
+            // |    |     |     |     |     |     |     |     | CTRL| META |      |
+            //            | GUI |     | SPC |     | ENT |     | TAB |
 
-   &kp F1 &kp F2 &kp F3   &kp F4 &kp F5      &kp F6             &kp F7 &kp F8    &kp F9   &kp F10
-   &trans &trans &trans   &trans &kp F11     &kp F12            &trans &trans    &trans   &trans
-   &trans &trans &trans   &trans &trans      &trans             &trans &kp LCTRL &kp RALT &trans
-                 &kp LGUI &trans &kp SPACE   &as LEFT_SHIFT RET &trans &kp TAB
+            display-name = "Func";
+            bindings = <
+  &kp F1  &kp F2  &kp F3    &kp F4  &kp F5       &kp F6              &kp F7  &kp F8     &kp F9    &kp F10
+  &trans  &trans  &trans    &trans  &kp F11      &kp F12             &trans  &trans     &trans    &trans
+  &trans  &trans  &trans    &trans  &trans       &trans              &trans  &kp LCTRL  &kp RALT  &trans
+                  &kp LGUI  &trans  &kp SPACE    &as LEFT_SHIFT RET  &trans  &kp TAB
             >;
         };
     };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
