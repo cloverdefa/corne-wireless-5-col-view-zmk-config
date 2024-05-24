@@ -243,10 +243,10 @@
 
             display-name = "Code";
             bindings = <
-  &kp EXCLAMATION &kp AT          &kp HASH     &kp DOLLAR &kp PERCENT       &kp CARET          &kp AMPERSAND     &kp LEFT_PARENTHESIS &kp RIGHT_PARENTHESIS &kp ASTERISK
-  &tmux_list      &windowsmax_win &tmux_column &kp MINUS  &kp EQUAL         &kp GRAVE          &kp SQT           &kp LEFT_BRACE       &kp RIGHT_BRACE       &kp PIPE
-  &tmux_create    &windowmin_win  &tmux_row    &kp PLUS   &kp UNDERSCORE    &kp TILDE          &kp DOUBLE_QUOTES &kp LEFT_BRACKET     &kp RIGHT_BRACKET     &kp NON_US_BACKSLASH
-                                  &kp LGUI     &trans     &kp SPACE         &as LEFT_SHIFT RET &kp ESC           &kp TAB
+  &kp EXCLAMATION  &kp AT           &kp HASH      &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
+  &tmux_list       &windowsmax_win  &tmux_column  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
+  &tmux_create     &windowmin_win   &tmux_row     &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
+                                    &kp LGUI      &trans      &trans            &trans     &kp ESC            &kp TAB
             >;
         };
 
