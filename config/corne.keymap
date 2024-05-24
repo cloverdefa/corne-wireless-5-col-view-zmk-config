@@ -230,7 +230,7 @@
 
    &as LEFT_SHIFT Q &as LEFT_SHIFT W &as LEFT_SHIFT E &as LEFT_SHIFT R &as LEFT_SHIFT T     &as LEFT_SHIFT Y   &as LEFT_SHIFT U &as LEFT_SHIFT I &as LEFT_SHIFT O &as LEFT_SHIFT P
    &as LEFT_SHIFT A &as LEFT_SHIFT S &as LEFT_SHIFT D &as LEFT_SHIFT F &as LEFT_SHIFT G     &as LEFT_SHIFT H   &as LEFT_SHIFT J &as LEFT_SHIFT K &as LEFT_SHIFT L &as LEFT_SHIFT SQT
-   &as LEFT_SHIFT Z &as LEFT_SHIFT X &as LEFT_SHIFT C &as LEFT_SHIFT V &as LEFT_SHIFT B     &as LEFT_SHIFT N   &as LEFT_SHIFT M &kp LCTL &kp RALT &as LEFT_SHIFT DOT
+   &as LEFT_SHIFT Z &as LEFT_SHIFT X &as LEFT_SHIFT C &as LEFT_SHIFT V &as LEFT_SHIFT B     &as LEFT_SHIFT N   &as LEFT_SHIFT M &kp LCTRL        &kp RALT         &as LEFT_SHIFT DOT
                                      &kp LGUI         &mo CODE         &kp SPACE            &as LEFT_SHIFT RET &mo NUM          &kp BSPC
             >;
         };
@@ -247,7 +247,7 @@
    &kp EXCL     &kp AT       &kp HASH     &kp DLLR     &kp PRCNT        &kp CARET          &kp AMPS &kp KP_MULTIPLY &kp LPAR  &kp RPAR
    &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4     &kp LEFT           &kp DOWN &kp UP          &kp RIGHT &trans 
    &bt BT_CLR   &trans       &trans       &trans       &trans           &trans             &trans   &trans          &trans    &trans 
-                             &kp LGUI     &trans       &kp SPACE        &as LEFT_SHIFT RET &kp ESC &kp TAB
+                             &kp LGUI     &trans       &kp SPACE        &as LEFT_SHIFT RET &kp ESC  &kp TAB
             >;
         };
 
