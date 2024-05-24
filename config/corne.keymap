@@ -264,7 +264,8 @@
    AS(GRAVE) &trans    &trans    AS(COMMA) &kp COLON     &kp SEMI  AS(DOT)   &kp LCTRL &kp RALT &trans
                        &kp LGUI  &kp ESC   &kp SPACE     AS(RET)   &trans    &kp TAB
                         >;
-
+                };
+        };
 
                 func_layer {
 // -----------------------------------------------------------------------------------------
@@ -281,7 +282,7 @@
                  &kp LGUI &trans &kp SPACE   AS(RET) &trans &kp TAB
                         >;
                 };
-        };
+
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
