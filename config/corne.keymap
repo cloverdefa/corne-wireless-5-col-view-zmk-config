@@ -259,10 +259,10 @@
 
             display-name = "Num";
             bindings = <
-  &as LEFT_SHIFT N1     &as LEFT_SHIFT N2     &as LEFT_SHIFT N3  &as LEFT_SHIFT N4     &as LEFT_SHIFT N5    &as LEFT_SHIFT N6   &as LEFT_SHIFT N7   &as LEFT_SHIFT N8  &as LEFT_SHIFT N9    &as LEFT_SHIFT N0
-  &as LEFT_SHIFT MINUS  &as LEFT_SHIFT EQUAL  &kp LBRC           &kp LBKT              &kp LPAR             &kp RPAR            &kp RBKT            &kp RBRC           &as LEFT_SHIFT FSLH  &as LEFT_SHIFT BSLH
-  &as LEFT_SHIFT GRAVE  &trans                &trans             &as LEFT_SHIFT COMMA  &kp COLON            &kp SEMI            &as LEFT_SHIFT DOT  &kp LCTRL          &kp RALT             &trans
-                                              &kp LGUI           &kp ESC               &kp SPACE            &as LEFT_SHIFT RET  &trans              &kp TAB
+  &kp NUMBER_1 &kp NUMBER_2 &kp NUMBER_3 &kp NUMBER_4 &kp NUMBER_5    &kp NUMBER_6       &kp NUMBER_7      &kp NUMBER_8    &kp NUMBER_9    &kp NUMBER_0
+  &none        &none        &none        &kp MINUS    &kp HOME        &kp LEFT_ARROW     &kp DOWN_ARROW    &kp UP_ARROW    &kp RIGHT_ARROW &kp PAGE_UP
+  &none        &none        &none        &none        &kp END         &kp C_PREVIOUS     &kp C_VOLUME_DOWN &kp C_VOLUME_UP &kp C_NEXT      &kp PAGE_DOWN
+                            &kp LGUI     &kp ESC      &kp SPACE       &as LEFT_SHIFT RET &trans            &kp TAB
             >;
         };
 
