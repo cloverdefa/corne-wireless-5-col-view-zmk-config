@@ -184,6 +184,13 @@
 
             mods = <(MOD_LSFT)>;
         };
+
+        gui_alt: gui_alt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "GUI_ALT";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT_ALT>, <&kp LEFT_GUI>;
+        };
     };
 
     keymap {
@@ -201,7 +208,7 @@
   &kp Q  &kp W  &kp E     &kp R     &kp T                   &kp Y          &kp U    &kp I      &kp O       &kp P
   &kp A  &kp S  &kp D     &kp F     &kt G                   &kp H          &kp J    &kp K      &kp L       &kp SEMICOLON
   &kp Z  &kp X  &kp C     &kp V     &kp B                   &kp N          &kp M    &kp COMMA  &kp PERIOD  &kp SLASH
-                &kp LGUI  &mo CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo NUM  &bspc_del
+                &gui_alt  &mo CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo NUM  &bspc_del
             >;
         };
 
