@@ -171,13 +171,15 @@
     combos { compatible = "zmk,combos"; };
 
     behaviors {
-        as: auto_shift {
+        ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping_term_ms = <200>;
             quick_tap_ms = <0>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
+
+            label = "HOLD_TAP";
         };
 
         bspc_del: backspace_delete {
@@ -212,7 +214,7 @@
   &kp Q  &kp W  &kp E         &kp R         &kp T                   &kp Y          &kp U        &kp I      &kp O       &kp P
   &kp A  &kp S  &kp D         &kp F         &kp G                   &kp H          &kp J        &kp K      &kp L       &kp SEMICOLON
   &kp Z  &kp X  &kp C         &kp V         &kp B                   &kp N          &kp M        &kp COMMA  &kp PERIOD  &kp SLASH
-                &gui_alt_mac  &mo MAC_CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo MAC_NUM  &bspc_del
+                &gui_alt_mac  &mo MAC_CODE  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &mo MAC_NUM  &bspc_del
             >;
         };
 
@@ -252,7 +254,7 @@
   &kp Q  &kp W  &kp E         &kp R         &kp T                   &kp Y          &kp U        &kp I      &kp O       &kp P
   &kp A  &kp S  &kp D         &kp F         &kp G                   &kp H          &kp J        &kp K      &kp L       &kp SEMICOLON
   &kp Z  &kp X  &kp C         &kp V         &kp B                   &kp N          &kp M        &kp COMMA  &kp PERIOD  &kp SLASH
-                &gui_alt_win  &mo WIN_CODE  &as LEFT_SHIFT SPACE    &as LCTRL RET  &mo WIN_NUM  &bspc_del
+                &gui_alt_win  &mo WIN_CODE  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &mo WIN_NUM  &bspc_del
             >;
         };
 
