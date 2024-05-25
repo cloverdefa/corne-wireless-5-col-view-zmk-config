@@ -32,6 +32,7 @@
                 <&macro_release>,
                 <&kp LEFT_GUI>,
                 <&macro_tap>,
+                <&macro_wait_time 30>,
                 <&kp W &kp T &kp ENTER>;
 
             label = "TERMINAL_WIN";
