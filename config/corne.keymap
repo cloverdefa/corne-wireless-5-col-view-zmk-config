@@ -21,65 +21,6 @@
     chosen { zmk,matrix_transform = &five_column_transform; };
 
     macros {
-        ter_win: ter_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp R>,
-                <&macro_release>,
-                <&kp LEFT_GUI>,
-                <&macro_tap>,
-                <&macro_wait_time 30>,
-                <&kp W &kp T &kp ENTER>;
-
-            label = "TER_WIN";
-        };
-
-        wmax_win: wmax_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp UP_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
-
-            label = "WMAX_WIN";
-        };
-
-        wmin_win: wmin_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp DOWN_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
-
-            label = "WMIN_WIN";
-        };
-
-        shot_win: shot_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LEFT_SHIFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LEFT_SHIFT)>;
-
-            label = "SHOT_WIN";
-        };
-
         spotlight: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -134,6 +75,66 @@
                 <&kp LG(LEFT_SHIFT)>;
 
             label = "RECORDING";
+        };
+
+
+        ter_win: ter_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LEFT_GUI>,
+                <&macro_tap>,
+                <&macro_wait_time 50>,
+                <&kp W &kp T &kp ENTER>;
+
+            label = "TER_WIN";
+        };
+
+        wmax_win: wmax_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp UP_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WMAX_WIN";
+        };
+
+        wmin_win: wmin_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LGUI>,
+                <&macro_tap>,
+                <&kp DOWN_ARROW>,
+                <&macro_release>,
+                <&kp LGUI>;
+
+            label = "WMIN_WIN";
+        };
+
+        shot_win: shot_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LG(LEFT_SHIFT)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LG(LEFT_SHIFT)>;
+
+            label = "SHOT_WIN";
         };
 
         tmux_col: tmux_col {
