@@ -141,20 +141,20 @@
         MAC_NUM_layer {
             display-name = "macNum";
             bindings = <
-  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
-  &trans        &none         &shot_mac     &kp MINUS     &kp HOME        &kp LEFT_ARROW  &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
-  &trans        &none         &recording    &spotlight    &kp END         &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp ESC       &trans        &trans          &trans          &trans             &kp TAB
+  &trans     &trans        &trans        &trans              &kp C_VOLUME_UP     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP     &kp END          &trans
+  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &kp C_VOL_DN        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+  &trans     &none         &trans        &kp K_PASTE         &kp C_PLAY_PAUSE    &kp INS         &kp DEL         &kp C_PREVIOUS  &kp C_NEXT       &trans
+                           &kp ESC       &trans              &trans              &trans          &trans          &kp TAB
             >;
         };
 
         MAC_FUNC_layer {
             display-name = "macFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-  &trans  &trans  &trans  &trans  &kp F11    &kp F12       &to 0         &trans        &trans        &bt BT_CLR
-  &trans  &trans  &trans  &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                  &trans  &trans  &trans     &trans        &trans        &trans
+  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &caps_word    &trans        &trans        &trans        &trans
+  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &trans        &trans        &trans        &trans        &bt BT_CLR
+  &trans  &trans  &trans  &kp F11  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                  &trans  &trans   &trans     &trans        &trans        &trans
             >;
         };
     };
