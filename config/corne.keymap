@@ -87,9 +87,9 @@
     };
 
     behaviors {
-        ht: ht {
+        ht: hold_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "HT";
+            label = "HOLD_TAP";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -190,7 +190,7 @@
   &kp Q  &kp W  &kp E     &kp R             &kp T                   &kp Y            &kp U                  &kp I             &kp O       &kp P
   &kp A  &kp S  &kp D     &kp F             &kp G                   &kp H            &kp J                  &kp K             &kp L       &kp SEMICOLON
   &kp Z  &kp X  &kp C     &kp V             &kp B                   &kp N            &kp M                  &kp COMMA         &kp PERIOD  &kp SLASH
-                &GUI_ALT  &lt MAC_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BACKSPACE  &mt LEFT_ALT TAB
+                &GUI_ALT  &lt MAC_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BACKSPACE  &ht LEFT_ALT TAB
             >;
         };
 
