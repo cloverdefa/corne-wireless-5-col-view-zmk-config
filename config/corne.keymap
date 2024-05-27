@@ -131,10 +131,10 @@
         MAC_CODE_ayer {
             display-name = "macCode";
             bindings = <
-  &kp EXCLAMATION  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
-  &tmux_list       &wmax_mac  &tmux_col  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
-  &tmux_new        &trans     &tmux_row  &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
-                              &kp ESC    &trans      &trans            &trans     &trans             &kp TAB
+  &kp EXCLAMATION  &kp AT     &kp HASH        &kp DOLLAR    &kp PERCENT      &kp NON_US_BACKSLASH  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp COMMA
+  &kp PLUS         &kp EQUAL  &kp UNDERSCORE  &kp MINUS     &kp CARET        &kp NUMBER_0          &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD
+  &trans           &trans     &trans          &kp ASTERISK  &kp AMPERSAND    &kp SEMICOLON         &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
+                              &kp ESC         &trans        &trans           &trans                &trans        &kp TAB
             >;
         };
 
