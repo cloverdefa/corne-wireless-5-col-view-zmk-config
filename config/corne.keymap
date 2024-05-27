@@ -10,191 +10,79 @@
 
 #define MAC_DEF  0
 #define MAC_CODE 1
-#define MAC_NUM  2
+#define MAC_NAV  2
 #define MAC_FUNC 3
-#define WIN_DEF  4
-#define WIN_CODE 5
-#define WIN_NUM  6
-#define WIN_FUNC 7
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
 
-    macros {
-        spotlight: spotlight {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LGUI>;
+    combos {
+        compatible = "zmk,combos";
 
-            label = "SPOTLIGHT";
+        left_bracket {
+            bindings = <&kp LEFT_BRACKET>;
+            key-positions = <11 12>;
+            layers = <0>;
         };
 
-        wmax_mac: wmax_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&macro_tap>,
-                <&kp F>,
-                <&macro_release>,
-                <&kp GLOBE>;
-
-            label = "WMAX_MAC";
+        right_bracket {
+            bindings = <&kp RIGHT_BRACKET>;
+            key-positions = <17 18>;
+            layers = <0>;
         };
 
-        shot_mac: shot_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LS(LEFT_CONTROL))>,
-                <&macro_tap>,
-                <&kp NUMBER_4>,
-                <&macro_release>,
-                <&kp LG(LS(LEFT_CONTROL))>;
-
-            label = "SHOT_MAC";
+        left_parenthesis {
+            bindings = <&kp LEFT_PARENTHESIS>;
+            key-positions = <12 13>;
+            layers = <0>;
         };
 
-        recording: recording {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LEFT_SHIFT)>,
-                <&macro_tap>,
-                <&kp NUMBER_5>,
-                <&macro_release>,
-                <&kp LG(LEFT_SHIFT)>;
-
-            label = "RECORDING";
+        right_parenthesis {
+            bindings = <&kp RIGHT_PARENTHESIS>;
+            key-positions = <16 17>;
+            layers = <0>;
         };
 
-        ter_win: ter_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp R>,
-                <&macro_release>,
-                <&kp LEFT_GUI>,
-                <&macro_tap>,
-                <&macro_wait_time 50>,
-                <&kp W &kp T &kp ENTER>;
-
-            label = "TER_WIN";
+        left_brace {
+            bindings = <&kp LEFT_BRACE>;
+            key-positions = <13 14>;
+            layers = <0>;
         };
 
-        wmax_win: wmax_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp UP_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
-
-            label = "WMAX_WIN";
+        right_barce {
+            bindings = <&kp RIGHT_BRACE>;
+            key-positions = <16 15>;
+            layers = <0>;
         };
 
-        wmin_win: wmin_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LGUI>,
-                <&macro_tap>,
-                <&kp DOWN_ARROW>,
-                <&macro_release>,
-                <&kp LGUI>;
-
-            label = "WMIN_WIN";
+        tilde {
+            bindings = <&kp TILDE>;
+            key-positions = <21 22>;
+            layers = <0>;
         };
 
-        shot_win: shot_win {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LG(LEFT_SHIFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LEFT_SHIFT)>;
-
-            label = "SHOT_WIN";
+        grave {
+            bindings = <&kp GRAVE>;
+            key-positions = <22 23>;
+            layers = <0>;
         };
 
-        tmux_col: tmux_col {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
-
-            label = "TMUX_COL";
+        sqt {
+            bindings = <&kp SQT>;
+            key-positions = <6 7>;
+            layers = <0>;
         };
 
-        tmux_row: tmux_row {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
-
-            label = "TMUX_ROW";
+        backslash {
+            bindings = <&kp NON_US_BACKSLASH>;
+            key-positions = <26 27>;
+            layers = <0>;
         };
 
-        tmux_list: tmux_list {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
-
-            label = "TMUX_LIST";
-        };
-
-        tmux_new: tmux_new {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
-
-            label = "TMUX_NEW";
-        };
-    };
-
-    combos { compatible = "zmk,combos"; };
-
-    behaviors {
-        ht: hold_tap {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping_term_ms = <200>;
-            quick_tap_ms = <0>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-
-            label = "HOLD_TAP";
-        };
-
-        gaw: gui_alt_win {
-            compatible = "zmk,behavior-tap-dance";
-            label = "GUI_ALT_WIN";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_ALT>, <&kp LEFT_GUI>;
-        };
-
-        gam: gui_alt_mac {
-            compatible = "zmk,behavior-tap-dance";
-            label = "GUI_ALT_MAC";
-            #binding-cells = <0>;
-            bindings = <&kp LEFT_GUI>, <&kp LEFT_ALT>;
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <27 28>;
+            layers = <0>;
         };
     };
 
@@ -204,80 +92,40 @@
         MAC_DEF {
             display-name = "macOS";
             bindings = <
-  &kp Q  &kp W  &kp E  &kp R             &kp T                   &kp Y          &kp U                  &kp I      &kp O       &kp P
-  &kp A  &kp S  &kp D  &kp F             &kp G                   &kp H          &kp J                  &kp K      &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C  &kp V             &kp B                   &kp N          &kp M                  &kp COMMA  &kp PERIOD  &kp SLASH
-                &gam   &lt MAC_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &lt MAC_NUM BACKSPACE  &kp TAB
+  &kp Q        &kp W           &kp E             &kp R             &kp T                     &kp Y              &kp U                 &kp I                &kp O           &kp P
+  &mt LCTRL A  &mt LEFT_GUI S  &mt LEFT_ALT D    &mt LEFT_SHIFT F  &kp G                     &kp H              &mt LEFT_SHIFT J      &mt LEFT_ALT K       &mt LEFT_GUI L  &mt LCTRL SEMICOLON
+  &kp Z        &kp X           &kp C             &kp V             &kp B                     &kp N              &kp M                 &kp COMMA            &kp PERIOD      &kp SLASH
+                               &mt LEFT_GUI TAB  &mt LCTRL ESC     &lt MAC_CODE BACKSPACE    &lt MAC_NAV SPACE  &mt LEFT_SHIFT ENTER  &mt LEFT_ALT DELETE
             >;
         };
 
         MAC_CODE_ayer {
             display-name = "macCode";
             bindings = <
-  &kp EXCLAMATION  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
-  &tmux_list       &wmax_mac  &tmux_col  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
-  &tmux_new        &trans     &tmux_row  &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
-                              &kp ESC    &trans      &trans            &trans     &trans             &kp TAB
+  &kp EXCLAMATION  &kp AT     &kp HASH        &kp DOLLAR    &kp PERCENT               &kp NON_US_BACKSLASH  &kp NUMBER_7    &kp NUMBER_8  &kp NUMBER_9  &kp COMMA
+  &kp PLUS         &kp EQUAL  &kp UNDERSCORE  &kp MINUS     &kp CARET                 &kp NUMBER_0          &kp NUMBER_4    &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD
+  &trans           &trans     &trans          &kp ASTERISK  &kp AMPERSAND             &kp SEMICOLON         &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
+                              &kp LEFT_GUI    &kp SPACE     &lt MAC_FUNC BACKSPACE    &trans                &kp LEFT_SHIFT  &kp LEFT_ALT
             >;
         };
 
-        MAC_NUM_layer {
-            display-name = "macNum";
+        MAC_NAV_layer {
+            display-name = "macNav";
             bindings = <
-  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
-  &trans        &none         &shot_mac     &kp MINUS     &kp HOME        &kp LEFT_ARROW  &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
-  &trans        &none         &recording    &spotlight    &kp END         &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp ESC       &trans        &trans          &trans          &trans             &kp TAB
+  &trans     &trans        &trans        &trans              &kp C_VOLUME_UP     &kp HOME            &kp PAGE_DOWN   &kp PAGE_UP     &kp END          &trans
+  &kp LCTRL  &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &kp C_VOL_DN        &kp LEFT_ARROW      &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+  &trans     &none         &trans        &kp K_PASTE         &kp C_PLAY_PAUSE    &kp INS             &kp DEL         &kp C_PREVIOUS  &kp C_NEXT       &trans
+                           &kp LEFT_GUI  &kp LCTRL           &trans              &lt MAC_FUNC SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT
             >;
         };
 
         MAC_FUNC_layer {
             display-name = "macFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-  &trans  &trans  &trans  &trans  &kp F11    &kp F12       &to WIN_DEF   &trans        &trans        &bt BT_CLR
-  &trans  &trans  &trans  &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                  &trans  &trans  &trans     &trans        &trans        &trans
-            >;
-        };
-
-        WIN_DEF_layer {
-            display-name = "Windows";
-            bindings = <
-  &kp Q  &kp W  &kp E  &kp R             &kp T                   &kp Y          &kp U                  &kp I      &kp O       &kp P
-  &kp A  &kp S  &kp D  &kp F             &kp G                   &kp H          &kp J                  &kp K      &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C  &kp V             &kp B                   &kp N          &kp M                  &kp COMMA  &kp PERIOD  &kp SLASH
-                &gaw   &lt WIN_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &lt WIN_NUM BACKSPACE  &kp TAB
-            >;
-        };
-
-        WIN_CODE_ayer {
-            display-name = "WinCode";
-            bindings = <
-  &kp EXCLAMATION  &kp AT     &kp HASH   &kp DOLLAR  &kp PERCENT       &kp CARET  &kp AMPERSAND      &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp ASTERISK
-  &tmux_list       &wmax_win  &tmux_col  &kp MINUS   &kp EQUAL         &kp GRAVE  &kp SQT            &kp LEFT_BRACE        &kp RIGHT_BRACE        &kp PIPE
-  &tmux_new        &wmin_win  &tmux_row  &kp PLUS    &kp UNDERSCORE    &kp TILDE  &kp DOUBLE_QUOTES  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp NON_US_BACKSLASH
-                              &kp ESC    &trans      &trans            &trans     &trans             &kp TAB
-            >;
-        };
-
-        WIN_NUM_layer {
-            display-name = "WinNum";
-            bindings = <
-  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp NUMBER_6    &kp NUMBER_7       &kp NUMBER_8     &kp NUMBER_9     &kp NUMBER_0
-  &trans        &none         &shot_win     &kp MINUS     &kp HOME        &kp LEFT_ARROW  &kp DOWN_ARROW     &kp UP_ARROW     &kp RIGHT_ARROW  &kp PAGE_UP
-  &trans        &none         &none         &ter_win      &kp END         &kp C_PREVIOUS  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_NEXT       &kp PAGE_DOWN
-                              &kp ESC       &trans        &trans          &trans          &trans             &kp TAB
-            >;
-        };
-
-        WIN_FUNC_layer {
-            display-name = "WinFunc";
-            bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5     &kp F6        &kp F7        &kp F8        &kp F9        &kp F10
-  &trans  &trans  &trans  &trans  &kp F11    &kp F12       &to MAC_DEF   &trans        &trans        &bt BT_CLR
-  &trans  &trans  &trans  &trans  &trans     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                  &trans  &trans  &trans     &trans        &trans        &trans
+  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &caps_word    &trans        &trans        &trans        &trans
+  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &trans        &trans        &trans        &trans        &bt BT_CLR
+  &trans  &trans  &trans  &kp F11  &kp F12    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                  &trans  &trans   &trans     &trans        &trans        &trans
             >;
         };
     };
