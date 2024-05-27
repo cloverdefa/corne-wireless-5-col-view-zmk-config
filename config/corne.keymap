@@ -204,10 +204,10 @@
         MAC_DEF {
             display-name = "macOS";
             bindings = <
-  &kp Q  &kp W  &kp E  &kp R         &kp T                   &kp Y          &kp U        &kp I          &kp O       &kp P
-  &kp A  &kp S  &kp D  &kp F         &kp G                   &kp H          &kp J        &kp K          &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C  &kp V         &kp B                   &kp N          &kp M        &kp COMMA      &kp PERIOD  &kp SLASH
-                &gam   &mo MAC_CODE  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &mo MAC_NUM  &kp BACKSPACE
+  &kp Q  &kp W  &kp E  &kp R      &kp T                   &kp Y          &kp U            &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D  &kp F      &kp G                   &kp H          &kp J            &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C  &kp V      &kp B                   &kp N          &kp M            &kp COMMA  &kp PERIOD  &kp SLASH
+                &gam   &lt 1 ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &lt 2 BACKSPACE  &kp DEL
             >;
         };
 
@@ -244,10 +244,10 @@
         WIN_DEF_layer {
             display-name = "Windows";
             bindings = <
-  &kp Q  &kp W  &kp E  &kp R         &kp T                   &kp Y          &kp U        &kp I          &kp O       &kp P
-  &kp A  &kp S  &kp D  &kp F         &kp G                   &kp H          &kp J        &kp K          &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C  &kp V         &kp B                   &kp N          &kp M        &kp COMMA      &kp PERIOD  &kp SLASH
-                &gaw   &mo WIN_CODE  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &mo WIN_NUM  &kp BACKSPACE
+  &kp Q  &kp W  &kp E  &kp R      &kp T                   &kp Y          &kp U            &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D  &kp F      &kp G                   &kp H          &kp J            &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C  &kp V      &kp B                   &kp N          &kp M            &kp COMMA  &kp PERIOD  &kp SLASH
+                &gaw   &lt 5 ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL RET  &lt 6 BACKSPACE  &kp DEL
             >;
         };
 
