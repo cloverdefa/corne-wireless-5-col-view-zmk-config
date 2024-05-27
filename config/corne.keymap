@@ -44,6 +44,7 @@
         right_parenthesis {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <16 17>;
+            layers = <0>;
         };
 
         left_brace {
@@ -85,6 +86,7 @@
         pipe {
             bindings = <&kp PIPE>;
             key-positions = <27 28>;
+            layers = <0>;
         };
     };
 
