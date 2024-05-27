@@ -126,6 +126,20 @@
 
             label = "SCREENSHOT";
         };
+
+        windowmax: windowmax {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
+
+            label = "WINDOWMAX";
+        };
     };
 
     keymap {
