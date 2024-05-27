@@ -190,20 +190,20 @@
         MAC_CODE_ayer {
             display-name = "Code";
             bindings = <
-  &kp EXCLAMATION  &kp AT        &kp HASH        &kp DOLLAR    &kp PERCENT               &kp NON_US_BACKSLASH  &kp NUMBER_7    &kp NUMBER_8  &kp NUMBER_9  &kp COMMA
-  &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp MINUS     &kp CARET                 &kp NUMBER_0          &kp NUMBER_4    &kp NUMBER_5  &kp NUMBER_6  &kp PERIOD
-  &tmux_row        &tmux_column  &kp TAB         &kp ASTERISK  &kp AMPERSAND             &kp SEMICOLON         &kp NUMBER_1    &kp NUMBER_2  &kp NUMBER_3  &kp SLASH
-                                 &kp LEFT_GUI    &kp SPACE     &lt MAC_FUNC BACKSPACE    &trans                &kp LEFT_SHIFT  &kp LEFT_ALT
+  &kp EXCLAMATION  &kp AT        &kp HASH        &kp DOLLAR    &kp PERCENT      &kp NON_US_BACKSLASH  &kp NUMBER_7  &kp NUMBER_8        &kp NUMBER_9  &kp COMMA
+  &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp MINUS     &kp CARET        &kp NUMBER_0          &kp NUMBER_4  &kp NUMBER_5        &kp NUMBER_6  &kp PERIOD
+  &tmux_row        &tmux_column  &kp TAB         &kp ASTERISK  &kp AMPERSAND    &kp SEMICOLON         &kp NUMBER_1  &kp NUMBER_2        &kp NUMBER_3  &kp SLASH
+                                 &kp LEFT_ALT    &trans        &trans           &trans                &trans        &kp LC(LEFT_SHIFT)
             >;
         };
 
         MAC_NAV_layer {
             display-name = "Nav";
             bindings = <
-  &trans        &windowmax    &screenshot   &spotlight          &kp C_VOLUME_UP     &kp HOME            &kp PAGE_DOWN   &kp PAGE_UP     &kp END          &trans
-  &kp LCTRL     &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &kp C_VOL_DN        &kp LEFT_ARROW      &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
-  &tmux_create  &tmux_list    &trans        &kp K_PASTE         &kp C_PLAY_PAUSE    &kp INS             &kp DEL         &kp C_PREVIOUS  &kp C_NEXT       &trans
-                              &kp LEFT_GUI  &kp LCTRL           &trans              &lt MAC_FUNC SPACE  &kp LEFT_SHIFT  &kp LEFT_ALT
+  &trans        &windowmax    &screenshot   &spotlight          &kp C_VOLUME_UP     &kp HOME        &kp PAGE_DOWN   &kp PAGE_UP     &kp END          &trans
+  &kp LCTRL     &kp LEFT_GUI  &kp LEFT_ALT  &mt LEFT_SHIFT TAB  &kp C_VOL_DN        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW    &kp RIGHT_ARROW  &trans
+  &tmux_create  &tmux_list    &trans        &kp K_PASTE         &kp C_PLAY_PAUSE    &kp INS         &kp DEL         &kp C_PREVIOUS  &kp C_NEXT       &trans
+                              &kp LEFT_ALT  &trans              &trans              &trans          &trans          &kp TAB
             >;
         };
 
