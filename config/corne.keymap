@@ -156,6 +156,22 @@
 
             label = "TMUX_ROW";
         };
+
+        tmux_list: tmux_list {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
+
+            label = "TMUX_LIST";
+        };
+
+        tmux_create: tmux_create {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
+
+            label = "TMUX_CREATE";
+        };
     };
 
     keymap {
