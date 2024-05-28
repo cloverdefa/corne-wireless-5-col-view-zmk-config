@@ -19,37 +19,37 @@
     combos {
         compatible = "zmk,combos";
 
-        left_bracket {
+        l_bracket {
             bindings = <&kp LEFT_BRACKET>;
             key-positions = <11 12>;
             layers = <0>;
         };
 
-        right_bracket {
+        r_bracket {
             bindings = <&kp RIGHT_BRACKET>;
             key-positions = <17 18>;
             layers = <0>;
         };
 
-        left_parenthesis {
+        l_parenthesis {
             bindings = <&kp LEFT_PARENTHESIS>;
             key-positions = <12 13>;
             layers = <0>;
         };
 
-        right_parenthesis {
+        r_parenthesis {
             bindings = <&kp RIGHT_PARENTHESIS>;
             key-positions = <16 17>;
             layers = <0>;
         };
 
-        left_brace {
+        l_brace {
             bindings = <&kp LEFT_BRACE>;
             key-positions = <13 14>;
             layers = <0>;
         };
 
-        right_barce {
+        r_barce {
             bindings = <&kp RIGHT_BRACE>;
             key-positions = <16 15>;
             layers = <0>;
@@ -95,13 +95,6 @@
             #binding-cells = <2>;
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
-        };
-
-        GUI_ALT: GUI_ALT {
-            compatible = "zmk,behavior-tap-dance";
-            label = "GUI_ALT";
-            #binding-cells = <0>;
-            bindings = <&kp LGUI>, <&kp LALT>;
         };
     };
 
@@ -190,7 +183,7 @@
   &kp Q  &kp W  &kp E     &kp R             &kp T               &kp Y            &kp U             &kp I      &kp O       &kp P
   &kp A  &kp S  &kp D     &kp F             &kp G               &kp H            &kp J             &kp K      &kp L       &kp SEMICOLON
   &kp Z  &kp X  &kp C     &kp V             &kp B               &kp N            &kp M             &kp COMMA  &kp PERIOD  &kp SLASH
-                &GUI_ALT  &lt MAC_CODE ESC  &ht LSHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BSPC  &kp TAB
+                &kp LGUI  &lt MAC_CODE ESC  &ht LSHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BSPC  &kp TAB
             >;
 
             label = "MAC_DEF";
