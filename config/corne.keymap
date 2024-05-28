@@ -99,7 +99,7 @@
     };
 
     macros {
-        sl: spotlight {
+        spot: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -204,7 +204,7 @@
         MAC_NAV_layer {
             display-name = "Nav";
             bindings = <
-  &trans     &max      &shot     &sl             &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans
+  &trans     &max      &shot     &spot           &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans
   &kp LCTRL  &kp LGUI  &kp LALT  &ht LSHIFT TAB  &kp C_VOL_DN        &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans
   &t_crt     &t_list   &trans    &kp C_AC_PASTE  &kp C_PLAY_PAUSE    &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &trans
                        &trans    &trans          &trans              &trans    &trans     &trans
