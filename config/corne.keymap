@@ -187,10 +187,10 @@
         MAC_DEF {
             display-name = "macOS";
             bindings = <
-  &kp Q  &kp W  &kp E     &kp R             &kp T                   &kp Y            &kp U                  &kp I             &kp O       &kp P
-  &kp A  &kp S  &kp D     &kp F             &kp G                   &kp H            &kp J                  &kp K             &kp L       &kp SEMICOLON
-  &kp Z  &kp X  &kp C     &kp V             &kp B                   &kp N            &kp M                  &kp COMMA         &kp PERIOD  &kp SLASH
-                &GUI_ALT  &lt MAC_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BACKSPACE  &ht LEFT_ALT TAB
+  &kp Q  &kp W  &kp E     &kp R             &kp T                   &kp Y            &kp U                  &kp I      &kp O       &kp P
+  &kp A  &kp S  &kp D     &kp F             &kp G                   &kp H            &kp J                  &kp K      &kp L       &kp SEMICOLON
+  &kp Z  &kp X  &kp C     &kp V             &kp B                   &kp N            &kp M                  &kp COMMA  &kp PERIOD  &kp SLASH
+                &GUI_ALT  &lt MAC_CODE ESC  &ht LEFT_SHIFT SPACE    &ht LCTRL ENTER  &lt MAC_NAV BACKSPACE  &kp TAB
             >;
 
             label = "MAC_DEF";
