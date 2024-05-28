@@ -99,7 +99,7 @@
     };
 
     macros {
-        spotlight: spotlight {
+        sl: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -113,7 +113,7 @@
             label = "SPOTLIGHT";
         };
 
-        screenshot: screenshot {
+        shot: screenshot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -127,7 +127,7 @@
             label = "SCREENSHOT";
         };
 
-        windowmax: windowmax {
+        max: windowmax {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -141,7 +141,7 @@
             label = "WINDOWMAX";
         };
 
-        tmux_column: tmux_column {
+        t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
@@ -149,7 +149,7 @@
             label = "TMUX_COLUMN";
         };
 
-        tmux_row: tmux_row {
+        t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
@@ -157,7 +157,7 @@
             label = "TMUX_ROW";
         };
 
-        tmux_list: tmux_list {
+        t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp W>;
@@ -165,7 +165,7 @@
             label = "TMUX_LIST";
         };
 
-        tmux_create: tmux_create {
+        t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp C>;
@@ -192,10 +192,10 @@
         MAC_CODE_layer {
             display-name = "Code";
             bindings = <
-  &kp EXCLAMATION  &kp AT        &kp HASH        &kp DOLLAR    &kp PERCENT      &kp NON_US_BACKSLASH  &kp N7  &kp N8          &kp N9  &kp COMMA
-  &kp PLUS         &kp EQUAL     &kp UNDERSCORE  &kp MINUS     &kp CARET        &kp N0                &kp N4  &kp N5          &kp N6  &kp PERIOD
-  &tmux_row        &tmux_column  &kp TAB         &kp ASTERISK  &kp AMPERSAND    &kp SEMICOLON         &kp N1  &kp N2          &kp N3  &kp SLASH
-                                 &trans          &trans        &trans           &trans                &trans  &kp LC(LSHIFT)
+  &kp EXCLAMATION  &kp AT     &kp HASH        &kp DOLLAR    &kp PERCENT      &kp NON_US_BACKSLASH  &kp N7  &kp N8          &kp N9  &kp COMMA
+  &kp PLUS         &kp EQUAL  &kp UNDERSCORE  &kp MINUS     &kp CARET        &kp N0                &kp N4  &kp N5          &kp N6  &kp PERIOD
+  &t_row           &t_col     &kp TAB         &kp ASTERISK  &kp AMPERSAND    &kp SEMICOLON         &kp N1  &kp N2          &kp N3  &kp SLASH
+                              &trans          &trans        &trans           &trans                &trans  &kp LC(LSHIFT)
             >;
 
             label = "MAC_CODE";
@@ -204,10 +204,10 @@
         MAC_NAV_layer {
             display-name = "Nav";
             bindings = <
-  &trans        &windowmax    &screenshot  &spotlight      &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans
-  &kp LCTRL     &kp LGUI      &kp LALT     &ht LSHIFT TAB  &kp C_VOL_DN        &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans
-  &tmux_create  &tmux_list    &trans       &kp C_AC_PASTE  &kp C_PLAY_PAUSE    &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &trans
-                              &trans       &trans          &trans              &trans    &trans     &trans
+  &trans     &max      &shot     &sl             &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans
+  &kp LCTRL  &kp LGUI  &kp LALT  &ht LSHIFT TAB  &kp C_VOL_DN        &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans
+  &t_crt     &t_list   &trans    &kp C_AC_PASTE  &kp C_PLAY_PAUSE    &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &trans
+                       &trans    &trans          &trans              &trans    &trans     &trans
             >;
 
             label = "MAC_NAV";
