@@ -123,8 +123,8 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 }</style>
-<g transform="translate(30, 0)" class="layer-0">
-<text x="0" y="28" class="label">0:</text>
+<g transform="translate(30, 0)" class="layer-MAC_DEF">
+<text x="0" y="28" class="label">MAC_DEF:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -253,7 +253,7 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(230, 213) rotate(15.0)" class="key keypos-31">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ESC</text>
-<text x="0" y="24" class="key hold">1</text>
+<text x="0" y="24" class="key hold"><tspan style="font-size: 88%">MAC_CODE</tspan></text>
 </g>
 <g transform="translate(295, 224) rotate(30.0)" class="key keypos-32">
 <rect rx="6" ry="6" x="-26" y="-40" width="52" height="80" class="key"/>
@@ -268,7 +268,7 @@ path.combo { stroke: #7f7f7f; }
 <g transform="translate(498, 213) rotate(-15.0)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">BSPC</text>
-<text x="0" y="24" class="key hold">2</text>
+<text x="0" y="24" class="key hold">MAC_NAV</text>
 </g>
 <g transform="translate(560, 205)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -320,8 +320,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 331)" class="layer-1">
-<text x="0" y="28" class="label">1:</text>
+<g transform="translate(30, 331)" class="layer-MAC_CODE">
+<text x="0" y="28" class="label">MAC_CODE:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -470,8 +470,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 661)" class="layer-2">
-<text x="0" y="28" class="label">2:</text>
+<g transform="translate(30, 661)" class="layer-MAC_NAV">
+<text x="0" y="28" class="label">MAC_NAV:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key trans keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -631,8 +631,8 @@ path.combo { stroke: #7f7f7f; }
 </g>
 </g>
 </g>
-<g transform="translate(30, 992)" class="layer-3">
-<text x="0" y="28" class="label">3:</text>
+<g transform="translate(30, 992)" class="layer-MAC_FUNC">
+<text x="0" y="28" class="label">MAC_FUNC:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 49)" class="key keypos-0">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
