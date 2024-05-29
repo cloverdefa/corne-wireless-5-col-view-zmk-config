@@ -257,7 +257,8 @@
 
             label = "MAC_FUNC";
         };
-        MOUSE_layer
+
+        MOUSE_layer {
             display-name = "Mouse";
             bindings = <
   &trans  &trans  &trans  &trans  &trans       &trans            &trans            &trans          &trans             &trans 
