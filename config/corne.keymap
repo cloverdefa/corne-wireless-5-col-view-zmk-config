@@ -114,12 +114,6 @@
             key-positions = <27 28>;
             layers = <0>;
         };
-
-        mouse {
-            bindings = <&to 4>;
-            key-positions = <31 32>;
-            layers = <0>;
-        };
     };
 
     behaviors {
@@ -240,7 +234,7 @@
         MAC_NAV_layer {
             display-name = "Nav";
             bindings = <
-  &trans     &max      &shot     &spot           &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &trans
+  &trans     &max      &shot     &spot           &kp C_VOLUME_UP     &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &to MOUSE
   &kp LCTRL  &kp LGUI  &kp LALT  &ht LSHIFT TAB  &kp C_VOL_DN        &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &trans
   &t_crt     &t_list   &trans    &kp C_AC_PASTE  &kp C_PLAY_PAUSE    &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &trans
                        &trans    &trans          &trans              &trans    &trans     &trans
