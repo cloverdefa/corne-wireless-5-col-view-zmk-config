@@ -14,29 +14,22 @@
 #define MAC_NAV  2
 #define MAC_FUNC 3
 #define MOUSE    4
-
 #define MOUSE_TIME_TO_MAX_SPEED 500
-
 #define U_MOUSE_MOVE_MAX 3000
 #define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
 #define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
 #define MOVE_LEFT MOVE_VERT(-U_MOUSE_MOVE_MAX)
 #define MOVE_LEFT MOVE_VERT(U_MOUSE_MOVE_MAX)
 
-&mmv {
-  time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
-};
+&mmv { time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>; };
 
 #define U_MOUSE_SCROLL_MAX 20
-
 #define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
 #define SCROLL_DOWN SCROLL_VERT(-U_SCROL_MAX)
 #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mwh {
-  time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>;
-};
+&mwh { time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>; };
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
@@ -254,7 +247,7 @@
             display-name = "Mouse";
             bindings = <
   &trans  &trans  &trans  &trans  &trans       &mwh SCROLL_LEFT  &mwh SCROLL_DOWN  &mwh SCROLL_UP  &mwh SCROLL_RIGHT  &to MAC_DEF
-  &trans  &trans  &trans  &trans  &trans       &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mwh MOVE_UP    &mmv MOVE_RIGHT    &trans
+  &trans  &trans  &trans  &trans  &trans       &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mwh SCROLL_UP  &mmv MOVE_RIGHT    &trans
   &trans  &trans  &trans  &trans  &trans       &trans            &trans            &trans          &trans             &trans
                   &trans  &trans  &mkp LCLK    &mkp RCLK         &trans            &trans
             >;
