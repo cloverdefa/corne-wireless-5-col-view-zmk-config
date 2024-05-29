@@ -26,9 +26,6 @@
 #define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
 #define MOVE_LEFT MOVE_VERT(-U_MOUSE_MOVE_MAX)
 #define MOVE_RIGHT MOVE_VERT(U_MOUSE_MOVE_MAX)
-
-&mmv { time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>; };
-
 #define U_MOUSE_SCROLL_MAX 20
 
 #undef SCROLL_UP
@@ -40,8 +37,6 @@
 #define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_LEFT SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
 #define SCROLL_RIGHT SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-
-&mwh { time-to-max-speed-ms = <MOUSE_TIME_TO_MAX_SPEED>; };
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
