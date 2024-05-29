@@ -118,9 +118,9 @@
             layers = <0>;
         };
 
-        to_mouse {
+        mouse {
             bindings = <&to 4>;
-            key-possitions = <31 32>;
+            key-positions = <31 32>;
             layers = <0>;
         };
     };
