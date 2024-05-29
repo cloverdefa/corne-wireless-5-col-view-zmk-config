@@ -14,29 +14,6 @@
 #define MAC_NAV  2
 #define MAC_FUNC 3
 #define MOUSE    4
-#define MOUSE_TIME_TO_MAX_SPEED 500
-#define U_MOUSE_MOVE_MAX 3000
-
-#undef MOVE_UP
-#undef MOVE_DOWN
-#undef MOVE_LEFT
-#undef MOVE_RIGHT
-
-#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define MOVE_LEFT MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOVE_RIGHT MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define U_MOUSE_SCROLL_MAX 20
-
-#undef SCROLL_UP
-#undef SCROLL_DOWN
-#undef SCROLL_LEFT
-#undef SCROLL_RIGHT
-
-#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_LEFT SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_RIGHT SCROLL_VERT(U_MOUSE_SCROLL_MAX)
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
@@ -253,8 +230,8 @@
         MOUSE_layer {
             display-name = "Mouse";
             bindings = <
-  &trans  &trans  &trans       &trans  &trans       &mwh SCROLL_LEFT  &mwh SCROLL_DOWN  &mwh SCROLL_UP  &mwh SCROLL_RIGHT  &trans
-  &trans  &trans  &trans       &trans  &trans       &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_UP    &mmv MOVE_RIGHT    &trans
+  &trans  &trans  &trans       &trans  &trans       &trans  &trans  &trans  &trans  &trans
+  &trans  &trans  &trans       &trans  &trans       &trans    &trans    &trans    &trans    &trans
   &trans  &trans  &trans       &trans  &trans       &trans            &trans            &trans          &trans             &trans
                   &to MAC_DEF  &trans  &mkp LCLK    &mkp RCLK         &trans            &trans
             >;
