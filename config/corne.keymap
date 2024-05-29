@@ -15,34 +15,34 @@
 #define MAC_FUNC 3
 #define MOUSE    4
 
-#define U_MOUSE_MOVE_MAX 1400                     /* <--- New max speed setting (default: 600) */
-#undef MOVE_UP
-#undef MOVE_DOWN
-#undef MOVE_LEFT
-#undef MOVE_RIGHT
-#define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
-#define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
-#define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
-#define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
+// #define U_MOUSE_MOVE_MAX 1400                     /* <--- New max speed setting (default: 600) */
+// #undef MOVE_UP
+// #undef MOVE_DOWN
+// #undef MOVE_LEFT
+// #undef MOVE_RIGHT
+// #define MOVE_UP MOVE_VERT(-U_MOUSE_MOVE_MAX)
+// #define MOVE_DOWN MOVE_VERT(U_MOUSE_MOVE_MAX)
+// #define MOVE_LEFT MOVE_HOR(-U_MOUSE_MOVE_MAX)
+// #define MOVE_RIGHT MOVE_HOR(U_MOUSE_MOVE_MAX)
 
-&mmv {
-	time-to-max-speed-ms = <400>;             /* <--- How long time until max speed is reached (default: 500) */
-};
+// &mmv {
+// 	time-to-max-speed-ms = <400>;             /* <--- How long time until max speed is reached (default: 500) */
+// };
 
-#define U_MOUSE_SCROLL_MAX 100                    /* <--- New max speed setting (default: 10) */
+// #define U_MOUSE_SCROLL_MAX 100                    /* <--- New max speed setting (default: 10) */
 
-#undef SCROLL_UP
-#undef SCROLL_DOWN
-#undef SCROLL_LEFT
-#undef SCROLL_RIGHT
-#define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
-#define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
-#define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
+// #undef SCROLL_UP
+// #undef SCROLL_DOWN
+// #undef SCROLL_LEFT
+// #undef SCROLL_RIGHT
+// #define SCROLL_UP SCROLL_VERT(U_MOUSE_SCROLL_MAX)
+// #define SCROLL_DOWN SCROLL_VERT(-U_MOUSE_SCROLL_MAX)
+// #define SCROLL_LEFT SCROLL_HOR(-U_MOUSE_SCROLL_MAX)
+// #define SCROLL_RIGHT SCROLL_HOR(U_MOUSE_SCROLL_MAX)
 
-&mwh {
-  time-to-max-speed-ms = <500>;                 /* <--- How long time until max speed is reached */
-};
+// &mwh {
+//   time-to-max-speed-ms = <500>;                 /* <--- How long time until max speed is reached */
+// };
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
@@ -259,10 +259,10 @@
         MOUSE_layer {
             display-name = "Mouse";
             bindings = <
-  &trans  &trans  &trans  &trans  &trans       &mwh SCROLL_LEFT  &mwh SCROLL_DOWN  &mwh SCROLL_UP  &mwh SCROLL_RIGHT  &to MAC_DEF 
-  &trans  &trans  &trans  &trans  &trans       &mmv MOVE_LEFT    &mmv MOVE_DOWN    &mmv MOVE_UP    &mmv MOVE_RIGHT    &trans
-  &trans  &trans  &trans  &trans  &trans       &trans            &trans            &trans          &trans             &trans
-                  &trans  &trans  &mkp LCLK    &mkp RCLK         &trans            &trans
+  &trans  &trans  &trans  &trans  &trans       &trans          &trans          &trans        &trans           &to MAC_DEF 
+  &trans  &trans  &trans  &trans  &trans       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &trans
+  &trans  &trans  &trans  &trans  &trans       &trans          &trans          &trans        &trans           &trans
+                  &trans  &trans  &mkp LCLK    &mkp RCLK       &trans          &trans
             >;
 
             label = "MOUSE";
