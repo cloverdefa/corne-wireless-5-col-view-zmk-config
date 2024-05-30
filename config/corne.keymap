@@ -101,65 +101,65 @@
     macros {
         spot: spotlight {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LGUI>,
                 <&macro_tap &kp SPACE>,
-                <&macro_release &kp LGUI>,
+                <&macro_release &kp LGUI>;
 
             label = "SPOTLIGHT";
         };
 
         shot: screenshot {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             bindings =
                 <&macro_press &kp LG(LSHIFT)>,
                 <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LSHIFT)>,
+                <&macro_release &kp LG(LSHIFT)>;
 
             label = "SCREENSHOT";
         };
 
         max: windowmax {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             bindings =
                 <&macro_press &kp GLOBE>,
                 <&macro_tap &kp F>,
-                <&macro_release &kp GLOBE>,
+                <&macro_release &kp GLOBE>;
 
             label = "WINDOWMAX";
         };
 
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <1>;
-            bindings = <&macro_tap &kp LC(A) &kp PIPE>,
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
 
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <1>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>,
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
 
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <2>;
-            bindings = <&macro_tap &kp LC(A) &kp W>,
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
 
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
-            #binding-cells = <2>;
-            bindings = <&macro_tap &kp LC(A) &kp C>,
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
