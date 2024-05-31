@@ -208,10 +208,10 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &none         &to SYS       &none         &none         &bt BT_CLR
-  &none   &none   &none   &kp F11  &kp F12    &none         &none         &none         &none         &none
-                  &trans  &trans   &trans     &trans        &trans        &trans
+  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5      &none    &none    &none   &none  &none
+  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10     &none    &to SYS  &none   &none  &none
+  &none   &none   &none   &kp F11  &kp F12     &none    &none    &none   &none  &none
+                  &trans  &trans   &trans      &trans   &trans   &trans
             >;
 
             label = "FUNC";
@@ -220,10 +220,10 @@
         SYS_layer {
             display-name = "System";
             bindings = <
-  &none  &none       &none        &none  &none    &none  &none    &none        &none       &none
-  &none  &none       &none        &none  &none    &none  &to DEF  &none        &none       &none
-  &none  &sys_reset  &bootloader  &none  &none    &none  &none    &bootloader  &sys_reset  &none
-                     &none        &none  &none    &none  &none    &none
+  &none  &none       &none        &none  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+  &none  &none       &none        &none  &none         &none         &to DEF       &none         &none       &none
+  &none  &sys_reset  &bootloader  &none  &none         &none         &none         &bootloader   &sys_reset  &none
+                     &none        &none  &none         &none         &none         &none
             >;
 
             label = "SYS";
