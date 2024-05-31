@@ -12,6 +12,7 @@
 #define CODE 1
 #define NAV  2
 #define FUNC 3
+#define SYS  4
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
@@ -197,7 +198,7 @@
             bindings = <
   &spot      &kp LG(ENTER)  &shot     &spot          &kp C_VOL_UP    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none
   &kp LCTRL  &kp LCMD       &kp LALT  &ht LSHFT TAB  &kp C_VOL_DN    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none
-  &t_crt     &t_list        &kp TAB   &none          &kp C_PP        &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &kp DEL
+  &t_crt     &t_list        &none     &none          &kp C_PP        &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none 
                             &trans    &trans         &trans          &trans    &trans     &trans
             >;
 
@@ -207,13 +208,25 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-  &kp F1  &kp F2  &kp F3       &kp F4   &kp F5     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-  &kp F6  &kp F7  &kp F8       &kp F9   &kp F10    &none         &none         &none         &none         &bt BT_CLR
-  &none   &none   &bootloader  &kp F11  &kp F12    &none         &none         &bootloader   &none         &none
-                  &trans       &trans   &trans     &trans        &trans        &trans
+  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10    &none         &none         &to SYS       &none         &bt BT_CLR
+  &none   &none   &none   &kp F11  &kp F12    &none         &none         &none         &none         &none
+                  &trans  &trans   &trans     &trans        &trans        &trans
             >;
 
             label = "FUNC";
+        };
+
+        SYS_layer {
+            display-name = "System";
+            bindings = <
+  &none  &none       &none        &none  &none    &none  &none  &none        &none       &none
+  &none  &none       &none        &none  &none    &none  &none  &to DEF      &none       &none
+  &none  &sys_reset  &bootloader  &none  &none    &none  &none  &bootloader  &sys_reset  &none
+                     &none        &none  &none    &none  &none  &none
+            >;
+
+            label = "SYS";
         };
     };
 
