@@ -196,7 +196,7 @@
         NAV_layer {
             display-name = "Nav";
             bindings = <
-  &spot      &kp LG(ENTER)  &shot     &spot          &kp C_VOL_UP    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none
+  &max       &kp LG(ENTER)  &shot     &spot          &kp C_VOL_UP    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none
   &kp LCTRL  &kp LCMD       &kp LALT  &ht LSHFT TAB  &kp C_VOL_DN    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none
   &t_crt     &t_list        &none     &none          &kp C_PP        &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none 
                             &trans    &trans         &trans          &trans    &trans     &trans
