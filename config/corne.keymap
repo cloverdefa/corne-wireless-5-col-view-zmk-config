@@ -184,10 +184,10 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT  &kp NUBS  &kp N7  &kp N8         &kp N9  &kp COMMA
-  &kp PLUS  &kp EQUAL  &kp UNDER  &kp MINUS  &kp CARET  &kp N0    &kp N4  &kp N5         &kp N6  &kp DOT
-  &t_row    &t_col     &kp TAB    &kp STAR   &kp AMPS   &kp SEMI  &kp N1  &kp N2         &kp N3  &kp FSLH
-                       &trans     &trans     &trans     &trans    &trans  &kp LC(LSHFT)
+  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT  &kp NUBS       &kp N7  &kp N8   &kp N9  &kp COMMA
+  &kp PLUS  &kp EQUAL  &kp UNDER  &kp MINUS  &kp CARET  &kp N0         &kp N4  &kp N5   &kp N6  &kp DOT
+  &t_row    &t_col     &kp TAB    &kp STAR   &kp AMPS   &kp SEMI       &kp N1  &kp N2   &kp N3  &kp FSLH
+                       &trans     &trans     &trans     &sk LC(LSHFT)  &trans  &trans
             >;
 
             label = "CODE";
@@ -208,10 +208,10 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4   &kp F5      &none    &none    &none   &none  &none
-  &kp F6  &kp F7  &kp F8  &kp F9   &kp F10     &none    &to SYS  &none   &none  &none
-  &none   &none   &none   &kp F11  &kp F12     &none    &none    &none   &none  &none
-                  &trans  &trans   &trans      &trans   &trans   &trans
+  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7   &kp F8  &kp F9   &kp F10 
+  &none   &none   &none   &none   &none     &none   &to SYS  &none   &kp F11  &kp F12
+  &none   &none   &none   &none   &none     &none   &none    &none   &none    &none
+                  &trans  &trans  &trans    &trans  &trans   &trans
             >;
 
             label = "FUNC";
