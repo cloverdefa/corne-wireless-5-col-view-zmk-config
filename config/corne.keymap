@@ -193,10 +193,10 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-  &t_list   &t_col  &kp UNDER  &kp MINUS  &kp EQUAL    &none      &none          &none         &none                 &none
-  &t_crt    &t_row  &kp TAB    &kp PLUS   &kp UNDER    &none      &none          &none         &none                 &none
-                    &trans     &trans     &trans       &trans     &trans         &trans
+  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &t_list   &t_col  &kp UNDER  &kp MINUS  &kp EQUAL    &none      &none     &none     &none     &none
+  &t_crt    &t_row  &kp TAB    &kp PLUS   &kp UNDER    &none      &none     &none     &none     &none
+                    &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
             label = "CODE";
@@ -206,7 +206,7 @@
             display-name = "Nav";
             bindings = <
   &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &none   &none   &max    &spot   &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHIFT) TAB
+  &none   &none   &max    &spot   &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
   &none   &none   &none   &shot   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
                   &trans  &trans  &trans       &trans        &trans        &trans
             >;
