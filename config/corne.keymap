@@ -116,7 +116,7 @@
             bindings = <
   &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
   &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &none
-  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIP   &kp BSLH  &none 
+  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &none 
                     &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
