@@ -97,16 +97,19 @@
             tapping-term-ms = <200>;
             flavor = "tap-preferred";
         };
-   };
+    };
 
     macros {
         spot: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LCMD>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LCMD>;
+                <&macro_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCMD>;
 
             label = "SPOTLIGHT";
         };
@@ -115,9 +118,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp N4>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
 
             label = "SCREENSHOT";
         };
@@ -126,9 +132,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp GLOBE>,
-                <&macro_tap &kp F>,
-                <&macro_release &kp GLOBE>;
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
 
             label = "WINDOWMAX";
         };
@@ -136,7 +145,7 @@
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -144,7 +153,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -152,7 +161,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -160,7 +169,7 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp C>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
@@ -184,10 +193,10 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-  &kp EXCL  &kp AT     &kp HASH   &kp DLLR   &kp PRCNT  &kp NUBS       &kp N7  &kp N8   &kp N9  &kp COMMA
-  &kp PLUS  &kp EQUAL  &kp UNDER  &kp MINUS  &kp CARET  &kp N0         &kp N4  &kp N5   &kp N6  &kp DOT
-  &t_row    &t_col     &kp TAB    &kp STAR   &kp AMPS   &kp SEMI       &kp N1  &kp N2   &kp N3  &kp FSLH
-                       &trans     &trans     &trans     &sk LC(LSHFT)  &trans  &trans
+  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPERSAND  &kp ASTERISK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
+  &t_list   &t_col  &kp UNDER  &kp MINUS  &kp EQUAL    &none      &none          &none         &none                 &none
+  &t_crt    &t_row  &kp TAB    &kp PLUS   &kp UNDER    &none      &none          &none         &none                 &none
+                    &trans     &trans     &trans       &trans     &trans         &trans
             >;
 
             label = "CODE";
@@ -196,10 +205,10 @@
         NAV_layer {
             display-name = "Nav";
             bindings = <
-  &max       &kp LG(ENTER)  &shot     &spot          &kp C_VOL_UP    &kp HOME  &kp PG_DN  &kp PG_UP   &kp END     &none
-  &kp LCTRL  &kp LCMD       &kp LALT  &ht LSHFT TAB  &kp C_VOL_DN    &kp LEFT  &kp DOWN   &kp UP      &kp RIGHT   &none
-  &t_crt     &t_list        &none     &none          &kp C_PP        &kp INS   &kp DEL    &kp C_PREV  &kp C_NEXT  &none 
-                            &trans    &trans         &trans          &trans    &trans     &trans
+  &kp N1  &kp N2  &kp N3  &kp N4  &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &none   &none   &max    &spot   &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHIFT) TAB
+  &none   &none   &none   &shot   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
+                  &trans  &trans  &trans       &trans        &trans        &trans
             >;
 
             label = "NAV";
@@ -208,7 +217,7 @@
         FUNC_layer {
             display-name = "Func";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7   &kp F8  &kp F9   &kp F10 
+  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7   &kp F8  &kp F9   &kp F10
   &none   &none   &none   &none   &none     &none   &to SYS  &none   &kp F11  &kp F12
   &none   &none   &none   &none   &none     &none   &none    &none   &none    &none
                   &trans  &trans  &trans    &trans  &trans   &trans
@@ -221,8 +230,8 @@
             display-name = "System";
             bindings = <
   &none  &none       &none        &none  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-  &none  &none       &none        &none  &none         &none         &to DEF       &none         &none       &none
-  &none  &sys_reset  &bootloader  &none  &none         &none         &none         &bootloader   &sys_reset  &none
+  &none  &none       &none        &none  &none         &none         &to DEF       &none         &none         &none
+  &none  &sys_reset  &bootloader  &none  &none         &none         &none         &bootloader   &sys_reset    &none
                      &none        &none  &none         &none         &none         &none
             >;
 
