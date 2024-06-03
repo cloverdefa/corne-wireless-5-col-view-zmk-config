@@ -184,10 +184,10 @@
         CODE_layer {
             display-name = "Code";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_list   &t_col  &kp UNDER  &kp MINUS  &kp EQUAL    &none      &none     &none     &none     &none
-  &t_crt    &t_row  &kp TAB    &kp PLUS   &kp UNDER    &none      &none     &none     &none     &none
-                    &trans     &trans     &trans       &trans     &trans    &trans
+  &kp EXCL  &kp AT  &kp HASH     &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &t_list   &t_col  &kp TAB      &kp MINUS  &kp EQUAL    &none      &none     &none     &none     &none
+  &t_crt    &t_row  &kp LG(RET)  &kp PLUS   &kp UNDER    &none      &none     &none     &none     &none
+                    &trans       &trans     &trans       &trans     &trans    &trans
             >;
 
             label = "CODE";
@@ -220,10 +220,10 @@
         SYS_layer {
             display-name = "System";
             bindings = <
-  &none  &none       &none        &none  &bt BT_CLR    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-  &none  &none       &none        &none  &none         &none         &to DEF       &none         &none         &none
-  &none  &sys_reset  &bootloader  &none  &none         &none         &none         &bootloader   &sys_reset    &none
-                     &none        &none  &none         &none         &none         &none
+  &none  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+  &none  &none  &none  &none  &bootloader    &bootloader   &to DEF       &none         &none         &none
+  &none  &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
+                &none  &none  &none          &none         &none         &none
             >;
 
             label = "SYS";
