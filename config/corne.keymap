@@ -129,6 +129,28 @@
 
             label = "SCREENSHOT_WIN";
         };
+
+        max_win: windowmax_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp UP>,
+                <&macro_release &kp LWIN>;
+
+            label = "WINDOWMAX_WIN";
+        };
+
+        min_win: windowmin_win {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp DOWN>,
+                <&macro_release &kp LWIN>;
+
+            label = "WINDOWMIN_WIN";
+        };
     };
 
     keymap {
@@ -151,7 +173,7 @@
             bindings = <
   &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
   &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
-  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &none 
+  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL 
                     &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
@@ -199,7 +221,7 @@
             bindings = <
   &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
   &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
-  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &none 
+  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL 
                     &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
@@ -209,10 +231,10 @@
         WIN_NAV_layer {
             display-name = "WinNav";
             bindings = <
-  &kp N1     &kp N2   &kp N3       &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_win  &kp TAB  &max         &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
-  &ter       &none    &kp LG(RET)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
-                      &trans       &trans    &trans       &trans        &trans        &trans
+  &kp N1     &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &shot_win  &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
+  &ter       &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
+                      &trans    &trans    &trans       &trans        &trans        &trans
             >;
 
             label = "WIN_NAV";
