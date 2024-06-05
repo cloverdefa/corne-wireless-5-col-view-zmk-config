@@ -38,7 +38,7 @@
             bindings = <&kp Q>, <&kp LA(TAB)>;
 
             #binding-cells = <0>;
-            mods = <(MOD_LGUI)>;
+            mods = <(MOD_LSHFT)>;
         };
     };
 
@@ -114,7 +114,9 @@
             bindings = <&macro_press &kp LWIN>,
                        <&macro_tap &kp R>,
                        <&macro_release &kp LWIN>,
-                       <&macro_tap &kp W &kp T &kp RET>;
+                       <&macro_tap>,
+                       <&macro_wait_time 350>,
+                       <&kp W &kp T &kp RET>;
 
             label = "TERMINAL";
         };
