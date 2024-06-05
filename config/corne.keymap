@@ -98,6 +98,17 @@
 
             label = "TMUX_CREATE";
         };
+
+        ter:  terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LWIN>,
+                       <&macro_tap &kp R>,
+                       <&macro_release &kp LWIN>,
+                       <&macro_tap &kp W &kp T &kp RET>;
+
+            label = "TERMINAL";
+        };
     };
 
     keymap {
@@ -142,10 +153,10 @@
         MAC_FUNC_layer {
             display-name = "macFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7   &kp F8  &kp F9   &kp F10
-  &none   &none   &none   &none   &none     &none   &to SYS  &none   &kp F11  &kp F12
-  &none   &none   &none   &none   &none     &none   &none    &none   &none    &none
-                  &trans  &trans  &trans    &trans  &trans   &trans
+  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
+  &none   &none   &none   &none   &none     &none   &to WIN_DEF  &to SYS  &kp F11  &kp F12
+  &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
+                  &trans  &trans  &trans    &trans  &trans       &trans
             >;
 
             label = "MAC_FUNC";
@@ -190,10 +201,10 @@
         WIN_FUNC_layer {
             display-name = "WinFunc";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7   &kp F8  &kp F9   &kp F10
-  &none   &none   &none   &none   &none     &none   &to SYS  &none   &kp F11  &kp F12
-  &none   &none   &none   &none   &none     &none   &none    &none   &none    &none
-                  &trans  &trans  &trans    &trans  &trans   &trans
+  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
+  &none   &none   &none   &none   &none     &none   &to MAC_DEF  &to SYS  &kp F11  &kp F12
+  &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
+                  &trans  &trans  &trans    &trans  &trans       &trans
             >;
 
             label = "Win_FUNC";
@@ -203,7 +214,7 @@
             display-name = "System";
             bindings = <
   &none  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-  &none  &none  &none  &none  &bootloader    &bootloader   &to MAC_DEF       &none         &none         &none
+  &none  &none  &none  &none  &bootloader    &bootloader   &to MAC_DEF   &to WIN_DEF   &none         &none
   &none  &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
                 &none  &none  &none          &none         &none         &none
             >;
@@ -219,7 +230,6 @@
             if-layers = <1 2>;
             then-layer = <3>;
         };
-
         
         win_function {
             if-layers = <5 6>;
