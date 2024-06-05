@@ -87,7 +87,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -95,7 +95,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -103,7 +103,7 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp C>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
