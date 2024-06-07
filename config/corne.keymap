@@ -95,9 +95,10 @@
         w_col: mac_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LS(LALT)>,
-                       <&macro_tap &kp EQUAL>,
-                       <&macro_release &kp LS(LALT);
+            bindings = 
+                <&macro_press &kp LS(LALT)>,
+                <&macro_tap &kp EQUAL>,
+                <&macro_release &kp LS(LALT);
 
             label = "WIN_COLUMN";
         };
@@ -105,9 +106,10 @@
         w_row: mac_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LS(LALT>,
-                       <&macro_tap &kp MINUS>,
-                       <&macro_release &kp LS(LALT);
+            bindings = 
+                <&macro_press &kp LS(LALT>,
+                <&macro_tap &kp MINUS>,
+                <&macro_release &kp LS(LALT);
 
             label = "WIN_ROW";
         };
@@ -148,11 +150,12 @@
         ter:  terminal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_press &kp LWIN>,
-                       <&macro_tap &kp R>,
-                       <&macro_release &kp LWIN>,
-                       <&macro_tap>,
-                       <&kp W &kp T &kp RET>;
+            bindings = 
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp R>,
+                <&macro_release &kp LWIN>,
+                <&macro_tap>,
+                <&kp W &kp T &kp RET>;
 
             label = "TERMINAL";
         };
