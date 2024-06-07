@@ -152,7 +152,6 @@
                        <&macro_tap &kp R>,
                        <&macro_release &kp LWIN>,
                        <&macro_tap>,
-                       <&macro_wait_time 350>,
                        <&kp W &kp T &kp RET>;
 
             label = "TERMINAL";
