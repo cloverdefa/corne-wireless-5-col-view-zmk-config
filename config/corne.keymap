@@ -92,7 +92,7 @@
             label = "MAC_ROW";
         };
 
-        w_col: mac_column {
+        w_col: win_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = 
@@ -103,7 +103,7 @@
             label = "WIN_COLUMN";
         };
 
-        w_row: mac_row {
+        w_row: win_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = 
