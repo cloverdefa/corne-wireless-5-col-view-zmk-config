@@ -40,6 +40,34 @@
             #binding-cells = <0>;
             mods = <(MOD_LSFT)>;
         };
+
+        win_ter_col: win_ter_col {
+            compatible = "zmk,behavior-tap-dance";
+            label = "WIN_TER_COL";
+            #binding-cells = <0>;
+            bindings = <&w_col>, <&t_col>;
+        };
+
+        win_ter_row: win_ter_row {
+            compatible = "zmk,behavior-tap-dance";
+            label = "WIN_TER_ROW";
+            #binding-cells = <0>;
+            bindings = <&w_row>, <&t_row>;
+        };
+
+        mac_ter_col: mac_ter_col {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MAC_TER_COL";
+            #binding-cells = <0>;
+            bindings = <&m_col>, <&t_col>;
+        };
+
+        mac_ter_cow: mac_ter_cow {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MAC_TER_COW";
+            #binding-cells = <0>;
+            bindings = <&m_row>, <&t_row>;
+        };
     };
 
     macros {
@@ -47,9 +75,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LCMD>,
-                <&macro_tap &kp SPACE>,
-                <&macro_release &kp LCMD>;
+                <&macro_press>,
+                <&kp LCMD>,
+                <&macro_tap>,
+                <&kp SPACE>,
+                <&macro_release>,
+                <&kp LCMD>;
 
             label = "SPOTLIGHT";
         };
@@ -58,9 +89,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp N4>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
 
             label = "SCREENSHOT";
         };
@@ -69,9 +103,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp GLOBE>,
-                <&macro_tap &kp F>,
-                <&macro_release &kp GLOBE>;
+                <&macro_press>,
+                <&kp GLOBE>,
+                <&macro_tap>,
+                <&kp F>,
+                <&macro_release>,
+                <&kp GLOBE>;
 
             label = "WINDOWMAX";
         };
@@ -79,7 +116,7 @@
         m_col: mac_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LG(D)>;
+            bindings = <&macro_tap>, <&kp LG(D)>;
 
             label = "MAC_COLUMN";
         };
@@ -87,38 +124,42 @@
         m_row: mac_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LG(LC(D))>;
+            bindings = <&macro_tap>, <&kp LG(LC(D))>;
 
             label = "MAC_ROW";
         };
 
-        w_col: mac_column {
+        w_col: win_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_press &kp LS(LALT)>,
-                <&macro_tap &kp EQUAL>,
-                <&macro_release &kp LS(LALT);
+            bindings =
+                <&macro_press>,
+                <&kp LS(LALT)>,
+                <&macro_tap>,
+                <&kp EQUAL>,
+                <&macro_release>,
+                <&kp LS(LALT)>;
 
             label = "WIN_COLUMN";
         };
 
-        w_row: mac_row {
+        w_row: win_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_press &kp LS(LALT>,
-                <&macro_tap &kp MINUS>,
-                <&macro_release &kp LS(LALT);
+            bindings =
+                <&macro_press>,
+                <&kp LS(LALT>,
+ <&macro_tap &kp MINUS>,
+                <&macro_release>,
+                <&kp LS(LALT)>;
 
             label = "WIN_ROW";
         };
 
-
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
 
             label = "TMUX_COLUMN";
         };
@@ -126,7 +167,7 @@
         t_row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
 
             label = "TMUX_ROW";
         };
@@ -134,7 +175,7 @@
         t_list: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp W>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
 
             label = "TMUX_LIST";
         };
@@ -142,18 +183,21 @@
         t_crt: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp C>;
+            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
 
             label = "TMUX_CREATE";
         };
 
-        ter:  terminal {
+        ter: terminal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = 
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp R>,
-                <&macro_release &kp LWIN>,
+            bindings =
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LWIN>,
                 <&macro_tap>,
                 <&kp W &kp T &kp RET>;
 
@@ -164,9 +208,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LG(LSHFT)>,
-                <&macro_tap &kp S>,
-                <&macro_release &kp LG(LSHFT)>;
+                <&macro_press>,
+                <&kp LG(LSHFT)>,
+                <&macro_tap>,
+                <&kp S>,
+                <&macro_release>,
+                <&kp LG(LSHFT)>;
 
             label = "SCREENSHOT_WIN";
         };
@@ -175,9 +222,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp UP>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp UP>,
+                <&macro_release>,
+                <&kp LWIN>;
 
             label = "WINDOWMAX_WIN";
         };
@@ -186,9 +236,12 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press &kp LWIN>,
-                <&macro_tap &kp DOWN>,
-                <&macro_release &kp LWIN>;
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp DOWN>,
+                <&macro_release>,
+                <&kp LWIN>;
 
             label = "WINDOWMIN_WIN";
         };
@@ -212,10 +265,10 @@
         MAC_CODE_layer {
             display-name = "macCode";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
-  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL 
-                    &trans     &trans     &trans       &trans     &trans    &trans
+  &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &t_list   &mac_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
+  &t_crt    &mac_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                          &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
             label = "MAC_CODE";
@@ -260,10 +313,10 @@
         WIN_CODE_layer {
             display-name = "WinCode";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_list   &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
-  &t_crt    &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL 
-                    &trans     &trans     &trans       &trans     &trans    &trans
+  &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &t_list   &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
+  &t_crt    &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                          &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
             label = "WIN_CODE";
@@ -313,7 +366,7 @@
             if-layers = <1 2>;
             then-layer = <3>;
         };
-        
+
         win_function {
             if-layers = <5 6>;
             then-layer = <7>;
