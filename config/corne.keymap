@@ -76,6 +76,43 @@
             label = "WINDOWMAX";
         };
 
+        m_col: mac_column {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LG(D)>;
+
+            label = "MAC_COLUMN";
+        };
+
+        m_row: mac_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap &kp LG(LC(D))>;
+
+            label = "MAC_ROW";
+        };
+
+        w_col: mac_column {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LS(LALT)>,
+                       <&macro_tap &kp EQUAL>,
+                       <&macro_release &kp LS(LALT);
+
+            label = "WIN_COLUMN";
+        };
+
+        w_row: mac_row {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_press &kp LS(LALT>,
+                       <&macro_tap &kp MINUS>,
+                       <&macro_release &kp LS(LALT);
+
+            label = "WIN_ROW";
+        };
+
+
         t_col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
