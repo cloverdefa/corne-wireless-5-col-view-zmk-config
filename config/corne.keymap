@@ -85,7 +85,7 @@
             label = "SPOTLIGHT";
         };
 
-        shot: screenshot {
+        shot_mac: screenshot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -99,7 +99,7 @@
             label = "SCREENSHOT";
         };
 
-        max: windowmax {
+        max_mac: windowmax {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -148,8 +148,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LS(LALT>,
- <&macro_tap &kp MINUS>,
+                <&kp LS(LALT)>,
                 <&macro_release>,
                 <&kp LS(LALT)>;
 
@@ -188,7 +187,7 @@
             label = "TMUX_CREATE";
         };
 
-        ter: terminal {
+        ter_win: terminal {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -277,10 +276,10 @@
         MAC_NAV_layer {
             display-name = "macNav";
             bindings = <
-  &kp N1  &kp N2   &kp N3       &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot   &kp TAB  &max         &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
-  &spot   &none    &kp LG(RET)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
-                   &trans       &trans    &trans       &trans        &trans        &trans
+  &kp N1     &kp N2   &kp N3       &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &shot_mac  &kp TAB  &max_mac     &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
+  &spot      &none    &kp LG(RET)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &none
+                      &trans       &trans    &trans       &trans        &trans        &trans
             >;
 
             label = "MAC_NAV";
@@ -327,7 +326,7 @@
             bindings = <
   &kp N1     &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
   &shot_win  &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
-  &ter       &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
+  &ter_win   &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
                       &trans    &trans    &trans       &trans        &trans        &trans
             >;
 
