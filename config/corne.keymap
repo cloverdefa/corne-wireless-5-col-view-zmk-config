@@ -90,11 +90,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LG(LSHFT)>,
+                <&kp LG(LC(LSHFT)>,
                 <&macro_tap>,
                 <&kp N4>,
                 <&macro_release>,
-                <&kp LG(LSHFT)>;
+                <&kp LG(LC(LSHFT)>;
 
             label = "SCREENSHOT";
         };
