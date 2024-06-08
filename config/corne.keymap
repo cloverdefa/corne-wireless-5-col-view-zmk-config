@@ -32,13 +32,11 @@
             flavor = "tap-preferred";
         };
 
-        alt_tab: alt_tab {
-            compatible = "zmk,behavior-mod-morph";
-            label = "ALT_TAB";
-            bindings = <&kp Q>, <&kp LA(TAB)>;
-
+        alt_win: alt_win {
+            compatible = "zmk,behavior-tap-dance";
+            label = "ALT_WIN";
             #binding-cells = <0>;
-            mods = <(MOD_LSFT)>;
+            bindings = <&kp LWIN>, <&kp LALT>;
         };
 
         win_ter_col: win_ter_col {
@@ -113,21 +111,6 @@
             label = "SCREENRECORD";
         };
 
-
-        max_mac: windowmax {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE>,
-                <&macro_tap>,
-                <&kp F>,
-                <&macro_release>,
-                <&kp GLOBE>;
-
-            label = "WINDOWMAX";
-        };
-
         m_col: mac_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -164,6 +147,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LS(LALT)>,
+                <&macro_tap>,
+                <&kp MINUS>,
                 <&macro_release>,
                 <&kp LS(LALT)>;
 
@@ -281,7 +266,7 @@
             bindings = <
   &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
   &t_list   &mac_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
-  &t_crt    &mac_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp LG(BSPC)
+  &t_crt    &mac_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                           &trans     &trans     &trans       &trans     &trans    &trans
             >;
 
@@ -291,10 +276,10 @@
         MAC_NAV_layer {
             display-name = "macNav";
             bindings = <
-  &kp N1     &kp N2   &kp N3       &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_mac  &kp TAB  &max_mac     &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
-  &spot      &none    &kp LG(RET)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
-                      &trans       &trans    &trans       &trans        &trans        &trans
+  &kp N1     &kp N2   &kp N3         &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &shot_mac  &kp TAB  &kp LG(LC(F))  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
+  &spot      &none    &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
+                      &trans         &trans    &trans       &trans        &trans        &trans
             >;
 
             label = "MAC_NAV";
@@ -315,10 +300,10 @@
         WIN_DEF_layer {
             display-name = "Windows";
             bindings = <
-  &alt_tab  &kp W  &kp E     &kp R             &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
-  &kp A     &kp S  &kp D     &kp F             &kp G              &kp H          &kp J             &kp K      &kp L    &kp SEMI
-  &kp Z     &kp X  &kp C     &kp V             &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
-                   &kp LWIN  &lt WIN_CODE ESC  &ht LSHFT SPACE    &ht LCTRL RET  &lt WIN_NAV BSPC  &kp TAB
+  &kp Q  &kp W  &kp E     &kp R             &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
+  &kp A  &kp S  &kp D     &kp F             &kp G              &kp H          &kp J             &kp K      &kp L    &kp SEMI
+  &kp Z  &kp X  &kp C     &kp V             &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
+                &alt_win  &lt WIN_CODE ESC  &ht LSHFT SPACE    &ht LCTRL RET  &lt WIN_NAV BSPC  &kp TAB
             >;
 
             label = "WIN_DEF";
