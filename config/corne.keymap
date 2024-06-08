@@ -37,7 +37,7 @@
             label = "ALT_WIN";
             #binding-cells = <0>;
             bindings = <&kp LWIN>, <&kp LALT>;
-       };
+        };
 
         win_ter_col: win_ter_col {
             compatible = "zmk,behavior-tap-dance";
@@ -147,6 +147,8 @@
             bindings =
                 <&macro_press>,
                 <&kp LS(LALT)>,
+                <&macro_tap>,
+                <&kp MINUS>,
                 <&macro_release>,
                 <&kp LS(LALT)>;
 
