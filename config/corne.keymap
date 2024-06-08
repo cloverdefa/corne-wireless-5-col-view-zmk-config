@@ -57,14 +57,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "MAC_TER_COL";
             #binding-cells = <0>;
-            bindings = <&m_col>, <&t_col>;
+            bindings = <&t_col>, <&m_col>;
         };
 
         mac_ter_cow: mac_ter_cow {
             compatible = "zmk,behavior-tap-dance";
             label = "MAC_TER_COW";
             #binding-cells = <0>;
-            bindings = <&m_row>, <&t_row>;
+            bindings = <&t_row>, <&m_row>;
         };
     };
 
