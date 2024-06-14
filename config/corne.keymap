@@ -205,7 +205,8 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&macro_tap>,
-                <&kp BSPC &kp W &kp T &kp RET>;
+                <&kp W &kp T &kp RET>,
+                <&macro_wait_time 350>;
 
             label = "TERMINAL";
         };
