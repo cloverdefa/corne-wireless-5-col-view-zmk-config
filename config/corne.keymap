@@ -273,7 +273,7 @@
             display-name = "macCode";
             bindings = <
   &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_list   &mac_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
+  &t_list   &mac_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) LC(TAB)
   &t_crt    &mac_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                           &trans     &trans     &trans       &trans     &trans    &trans
             >;
@@ -285,7 +285,7 @@
             display-name = "macNav";
             bindings = <
   &kp N1     &kp N2   &kp N3         &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_mac  &kp TAB  &kp LG(LC(F))  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
+  &shot_mac  &kp TAB  &kp LG(LC(F))  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) LC(TAB)
   &spot      &none    &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
                       &trans         &trans    &trans       &trans        &trans        &trans
             >;
@@ -321,7 +321,7 @@
             display-name = "WinCode";
             bindings = <
   &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_list   &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) TAB
+  &t_list   &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &ht LC(LSHFT) LC(TAB)
   &t_crt    &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                           &trans     &trans     &trans       &trans     &trans    &trans
             >;
@@ -333,7 +333,7 @@
             display-name = "WinNav";
             bindings = <
   &kp N1     &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_win  &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) TAB
+  &shot_win  &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &ht LC(LSHFT) LC(TAB)
   &ter_win   &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
                       &trans    &trans    &trans       &trans        &trans        &trans
             >;
