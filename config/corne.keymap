@@ -205,9 +205,7 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&macro_tap>,
-                <&kp W &kp T &kp RET>,
-
-            label = "TERMINAL";
+                <&kp W &kp T &kp RET>;
         };
 
         shot_win: screenshot_win {
@@ -255,7 +253,7 @@
 
     keymap {
         compatible = "zmk,keymap";
-    
+
         WIN_DEF_layer {
             display-name = "Windows";
             bindings = <
@@ -368,12 +366,12 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        mac_function {
+        win_function {
             if-layers = <1 2>;
             then-layer = <3>;
         };
 
-        win_function {
+        mac_function {
             if-layers = <5 6>;
             then-layer = <7>;
         };
