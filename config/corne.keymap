@@ -317,7 +317,7 @@
   &kp Q  &kp W  &kp E     &kp R             &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
   &kp A  &kp S  &kp D     &kp F             &kp G              &kp H          &kp J             &kp K      &kp L    &kp SEMI
   &kp Z  &kp X  &kp C     &kp V             &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
-                &alt_mac  &lt MAC_CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt MAC_NAV BSPC  &kp TAB
+                &alt_mac  &ht MAC_CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt MAC_NAV BSPC  &kp TAB
             >;
 
             label = "MAC_DEF";
