@@ -256,7 +256,7 @@
                 <&macro_release>,
                 <&kp LWIN>,
                 <&macro_tap>,
-                <&kp W &kp T &kp RET>;
+                <&kp BSPC &kp W &kp T &kp RET>;
         };
     };
 
