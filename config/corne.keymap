@@ -52,14 +52,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "WIN_TER_COL";
             #binding-cells = <0>;
-            bindings = <&w_col>, <&t_col>;
+            bindings = <&t_col>, <&w_col>;
         };
 
         win_ter_row: win_ter_row {
             compatible = "zmk,behavior-tap-dance";
             label = "WIN_TER_ROW";
             #binding-cells = <0>;
-            bindings = <&w_row>, <&t_row>;
+            bindings = <&t_row>, <&w_row>;
         };
 
         alt_mac: alt_mac {
