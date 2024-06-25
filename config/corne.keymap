@@ -85,6 +85,22 @@
     };
 
     macros {
+        ter_win : windows_terminal {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp R>,
+                <&macro_release>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp W>,
+                <&kp T>,
+                <&kp RET>;
+        };
+
         w_col: win_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -276,10 +292,10 @@
         WIN_NAV_layer {
             display-name = "WinNav";
             bindings = <
-  &kp N1         &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_win      &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &th LC(LSHFT) LC(TAB)
-  &kp LC(LA(T))  &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
-                          &trans    &trans    &trans       &trans        &trans        &trans
+  &kp N1     &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &shot_win  &kp TAB  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &th LC(LSHFT) LC(TAB)
+  &ter_win   &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
+                      &trans    &trans    &trans       &trans        &trans        &trans
             >;
 
             label = "WIN_NAV";
