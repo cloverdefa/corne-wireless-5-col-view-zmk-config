@@ -99,6 +99,8 @@
                 <&kp W>,
                 <&kp T>,
                 <&kp RET>;
+
+            label = "WINDOWS_TERMINAL";
         };
 
         w_col: win_column {
