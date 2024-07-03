@@ -86,182 +86,137 @@
 
     macros {
         win_ter: windows_terminal {
+            label = "WINDOWS_TERMINAL";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp R>,
-                <&macro_release>,
-                <&kp LWIN>,
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp R>,
+                <&macro_release &kp LWIN>,
                 <&macro_pause_for_release>,
-                <&macro_tap>,
-                <&kp W>,
-                <&kp T>,
-                <&kp RET>;
-
-            label = "WINDOWS_TERMINAL";
+                <&macro_tap &kp W &kp T &kp RET>;
         };
 
         w_col: win_column {
+            label = "WIN_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LS(LALT)>,
-                <&macro_tap>,
-                <&kp EQUAL>,
-                <&macro_release>,
-                <&kp LS(LALT)>;
-
-            label = "WIN_COLUMN";
+                <&macro_press &kp LS(LALT)>,
+                <&macro_tap &kp EQUAL>,
+                <&macro_release &kp LS(LALT)>;
         };
 
         w_row: win_row {
+            label = "WIN_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LS(LALT)>,
-                <&macro_tap>,
-                <&kp MINUS>,
-                <&macro_release>,
-                <&kp LS(LALT)>;
-
-            label = "WIN_ROW";
+                <&macro_press &kp LS(LALT)>,
+                <&macro_tap &kp MINUS>,
+                <&macro_release &kp LS(LALT)>;
         };
 
         shot_win: screenshot_win {
+            label = "SCREENSHOT_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp S>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
-
-            label = "SCREENSHOT_WIN";
+                <&macro_press &kp LG(LSHFT)>,
+                <&macro_tap &kp S>,
+                <&macro_release &kp LG(LSHFT)>;
         };
 
         max_win: windowmax_win {
+            label = "WINDOWMAX_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp UP>,
-                <&macro_release>,
-                <&kp LWIN>;
-
-            label = "WINDOWMAX_WIN";
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp UP>,
+                <&macro_release &kp LWIN>;
         };
 
         min_win: windowmin_win {
+            label = "WINDOWMIN_WIN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LWIN>,
-                <&macro_tap>,
-                <&kp DOWN>,
-                <&macro_release>,
-                <&kp LWIN>;
-
-            label = "WINDOWMIN_WIN";
+                <&macro_press &kp LWIN>,
+                <&macro_tap &kp DOWN>,
+                <&macro_release &kp LWIN>;
         };
 
         spot: spotlight {
+            label = "SPOTLIGHT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LCMD>,
-                <&macro_tap>,
-                <&kp SPACE>,
-                <&macro_release>,
-                <&kp LCMD>;
-
-            label = "SPOTLIGHT";
+                <&macro_press &kp LCMD>,
+                <&macro_tap &kp SPACE>,
+                <&macro_release &kp LCMD>;
         };
 
         shot_mac: screenshot {
+            label = "SCREENSHOT";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LC(LSHFT))>,
-                <&macro_tap>,
-                <&kp N4>,
-                <&macro_release>,
-                <&kp LG(LC(LSHFT))>;
-
-            label = "SCREENSHOT";
+                <&macro_press &kp LG(LC(LSHFT))>,
+                <&macro_tap &kp N4>,
+                <&macro_release &kp LG(LC(LSHFT))>;
         };
 
         rec_mac: screenrecord {
+            label = "SCREENRECORD";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LG(LSHFT)>,
-                <&macro_tap>,
-                <&kp N5>,
-                <&macro_release>,
-                <&kp LG(LSHFT)>;
-
-            label = "SCREENRECORD";
+                <&macro_press &kp LG(LSHFT)>,
+                <&macro_tap &kp N5>,
+                <&macro_release &kp LG(LSHFT)>;
         };
 
         m_col: mac_column {
+            label = "MAC_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LG(D)>;
-
-            label = "MAC_COLUMN";
         };
 
         m_row: mac_row {
+            label = "MAC_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LG(LC(D))>;
-
-            label = "MAC_ROW";
         };
 
         t_col: tmux_column {
+            label = "TMUX_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
-
-            label = "TMUX_COLUMN";
         };
 
         t_row: tmux_row {
+            label = "TMUX_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
-
-            label = "TMUX_ROW";
         };
 
         t_list: tmux_list {
+            label = "TMUX_LIST";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp W>;
-
-            label = "TMUX_LIST";
         };
 
         t_crt: tmux_create {
+            label = "TMUX_CREATE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_tap>, <&kp LC(A) &kp C>;
-
-            label = "TMUX_CREATE";
         };
     };
 
@@ -269,6 +224,7 @@
         compatible = "zmk,keymap";
 
         WIN_DEF_layer {
+            label = "WIN_DEF";
             display-name = "Windows";
             bindings = <
   &kp Q  &kp W  &kp E     &kp R             &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
@@ -276,11 +232,10 @@
   &kp Z  &kp X  &kp C     &kp V             &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
                 &alt_win  &ht WIN_CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt WIN_NAV BSPC  &kp TAB
             >;
-
-            label = "WIN_DEF";
         };
 
         WIN_CODE_layer {
+            label = "WIN_CODE";
             display-name = "WinCode";
             bindings = <
   &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
@@ -288,11 +243,10 @@
   &t_list   &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                           &trans     &trans     &trans       &trans     &trans    &trans
             >;
-
-            label = "WIN_CODE";
         };
 
         WIN_NAV_layer {
+            label = "WIN_NAV";
             display-name = "WinNav";
             bindings = <
   &kp N1     &kp N2   &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
@@ -300,11 +254,10 @@
   &win_ter   &none    &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
                       &trans    &trans    &trans       &trans        &trans        &trans
             >;
-
-            label = "WIN_NAV";
         };
 
         WIN_FUNC_layer {
+            label = "Win_FUNC";
             display-name = "WinFunc";
             bindings = <
   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
@@ -312,11 +265,10 @@
   &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
                   &trans  &trans  &trans    &trans  &trans       &trans
             >;
-
-            label = "Win_FUNC";
         };
 
         MAC_DEF_layer {
+            label = "MAC_DEF";
             display-name = "macOS";
             bindings = <
   &kp Q  &kp W  &kp E     &kp R             &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
@@ -324,11 +276,10 @@
   &kp Z  &kp X  &kp C     &kp V             &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
                 &alt_mac  &ht MAC_CODE ESC  &th LSHFT SPACE    &th LCTRL RET  &lt MAC_NAV BSPC  &kp TAB
             >;
-
-            label = "MAC_DEF";
         };
 
         MAC_CODE_layer {
+            label = "MAC_CODE";
             display-name = "macCode";
             bindings = <
   &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
@@ -336,11 +287,10 @@
   &t_list   &mac_ter_cow  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                           &trans     &trans     &trans       &trans     &trans    &trans
             >;
-
-            label = "MAC_CODE";
         };
 
         MAC_NAV_layer {
+            label = "MAC_NAV";
             display-name = "macNav";
             bindings = <
   &kp N1     &kp N2   &kp N3         &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
@@ -348,11 +298,10 @@
   &spot      &none    &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
                       &trans         &trans    &trans       &trans        &trans        &trans
             >;
-
-            label = "MAC_NAV";
         };
 
         MAC_FUNC_layer {
+            label = "MAC_FUNC";
             display-name = "macFunc";
             bindings = <
   &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
@@ -360,11 +309,10 @@
   &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
                   &trans  &trans  &trans    &trans  &trans       &trans
             >;
-
-            label = "MAC_FUNC";
         };
 
         SYS_layer {
+            label = "SYS";
             display-name = "System";
             bindings = <
   &none  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
@@ -372,8 +320,6 @@
   &none  &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
                 &none  &none  &none          &none         &none         &none
             >;
-
-            label = "SYS";
         };
     };
 
