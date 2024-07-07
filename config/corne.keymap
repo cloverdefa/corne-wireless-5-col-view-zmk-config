@@ -94,7 +94,9 @@
                 <&macro_tap &kp R>,
                 <&macro_release &kp LWIN>,
                 <&macro_pause_for_release>,
-                <&macro_tap &kp W &kp T &kp RET>;
+                <&macro_tap &kp W &kp T>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp RET>;
         };
 
         w_col: win_column {
@@ -181,42 +183,42 @@
             label = "MAC_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LG(D)>;
+            bindings = <&macro_tap &kp LG(D)>;
         };
 
         m_row: mac_row {
             label = "MAC_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LG(LC(D))>;
+            bindings = <&macro_tap &kp LG(LC(D))>;
         };
 
         t_col: tmux_column {
             label = "TMUX_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp PIPE>;
+            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
         };
 
         t_row: tmux_row {
             label = "TMUX_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp MINUS>;
+            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
         };
 
         t_list: tmux_list {
             label = "TMUX_LIST";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp W>;
+            bindings = <&macro_tap &kp LC(A) &kp W>;
         };
 
         t_crt: tmux_create {
             label = "TMUX_CREATE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A) &kp C>;
+            bindings = <&macro_tap &kp LC(A) &kp C>;
         };
     };
 
