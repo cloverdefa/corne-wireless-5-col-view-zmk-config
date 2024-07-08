@@ -197,28 +197,40 @@
             label = "TMUX_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp PIPE>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp PIPE>;
         };
 
         t_row: tmux_row {
             label = "TMUX_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp MINUS>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp MINUS>;
         };
 
         t_list: tmux_list {
             label = "TMUX_LIST";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp W>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp W>;
         };
 
         t_crt: tmux_create {
             label = "TMUX_CREATE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap &kp LC(A) &kp C>;
+            bindings = 
+                <&macro_tap &kp LC(A)>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp C>;
         };
     };
 
