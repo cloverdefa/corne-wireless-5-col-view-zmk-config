@@ -71,8 +71,8 @@
     };
 
     macros {
-        win_ter: windows_terminal {
-            label = "WINDOWS_TERMINAL";
+        ter_win: terminal_windows {
+            label = "TERMINAL_WINDOWS";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -80,7 +80,19 @@
                 <&macro_tap &kp R>,
                 <&macro_release &kp LWIN>,
                 <&macro_pause_for_release>,
-                <&macro_tap &kp W &kp T &kp RET>;
+                <&macro_tap &kp W &kp E &kp &kp Z &kp T &kp E &kp R &kp M &kp MINUS &kp G &kp U &kp I &kp RET>;
+        };
+
+        ter_mac: terminal_macos {
+            label = "TERMINAL_MACOS";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LCMD>,
+                <&macro_tap &kp SPACE>,
+                <&macro_release &kp LCMD>,
+                <&macro_pause_for_release>,
+                <&macro_tap &kp W &kp E &kp &kp Z &kp T &kp E &kp R &kp M &kp RET>;
         };
 
         w_col: win_column {
@@ -235,7 +247,7 @@
             bindings = <
   &kp N1     &kp N2    &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
   &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &win_ter   &none     &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
+  &ter_win   &none     &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
                        &trans    &trans    &trans       &trans        &trans        &trans
             >;
         };
@@ -279,7 +291,7 @@
             bindings = <
   &kp N1     &kp N2    &kp N3         &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
   &shot_mac  &kp CAPS  &kp LG(LC(F))  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &spot      &none     &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
+  &ter_mac   &spot     &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
                        &trans         &trans    &trans       &trans        &trans        &trans
             >;
         };
