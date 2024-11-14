@@ -80,7 +80,7 @@
                 <&macro_tap &kp R>,
                 <&macro_release &kp LWIN>,
                 <&macro_pause_for_release>,
-                <&macro_tap &kp W &kp E &kp &kp Z &kp T &kp E &kp R &kp M &kp MINUS &kp G &kp U &kp I &kp RET>;
+                <&macro_tap &kp W &kp E &kp Z &kp T &kp E &kp R &kp M &kp MINUS &kp G &kp U &kp I &kp RET>;
         };
 
         ter_mac: terminal_macos {
@@ -92,7 +92,7 @@
                 <&macro_tap &kp SPACE>,
                 <&macro_release &kp LCMD>,
                 <&macro_pause_for_release>,
-                <&macro_tap &kp W &kp E &kp &kp Z &kp T &kp E &kp R &kp M &kp RET>;
+                <&macro_tap &kp W &kp E &kp Z &kp T &kp E &kp R &kp M &kp RET>;
         };
 
         w_col: win_column {
