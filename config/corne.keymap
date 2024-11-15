@@ -92,6 +92,7 @@
                 <&macro_release>,
                 <&kp LCTRL &kp LSHFT>,
                 <&macro_pause_for_release>,
+                <&macro_tap &kp D &kp E &kp B &kp I &kp A &kp N>,
                 <&macro_tap &kp RET>;
         };
 
