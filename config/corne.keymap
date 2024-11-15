@@ -52,14 +52,14 @@
             compatible = "zmk,behavior-tap-dance";
             label = "WIN_TER_COL";
             #binding-cells = <0>;
-            bindings = <&t_col>, <&w_col>;
+            bindings = <&col_tmux>, <&col_win>;
         };
 
         win_ter_row: win_ter_row {
             compatible = "zmk,behavior-tap-dance";
             label = "WIN_TER_ROW";
             #binding-cells = <0>;
-            bindings = <&t_row>, <&w_row>;
+            bindings = <&row_tmux>, <&row_win>;
         };
 
         alt_mac: alt_mac {
@@ -95,7 +95,7 @@
                 <&macro_tap &kp W &kp E &kp Z &kp T &kp E &kp R &kp M &kp RET>;
         };
 
-        w_col: win_column {
+        col_win: win_column {
             label = "WIN_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -105,7 +105,7 @@
                 <&macro_release &kp LS(LALT)>;
         };
 
-        w_row: win_row {
+        row_win: win_row {
             label = "WIN_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -175,7 +175,7 @@
                 <&macro_release &kp LG(LSHFT)>;
         };
 
-        t_col: tmux_column {
+        col_tmux: tmux_column {
             label = "TMUX_COLUMN";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -185,7 +185,7 @@
                 <&macro_tap &kp PIPE>;
         };
 
-        t_row: tmux_row {
+        row_tmux: tmux_row {
             label = "TMUX_ROW";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -195,7 +195,7 @@
                 <&macro_tap &kp MINUS>;
         };
 
-        t_list: tmux_list {
+        list_tmux: tmux_list {
             label = "TMUX_LIST";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -205,7 +205,7 @@
                 <&macro_tap &kp W>;
         };
 
-        t_crt: tmux_create {
+        crt_tmux: tmux_create {
             label = "TMUX_CREATE";
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -234,10 +234,10 @@
             label = "WIN_CODE";
             display-name = "WinCode";
             bindings = <
-  &kp EXCL  &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_crt    &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
-  &t_list   &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
-                          &trans     &trans     &trans       &trans     &trans    &trans
+  &kp EXCL    &kp AT        &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &crt_tmux   &win_ter_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
+  &list_tmux  &win_ter_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                            &trans     &trans     &trans       &trans     &trans    &trans
             >;
         };
 
@@ -278,10 +278,10 @@
             label = "MAC_CODE";
             display-name = "macCode";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &t_crt    &t_col  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
-  &t_list   &t_row  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
-                    &trans     &trans     &trans       &trans     &trans    &trans
+  &kp EXCL    &kp AT     &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &crt_tmux   &col_tmux  &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
+  &list_tmux  &row_tmux  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                         &trans     &trans     &trans       &trans     &trans    &trans
             >;
         };
 
