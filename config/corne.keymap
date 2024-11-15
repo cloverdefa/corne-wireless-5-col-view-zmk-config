@@ -91,6 +91,16 @@
                 <&macro_release &kp LG(LSHFT)>;
         };
 
+        shot_mac: screenshot {
+            label = "SCREENSHOT";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp LG(LC(LSHFT))>,
+                <&macro_tap &kp N4>,
+                <&macro_release &kp LG(LC(LSHFT))>;
+        };
+
         max_win: windowmax_win {
             label = "WINDOWMAX_WIN";
             compatible = "zmk,behavior-macro";
@@ -111,6 +121,26 @@
                 <&macro_release &kp LWIN>;
         };
 
+        max_mac: windowmax_mac {
+            label = "WINDOWMAX_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp GLOBE>,
+                <&macro_tap &kp F>,
+                <&macro_release &kp GLOBE>;
+        };
+
+        min_mac: windowmin_mac {
+            label = "WINDOWMIN_MAC";
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings =
+                <&macro_press &kp GLOBE>,
+                <&macro_tap &kp F>,
+                <&macro_release &kp GLOBE>;
+        };
+
         spot: spotlight {
             label = "SPOTLIGHT";
             compatible = "zmk,behavior-macro";
@@ -119,16 +149,6 @@
                 <&macro_press &kp LCMD>,
                 <&macro_tap &kp SPACE>,
                 <&macro_release &kp LCMD>;
-        };
-
-        shot_mac: screenshot {
-            label = "SCREENSHOT";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press &kp LG(LC(LSHFT))>,
-                <&macro_tap &kp N4>,
-                <&macro_release &kp LG(LC(LSHFT))>;
         };
 
         rec_mac: screenrecord {
@@ -247,10 +267,10 @@
             label = "MAC_NAV";
             display-name = "macNav";
             bindings = <
-  &kp N1     &kp N2    &kp N3         &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &shot_mac  &kp CAPS  &kp LG(LC(F))  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &ter_mac   &spot     &kp LG(RET)    &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
-                       &trans         &trans    &trans       &trans        &trans        &trans
+  &kp N1     &kp N2    &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &shot_mac  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+  &ter_mac   &spot     &min_mac  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &rec_mac
+                       &trans    &trans    &trans       &trans        &trans        &trans
             >;
         };
 
