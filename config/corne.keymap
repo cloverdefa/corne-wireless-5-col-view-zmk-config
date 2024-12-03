@@ -9,13 +9,12 @@
 #include <dt-bindings/zmk/keys.h>
 
 #define WIN_DEF  0
-#define CODE     1
-#define WIN_NAV  2
-#define WIN_FUNC 3
-#define MAC_DEF  4
-#define MAC_NAV  5
-#define MAC_FUNC 6
-#define SYS      7
+#define WIN_NAV  1
+#define MAC_DEF  2
+#define MAC_NAV  3
+#define CODE     4
+#define FUNC     5
+#define SYS      6
 
 / {
     chosen { zmk,matrix_transform = &five_column_transform; };
@@ -59,13 +58,6 @@
             #binding-cells = <0>;
             tapping-term-ms = <200>;
             bindings = <&kp LCMD>, <&kp LALT>;
-        };
-
-        td_ter: td_ter {
-            compatible = "zmk,behavior-tap-dance";
-            #binding-cells = <0>;
-            tapping-term-ms = <200>;
-            bindings = <&ter_win>, <&kp LS(LC(S))>;
         };
     };
 
@@ -235,36 +227,14 @@
             >;
         };
 
-        CODE_layer {
-            label = "CODE";
-            display-name = "Code";
-            bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
-  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
-                    &trans     &trans     &trans       &trans     &trans    &trans
-            >;
-        };
-
         WIN_NAV_layer {
             label = "WIN_NAV";
             display-name = "WinNav";
             bindings = <
   &kp N1     &kp N2    &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
   &shot_win  &kp CAPS  &max_win  &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &td_ter    &none     &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
+  &ter_win   &none     &min_win  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LA(F9)
                        &trans    &trans    &trans       &trans        &trans        &trans
-            >;
-        };
-
-        WIN_FUNC_layer {
-            label = "Win_FUNC";
-            display-name = "WinFunc";
-            bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
-  &none   &none   &none   &none   &none     &none   &to MAC_DEF  &to SYS  &kp F11  &kp F12
-  &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
-                  &trans  &trans  &trans    &trans  &trans       &trans
             >;
         };
 
@@ -290,14 +260,25 @@
             >;
         };
 
-        MAC_FUNC_layer {
-            label = "MAC_FUNC";
-            display-name = "MacFunc";
+        CODE_layer {
+            label = "CODE";
+            display-name = "Code";
             bindings = <
-  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6  &kp F7       &kp F8   &kp F9   &kp F10
-  &none   &none   &none   &none   &none     &none   &to WIN_DEF  &to SYS  &kp F11  &kp F12
-  &none   &none   &none   &none   &none     &none   &none        &none    &none    &none
-                  &trans  &trans  &trans    &trans  &trans       &trans
+  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
+  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                    &trans     &trans     &trans       &trans     &trans    &trans
+            >;
+        };
+
+        FUNC_layer {
+            label = "FUNC";
+            display-name = "Func";
+            bindings = <
+  &kp F1  &kp F2  &kp F3  &kp F4  &kp F5    &kp F6       &kp F7       &kp F8   &kp F9   &kp F10
+  &none   &none   &none   &none   &none     &to WIN_DEF  &to MAC_DEF  &to SYS  &kp F11  &kp F12
+  &none   &none   &none   &none   &none     &none        &none        &none    &none    &none
+                  &trans  &trans  &trans    &trans       &trans       &trans
             >;
         };
 
@@ -317,13 +298,13 @@
         compatible = "zmk,conditional-layers";
 
         win_function {
-            if-layers = <1 2>;
-            then-layer = <3>;
+            if-layers = <1 4>;
+            then-layer = <5>;
         };
 
         mac_function {
-            if-layers = <1 5>;
-            then-layer = <6>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 };
