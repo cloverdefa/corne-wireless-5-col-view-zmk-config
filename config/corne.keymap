@@ -29,14 +29,6 @@
             bindings = <&kp>, <&kp>;
         };
 
-        em: esc_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "hold-preferred";
-            tapping-term-ms = <400>;
-            bindings = <&mo>, <&kp>;
-        };
-
         bm: bspc_mod {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
@@ -223,7 +215,7 @@
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
   &kp A  &kp S  &kp D    &kp F         &kp G              &kp H          &kp J             &kp K      &kp L    &kp SEMI
   &kp Z  &kp X  &kp C    &kp V         &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
-                &td_win  &em CODE ESC  &hm LSHFT SPACE    &hm LCTRL RET  &bm WIN_NAV BSPC  &kp TAB
+                &td_win  &lt CODE ESC  &hm LSHFT SPACE    &hm LCTRL RET  &bm WIN_NAV BSPC  &kp TAB
             >;
         };
 
@@ -245,7 +237,7 @@
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U             &kp I      &kp O    &kp P
   &kp A  &kp S  &kp D    &kp F         &kp G              &kp H          &kp J             &kp K      &kp L    &kp SEMI
   &kp Z  &kp X  &kp C    &kp V         &kp B              &kp N          &kp M             &kp COMMA  &kp DOT  &kp FSLH
-                &td_mac  &em CODE ESC  &hm LSHFT SPACE    &hm LCTRL RET  &bm MAC_NAV BSPC  &kp TAB
+                &td_mac  &lt CODE ESC  &hm LSHFT SPACE    &hm LCTRL RET  &bm MAC_NAV BSPC  &kp TAB
             >;
         };
 
