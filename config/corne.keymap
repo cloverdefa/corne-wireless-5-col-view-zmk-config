@@ -128,11 +128,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp GLOBE>,
+                <&kp LCMD &kp LCTRL>,
                 <&macro_tap>,
                 <&kp F>,
                 <&macro_release>,
-                <&kp GLOBE>;
+                <&kp LCMD &kp LCTRL>;
         };
 
         min_mac: windowmin_mac {
