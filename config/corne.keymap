@@ -18,7 +18,7 @@
 
 / {
     chosen {
-        zmk,physical-layout = &five_column_transform;
+        zmk,matrix_transform = &foostan_corne_5col_layout;
     };
 
     behaviors {
