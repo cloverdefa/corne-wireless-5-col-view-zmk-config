@@ -17,7 +17,9 @@
 #define SYS      6
 
 / {
-    chosen { zmk,matrix_transform = &five_column_transform; };
+    chosen { 
+      zmk,physical-layout = &foostan_corne_5col_layout;
+    };
 
     behaviors {
         hm: hold_mod {
