@@ -17,7 +17,7 @@
 #define SYS      6
 
 / {
-    chosen { 
+    chosen {
         zmk,physical-layout = &foostan_corne_5col_layout;
     };
 
