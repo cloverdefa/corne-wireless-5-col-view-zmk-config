@@ -59,7 +59,7 @@
                 <&kp LWIN>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp W &kp E &kp Z &kp T &kp E &kp R &kp M &kp MINUS &kp G &kp U &kp I &kp RET>;
+                <&kp W &kp T &kp RET>;
         };
 
         ter_mac: terminal_macos {
