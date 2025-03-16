@@ -31,6 +31,15 @@
             bindings = <&kp>, <&kp>;
         };
 
+        em: esc_mod {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            bindings = <&kp>, <&kp>;
+        };
+
         td_win: td_win {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
