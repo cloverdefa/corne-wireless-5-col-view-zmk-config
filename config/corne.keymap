@@ -10,10 +10,10 @@
 
 // Layers
 
-#define WinDEF  0
-#define WinNAV  1
-#define MacDEF  2
-#define MacNAV  3
+#define WinDef  0
+#define WinNav  1
+#define MacDef  2
+#define MacNav  3
 #define CODE    4
 #define FUNC    5
 #define SYS     6
@@ -212,8 +212,8 @@
     keymap {
         compatible = "zmk,keymap";
 
-        WinDEF_layer {
-            label = "WinDEF";
+        WinDef_layer {
+            label = "WinDef";
             display-name = "Windows";
             bindings = <
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U            &kp I      &kp O    &kp P
@@ -234,8 +234,8 @@
             >;
         };
 
-        MacDEF_layer {
-            label = "MacDEF";
+        MacDef_layer {
+            label = "MacDef";
             display-name = "MacOS";
             bindings = <
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U            &kp I      &kp O    &kp P
@@ -245,8 +245,8 @@
             >;
         };
 
-        MacNAV_layer {
-            label = "MacNAV";
+        MacNav_layer {
+            label = "MacNav";
             display-name = "MacNav";
             bindings = <
   &kp N1     &kp N2    &kp N3    &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
