@@ -61,6 +61,8 @@
         ter_win: terminal_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -76,6 +78,8 @@
         ter_mac: terminal_macos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -91,6 +95,8 @@
         shot_win: screenshot_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LSHFT)>,
@@ -103,6 +109,8 @@
         shot_mac: screenshot_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LC(LSHFT))>,
@@ -115,6 +123,8 @@
         max_win: windowmax_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -127,6 +137,8 @@
         min_win: windowmin_win {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -139,6 +151,8 @@
         max_mac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD &kp LCTRL>,
@@ -151,6 +165,8 @@
         min_mac: windowmin_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp GLOBE &kp LCTRL>,
@@ -163,6 +179,8 @@
         spot: spotlight_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -175,6 +193,8 @@
         rec_mac: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LSHFT)>,
