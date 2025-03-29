@@ -22,25 +22,6 @@
     chosen { zmk,matrix_transform = &five_column_transform; };
 
     behaviors {
-        rm: row_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <0>;
-            bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <125>;
-        };
-
-        lm: layer_mod {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "balanced";
-            tapping-term-ms = <500>;
-            quick-tap-ms = <120>;
-            bindings = <&mo>, <&kp>;
-        };
-
         td_win: td_win {
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
@@ -168,7 +149,7 @@
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U            &kp I      &kp O    &kp P
   &kp A  &kp S  &kp D    &kp F         &kp G              &kp H          &kp J            &kp K      &kp L    &kp SEMI
   &kp Z  &kp X  &kp C    &kp V         &kp B              &kp N          &kp M            &kp COMMA  &kp DOT  &kp FSLH
-                &td_win  &lm Code ESC  &rm LSHFT SPACE    &rm LCTRL RET  &lm WinNav BSPC  &kp TAB
+                &td_win  &lt Code ESC  &mt LSHFT SPACE    &mt LCTRL RET  &lt WinNav BSPC  &kp TAB
             >;
         };
 
@@ -190,7 +171,7 @@
   &kp Q  &kp W  &kp E    &kp R         &kp T              &kp Y          &kp U            &kp I      &kp O    &kp P
   &kp A  &kp S  &kp D    &kp F         &kp G              &kp H          &kp J            &kp K      &kp L    &kp SEMI
   &kp Z  &kp X  &kp C    &kp V         &kp B              &kp N          &kp M            &kp COMMA  &kp DOT  &kp FSLH
-                &td_mac  &lm Code ESC  &rm LSHFT SPACE    &rm LCTRL RET  &lm MacNav BSPC  &kp TAB
+                &td_mac  &lt Code ESC  &mt LSHFT SPACE    &mt LCTRL RET  &lt MacNav BSPC  &kp TAB
             >;
         };
 
