@@ -38,7 +38,7 @@
     };
 
     macros {
-        edge: brower_edge {
+        edge: start_edge {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
