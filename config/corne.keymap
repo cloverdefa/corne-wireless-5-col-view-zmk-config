@@ -196,10 +196,10 @@
             label = "MacNav";
             display-name = "MacNav";
             bindings = <
-  &kp N1              &kp N2    &kp N3            &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &kp LG(LC(LS(N4)))  &kp CAPS  &max_mac          &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &ter_mac            &kp C_PP  &min_mac          &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))
-                                &kp LC(LS(DOWN))  &trans    &trans       &trans        &trans        &trans
+  &kp N1              &kp N2              &kp N3            &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &kp LG(LC(LS(N4)))  &kp CAPS            &max_mac          &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+  &ter_mac            &kp LG(LC(LS(N5)))  &min_mac          &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+                                          &kp LC(LS(DOWN))  &trans    &trans       &trans        &trans        &trans
             >;
         };
 
