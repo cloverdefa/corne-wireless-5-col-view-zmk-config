@@ -174,10 +174,10 @@
             label = "WinNav";
             display-name = "WinNav";
             bindings = <
-  &kp N1         &kp N2     &kp N3        &kp N4    &kp N5              &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &kp LG(LS(S))  &kp CAPS   &kp LG(UP)    &kp HOME  &kp PG_UP           &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &ter_win       &kp LG(D)  &kp LG(DOWN)  &kp END   &kp PG_DN           &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
-                            &trans        &trans    &kp LC(LS(DOWN))    &trans        &trans        &trans
+  &kp N1         &kp N2     &kp N3            &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &kp LG(LS(S))  &kp CAPS   &kp LG(UP)        &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+  &ter_win       &kp LG(D)  &kp LG(DOWN)      &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+                            &kp LC(LS(DOWN))  &trans    &trans       &trans        &trans        &trans
             >;
         };
 
@@ -196,10 +196,10 @@
             label = "MacNav";
             display-name = "MacNav";
             bindings = <
-  &kp N1              &kp N2    &kp N3    &kp N4    &kp N5              &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-  &kp LG(LC(LS(N4)))  &kp CAPS  &max_mac  &kp HOME  &kp PG_UP           &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &ter_mac            &kp C_PP  &min_mac  &kp END   &kp PG_DN           &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))
-                                &trans    &trans    &kp LC(LS(DOWN))    &trans        &trans        &trans
+  &kp N1              &kp N2    &kp N3            &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+  &kp LG(LC(LS(N4)))  &kp CAPS  &max_mac          &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+  &ter_mac            &kp C_PP  &min_mac          &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp LG(LC(LS(N5)))
+                                &kp LC(LS(DOWN))  &trans    &trans       &trans        &trans        &trans
             >;
         };
 
@@ -207,10 +207,10 @@
             label = "Code";
             display-name = "Code";
             bindings = <
-  &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET         &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC          &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
-  &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT          &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
-                    &trans     &trans     &trans       &kp LC(LS(UP))    &trans    &trans
+  &kp EXCL  &kp AT  &kp HASH        &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
+  &list     &col    &kp GRAVE       &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
+  &tabs     &row    &kp TILDE       &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
+                    &kp LC(LS(UP))  &trans     &trans       &trans     &trans    &trans
             >;
         };
 
