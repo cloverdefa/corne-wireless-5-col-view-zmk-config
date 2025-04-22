@@ -58,4 +58,4 @@
 提交更改並推送到你的分支。
 發送 Pull Request。
 授權
-此專案基於 MIT License 授權。
+此專案基於 MIT 授權條款，詳見 [LICENSE](https://github.com/cloverdefa/corne-wireless-5-col-view-zmk-config/blob/main/LICENSE.md) 文件。
