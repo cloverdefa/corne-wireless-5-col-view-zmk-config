@@ -140,6 +140,16 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+
+        Combo_Crtl {
+            bindings = <&kp LCTRL>;
+            key-positions = <20 21>;
+            layers = <0 2>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
