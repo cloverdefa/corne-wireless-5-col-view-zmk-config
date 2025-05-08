@@ -202,7 +202,7 @@
             display-name = "Code";
             bindings = <
   &kp EXCL  &kp AT  &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(TAB)
+  &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LA(F4)
   &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                     &trans     &trans     &trans       &trans     &trans    &kp LC(LS(UP))
             >;
@@ -212,10 +212,10 @@
             label = "Func";
             display-name = "Func";
             bindings = <
-  &kp F1      &kp F2   &kp F3  &kp F4  &kp F5    &kp F6      &kp F7         &kp F8          &kp F9            &kp F10
-  &sk LWIN    &none    &none   &none   &none     &to SYS     &to WinDef     &to MacDef      &kp F11           &kp F12
-  &kp(LG(I))  &edge    &none   &none   &none     &kp LA(F4)  &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
-                       &trans  &trans  &trans    &trans      &trans         &trans
+  &kp F1      &kp F2   &kp F3  &kp F4  &kp F5    &kp F6           &kp F7         &kp F8          &kp F9            &kp F10
+  &sk LWIN    &none    &none   &none   &none     &to SYS          &to WinDef     &to MacDef      &kp F11           &kp F12
+  &kp(LG(I))  &edge    &none   &none   &none     &kp LC(LA(DEL))  &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
+                       &trans  &trans  &trans    &trans           &trans         &trans
             >;
         };
 
