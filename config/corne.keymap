@@ -87,20 +87,6 @@
                 <&kp LCMD &kp LCTRL>;
         };
 
-        min_mac: windowmin_mac {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            wait-ms = <0>;
-            tap-ms = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp GLOBE &kp LCTRL>,
-                <&macro_tap>,
-                <&kp F>,
-                <&macro_release>,
-                <&kp GLOBE &kp LCTRL>;
-        };
-
        rec_mac: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -192,7 +178,7 @@
             bindings = <
   &kp N1              &kp N2              &kp N3            &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
   &kp LG(LC(LS(N4)))  &kp CAPS            &max_mac          &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-  &ter_mac            &kp LG(LC(LS(N5)))  &min_mac          &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+  &ter_mac            &kp LG(LC(LS(N5)))  &max_mac          &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
                                           &kp LC(LS(DOWN))  &trans    &trans       &trans        &trans        &trans
             >;
         };
