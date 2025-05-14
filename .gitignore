@@ -1,0 +1,18 @@
+# 忽略檔案
+.wget-hsts
+.DS_Store
+.log
+*.code-workspace
+*.spec
+desktop.ini
+id_ed25519
+id_rsa
+
+# 忽略資料夾
+__pycache__/
+.vscode/
+build/
+dist/
+
+# 不忽略 README.md 文件
+!README.md
