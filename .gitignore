@@ -1,18 +1,21 @@
 # 忽略檔案
-.wget-hsts
-.DS_Store
-.log
+*.list
 *.code-workspace
-*.spec
-desktop.ini
+.python-version
+.luarc.json
+poetry.lock
+pyproject.toml
+lazy-lock.json
 id_ed25519
 id_rsa
 
 # 忽略資料夾
-__pycache__/
+.venv/
 .vscode/
+.mypy_cache
 build/
 dist/
 
-# 不忽略 README.md 文件
+# 禁止忽略檔案
 !README.md
+
