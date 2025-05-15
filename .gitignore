@@ -1,5 +1,7 @@
 # 忽略檔案
 *.code-workspace
+*.log
+*.swp
 .DS_Store
 .luarc.json
 .python-version
