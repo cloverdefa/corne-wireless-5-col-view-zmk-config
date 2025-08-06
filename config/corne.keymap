@@ -20,7 +20,7 @@
 
 / {
     chosen {
-        zmk,physical-layout = &five_column_transform;
+        zmk,matrix_transform = &five_column_transform;
     };
 
     macros {
