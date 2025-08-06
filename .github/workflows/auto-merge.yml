@@ -1,5 +1,5 @@
+---
 name: automerge
-
 on:
   pull_request:
     types:
@@ -18,16 +18,15 @@ on:
     types:
       - completed
   status: {}
-
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
       - id: automerge
         name: automerge
-        uses: "pascalgn/automerge-action@v0.16.4"
+        uses: pascalgn/automerge-action@v0.16.4
         env:
-          GITHUB_TOKEN: "${{ secrets.RELEASE_TOKEN }}"
-          MERGE_LABELS: ""
-          MERGE_FILTER_AUTHOR: "cloverdefa"
-          MERGE_DELETE_BRANCH_FILTER: "develop"
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+          MERGE_LABELS: ''
+          MERGE_FILTER_AUTHOR: cloverdefa
+          MERGE_DELETE_BRANCH_FILTER: test
