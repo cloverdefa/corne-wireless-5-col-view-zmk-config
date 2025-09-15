@@ -19,9 +19,7 @@
 #define SYS     6
 
 / {
-    chosen {
-        zmk,physical-layout = &foostan_corne_5col_layout;
-    };
+    chosen { zmk,matrix_transform = &five_column_transform; };
 
     macros {
         openbrowser: start_edge {
