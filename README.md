@@ -16,20 +16,6 @@
 - 其他層：`Code`、`Func`、`SYS`
 - 主要巨集：`ter_win`、`ter_mac`、`max_mac`、`rec_mac`
 
-## 鍵位圖
-
-下列為主要層的鍵位示意（5 列視圖）：
-
-![WinDef](IMG/windef.svg)
-
-![MacDef](IMG/macdef.svg)
-
-![Code](IMG/code.svg)
-
-![Func](IMG/func.svg)
-
-![SYS](IMG/sys.svg)
-
 ## 建置與燒錄
 
 前置：安裝 Zephyr SDK 與 West，並以本倉庫 `config/` 作為 ZMK 設定。
