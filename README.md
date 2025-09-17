@@ -2,6 +2,8 @@
 
 此倉庫為 Corne 無線鍵盤的 ZMK 設定，採用 5 列鍵位視圖，提供多層佈局與常用巨集，並可選配 nice!view 顯示與 ZMK Studio。
 
+![Corne 鍵位圖（5 列視圖）](IMG/corne.svg)
+
 ## 專案結構
 
 - `config/corne.keymap`：主要層（WinDef/MacDef/WinNav/MacNav/Code/Func/SYS）、combos 與巨集定義。
