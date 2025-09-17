@@ -4,9 +4,9 @@
 
 ## 專案結構與模組
 - `config/corne.keymap`：主要層（WinDef/MacDef/WinNav/MacNav/Code/Func/SYS）、combos 與巨集定義。
-- `config/corne.conf`：藍牙/省電/去彈跳與 ZMK Studio 設定。
-- `config/west.yml`：ZMK 專案 manifest（追蹤 `zmk` main）。
-- `build.yaml`：CI 建置矩陣（left/right + nice!view + Studio snippet）。
+- `config/corne.conf`：藍牙/省電/去彈跳與（可選）ZMK Studio 設定。
+- `config/west.yml`：ZMK 專案 manifest（目前固定 `zmk` v0.3）。
+- `build.yaml`：CI 建置矩陣（left/right + nice!view；Studio snippet 預設註解，可視需求啟用）。
 - `README.md`：使用說明與層概覽。
 
 ## 建置、測試與開發
@@ -17,15 +17,15 @@ west init -l config && west update
 # 左半
 west build -s zmk/app -d build/left -b nice_nano_v2 -- \
   -DSHIELD="corne_left nice_view_adapter nice_view" \
-  -DZMK_CONFIG=$PWD/config -DSNIPPET=studio-rpc-usb-uart
+  -DZMK_CONFIG=$PWD/config
 west flash -d build/left
 # 右半
 west build -s zmk/app -d build/right -b nice_nano_v2 -- \
   -DSHIELD="corne_right nice_view_adapter nice_view" \
-  -DZMK_CONFIG=$PWD/config -DSNIPPET=studio-rpc-usb-uart
+  -DZMK_CONFIG=$PWD/config
 west flash -d build/right
 ```
-說明：以上指令會建置左右半，啟用 nice!view 與 Studio RPC，並使用本倉庫的 `config/`。
+說明：以上指令會建置左右半並啟用 nice!view，使用本倉庫的 `config/`。若需啟用 ZMK Studio，請於兩側指令尾端加入 `-DSNIPPET=studio-rpc-usb-uart`。
 
 ## 程式風格與命名
 - Devicetree/DTS：4 空白縮排；保持 10 鍵列對齊，易讀優先。
@@ -51,4 +51,3 @@ west flash -d build/right
 ## 安全與設定提示（可選）
 - 勿提交個人配對資料；變更 `west.yml` 版本需說明理由。
 - `CONFIG_ZMK_STUDIO_LOCKING` 調整請審慎評估以免影響 Studio 使用。
-
