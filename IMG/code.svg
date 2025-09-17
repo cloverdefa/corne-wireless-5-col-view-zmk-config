@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="740" height="300" viewBox="0 0 740 300">
+  <style>
+    .key { fill: #f7f7f7; stroke: #bbb; rx: 8; ry: 8; }
+    .label { font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif; font-size: 13px; fill: #222; dominant-baseline: middle; text-anchor: middle; }
+    .title { font-size: 16px; font-weight: 700; fill: #333; }
+  </style>
+  <text x="10" y="20" class="title">Code</text>
+  <g transform="translate(10,30)">
+    <!-- row 1 -->
+    <g>
+      <g><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">!</text></g>
+      <g transform="translate(70,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">@</text></g>
+      <g transform="translate(140,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">#</text></g>
+      <g transform="translate(210,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">$</text></g>
+      <g transform="translate(280,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">%</text></g>
+      <g transform="translate(350,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">^</text></g>
+      <g transform="translate(420,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">&amp;</text></g>
+      <g transform="translate(490,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">*</text></g>
+      <g transform="translate(560,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">(</text></g>
+      <g transform="translate(630,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">)</text></g>
+    </g>
+    <!-- row 2 -->
+    <g transform="translate(0,70)">
+      <g><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">list</text></g>
+      <g transform="translate(70,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">col</text></g>
+      <g transform="translate(140,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">`</text></g>
+      <g transform="translate(210,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">-</text></g>
+      <g transform="translate(280,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">=</text></g>
+      <g transform="translate(350,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">[</text></g>
+      <g transform="translate(420,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">]</text></g>
+      <g transform="translate(490,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">'</text></g>
+      <g transform="translate(560,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">"</text></g>
+      <g transform="translate(630,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">Alt+F4</text></g>
+    </g>
+    <!-- row 3 -->
+    <g transform="translate(0,140)">
+      <g><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">tabs</text></g>
+      <g transform="translate(70,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">row</text></g>
+      <g transform="translate(140,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">~</text></g>
+      <g transform="translate(210,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">+</text></g>
+      <g transform="translate(280,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">_</text></g>
+      <g transform="translate(350,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">[</text></g>
+      <g transform="translate(420,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">]</text></g>
+      <g transform="translate(490,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">|</text></g>
+      <g transform="translate(560,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">\</text></g>
+      <g transform="translate(630,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">Del</text></g>
+    </g>
+    <!-- thumbs row -->
+    <g transform="translate(150,210)">
+      <g><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">TRNS</text></g>
+      <g transform="translate(70,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">TRNS</text></g>
+      <g transform="translate(140,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">TRNS</text></g>
+      <g transform="translate(210,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">TRNS</text></g>
+      <g transform="translate(280,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">TRNS</text></g>
+      <g transform="translate(350,0)"><rect class="key" width="60" height="60"/><text class="label" x="30" y="30">Ctrl+Shift+↑</text></g>
+    </g>
+  </g>
+</svg>
+
