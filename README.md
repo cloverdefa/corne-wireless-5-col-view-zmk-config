@@ -10,13 +10,25 @@
 - `config/corne.conf`：藍牙、省電、去彈跳與（可選）Studio 設定。
 - `config/west.yml`：ZMK 專案 manifest（目前固定 `zmk` v0.3）。
 - `build.yaml`：CI 建置矩陣（left/right + nice!view；Studio snippet 可選）。
+- `IMG/corne.svg`：鍵位圖（5 列視圖）。
+- `drawer.py`：以 keymap CLI 由 `config/corne.keymap` 產生 SVG。
 
-## 層與巨概覽
+## 層與巨集概覽
 
 - 預設層：`WinDef`、`MacDef`
 - 導航層：`WinNav`、`MacNav`
 - 其他層：`Code`、`Func`、`SYS`
 - 主要巨集：`ter_win`、`ter_mac`、`max_mac`、`rec_mac`
+
+## 產生鍵位圖（可選）
+
+若需更新上方鍵位圖，請先安裝提供 `keymap` 指令的 keymap-drawer，之後執行：
+
+```bash
+python drawer.py
+```
+
+說明：腳本會以 `keymap parse` 解析 `config/corne.keymap`，再用 `keymap draw` 產生 `IMG/corne.svg`，並清理中間的 YAML。
 
 ## 建置與燒錄
 
