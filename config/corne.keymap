@@ -241,7 +241,7 @@
             display-name = "MacFunc";
             bindings = <
   &kp F1      &kp F2        &kp F3  &kp F4  &kp F5     &kp F6      &kp F7        &kp F8      &kp F9        &kp F10
-  &sk LWIN    &none         &none   &none   &none      &to SYS     &none         &none       &kp F11       &kp F12
+  &sk LALT    &none         &none   &none   &none      &to SYS     &none         &none       &kp F11       &kp F12
   &kp(LG(I))  &openbrowser  &none   &none   &to Mouse  &spotlight  &kp LA(DOWN)  &kp LA(UP)  &kp LC(LEFT)  &kp LC(RIGHT)
                             &trans  &trans  &trans     &trans      &trans        &trans
             >;
