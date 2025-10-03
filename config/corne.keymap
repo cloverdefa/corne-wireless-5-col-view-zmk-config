@@ -263,12 +263,12 @@
         compatible = "zmk,conditional-layers";
 
         win_function {
-            if-layers = <6 1>;
+            if-layers = <1 6>;
             then-layer = <2>;
         };
 
         mac_function {
-            if-layers = <6 4>;
+            if-layers = <4 6>;
             then-layer = <5>;
         };
     };
