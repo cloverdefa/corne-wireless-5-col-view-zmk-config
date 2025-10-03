@@ -124,7 +124,7 @@
                 <&kp SPACE>,
                 <&macro_release>,
                 <&kp LCMD>;
-       }
+       };
 
         col: tmux_column {
             compatible = "zmk,behavior-macro";
