@@ -13,11 +13,11 @@
 
 #define WinDef  0
 #define WinNav  1
-#define WinFunc 2
-#define MacDef  3
-#define MacNav  4
-#define MacFunc 5
-#define Code    6
+#define MacDef  2
+#define MacNav  3
+#define Code    4
+#define WinFunc 5
+#define MacFunc 6
 #define Mouse   7
 #define SYS     8
 
@@ -180,18 +180,6 @@
             >;
         };
 
-        WinFunc_layer {
-            label = "WinFunc";
-            display-name = "WinFunc";
-            bindings = <
-  &kp F1      &kp F2        &kp F3  &kp F4  &kp F5       &kp F6   &kp F7         &kp F8          &kp F9            &kp F10
-  &sk LWIN    &none         &none   &none   &kp LA(C)    &to SYS  &none          &none           &kp F11           &kp F12
-  &kp(LG(I))  &openbrowser  &none   &none   &to Mouse    &none    &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
-                            &trans  &trans  &trans       &trans   &trans         &trans
-            >;
-        };
-
-
         MacDef_layer {
             label = "MacDef";
             display-name = "MacOS";
@@ -214,17 +202,6 @@
             >;
         };
 
-        MacFunc_layer {
-            label = "MacFunc";
-            display-name = "MacFunc";
-            bindings = <
-  &kp F1      &kp F2        &kp F3  &kp F4  &kp F5     &kp F6         &kp F7        &kp F8      &kp F9        &kp F10
-  &sk LWIN    &none         &none   &none   &none      &to SYS        &none         &none       &kp F11       &kp F12
-  &kp(LG(I))  &openbrowser  &none   &none   &to Mouse  &kp LG(SPACE)  &kp LA(DOWN)  &kp LA(UP)  &kp LC(LEFT)  &kp LC(RIGHT)
-                            &trans  &trans  &trans     &trans         &trans        &trans
-            >;
-        };
-
         Code_layer {
             label = "Code";
             display-name = "Code";
@@ -233,6 +210,28 @@
   &list     &col    &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LA(F4)
   &tabs     &row    &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                     &trans     &trans     &trans       &trans     &trans    &trans
+            >;
+        };
+
+        WinFunc_layer {
+            label = "WinFunc";
+            display-name = "WinFunc";
+            bindings = <
+  &kp F1      &kp F2        &kp F3  &kp F4  &kp F5       &kp F6   &kp F7         &kp F8          &kp F9            &kp F10
+  &sk LWIN    &none         &none   &none   &kp LA(C)    &to SYS  &none          &none           &kp F11           &kp F12
+  &kp(LG(I))  &openbrowser  &none   &none   &to Mouse    &none    &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
+                            &trans  &trans  &trans       &trans   &trans         &trans
+            >;
+        };
+
+        MacFunc_layer {
+            label = "MacFunc";
+            display-name = "MacFunc";
+            bindings = <
+  &kp F1      &kp F2        &kp F3  &kp F4  &kp F5     &kp F6         &kp F7        &kp F8      &kp F9        &kp F10
+  &sk LWIN    &none         &none   &none   &none      &to SYS        &none         &none       &kp F11       &kp F12
+  &kp(LG(I))  &openbrowser  &none   &none   &to Mouse  &kp LG(SPACE)  &kp LA(DOWN)  &kp LA(UP)  &kp LC(LEFT)  &kp LC(RIGHT)
+                            &trans  &trans  &trans     &trans         &trans        &trans
             >;
         };
 
@@ -263,13 +262,13 @@
         compatible = "zmk,conditional-layers";
 
         win_function {
-            if-layers = <1 6>;
-            then-layer = <2>;
+            if-layers = <1 4>;
+            then-layer = <5>;
         };
 
         mac_function {
-            if-layers = <4 6>;
-            then-layer = <5>;
+            if-layers = <3 4>;
+            then-layer = <6>;
         };
     };
 };
