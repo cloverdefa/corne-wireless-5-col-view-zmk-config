@@ -77,9 +77,12 @@
                 <&kp SPACE>,
                 <&macro_release>,
                 <&kp LCMD>,
-                <&macro_pause_for_release>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp G>, <&kp H>, <&kp O>, <&kp S>, <&kp T>, <&kp T>, <&kp Y>, <&kp DOT>, <&kp A>, <&kp P>, <&kp P>, <&kp RET>;
+                <&kp G>, <&kp H>, <&kp O>, <&kp S>, <&kp T>, <&kp T>, <&kp Y>, <&kp DOT>, <&kp A>, <&kp P>, <&kp P>,
+                <&macro_wait_time 120>,
+                <&macro_tap>,
+                <&kp RET>;
         };
 
        max_mac: windowmax_mac {
