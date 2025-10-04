@@ -263,8 +263,8 @@
             display-name = "MacFunc";
             bindings = <
             &kp F1      &kp F2  &kp F3        &kp F4     &kp F5       &kp F6      &kp F7      &kp F8    &kp F9        &kp F10
-            &sk LALT    &none   &winup_mac    &kp GLOBE  &none        &to SYS     &none       &none     &kp F11       &kp F12
-            &kp(LG(I))  &none   &windown_mac  &none      &to Mouse    &spotlight  &move_down  &move_up  &kp LC(LEFT)  &kp LC(RIGHT)
+            &sk LALT    &none   &winup_mac    &kp LANG1  &none        &to SYS     &none       &none     &kp F11       &kp F12
+            &kp(LG(I))  &none   &windown_mac  &kp LANG2  &to Mouse    &spotlight  &move_down  &move_up  &kp LC(LEFT)  &kp LC(RIGHT)
                                 &trans        &trans     &trans       &trans      &trans      &trans
             >;
         };
