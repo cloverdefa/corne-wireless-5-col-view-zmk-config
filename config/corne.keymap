@@ -113,7 +113,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>, <&kp LALT>,
-                <&macro_tap>, <&kp UP>,
+                <&macro_tap>, <&kp K>,
                 <&macro_release>, <&kp LALT>;
         }; 
  
@@ -122,7 +122,7 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>, <&kp LALT>,
-                <&macro_tap>, <&kp DOWN>,
+                <&macro_tap>, <&kp J>,
                 <&macro_release>, <&kp LALT>;
         }; 
  
