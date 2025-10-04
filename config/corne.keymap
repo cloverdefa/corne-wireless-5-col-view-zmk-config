@@ -251,9 +251,9 @@
             label = "Mouse";
             display-name = "Mouse";
             bindings = <
-            &kp ESC  &none  &none       &none    &none         &none           &none           &none         &none            &none
-            &none    &none  &none       &none    &none         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
-            &none    &none  &none       &none    &none         &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none
+            &kp ESC  &none  &none       &none    &none         &none           &none           &none           &none            &none
+            &none    &none  &none       &none    &none         &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP    &mmv MOVE_RIGHT  &none
+            &none    &none  &none       &none    &none         &none           &msc SCRL_UP    &msc SCRL_DOWN  &none            &none
                             &to MacDef  &to SYS  &to WinDef    &mkp LCLK       &mkp RCLK       &mkp MCLK
             >;
         };
