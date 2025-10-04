@@ -79,10 +79,10 @@
                 <&kp LCMD>,
                 <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp G>, <&kp H>, <&kp O>, <&kp S>, <&kp T>, <&kp T>, <&kp Y>, <&kp DOT>, <&kp A>, <&kp P>, <&kp P>,
+                <&kp G>, <&kp H>, <&kp O>, <&kp S>, <&kp T>, <&kp T>, <&kp Y>,
+                <&kp DOT>, <&kp A>, <&kp P>, <&kp P>,
                 <&macro_wait_time 120>,
-                <&macro_tap>,
-                <&kp RET>;
+                <&macro_tap>, <&kp RET>;
         };
 
        max_mac: windowmax_mac {
