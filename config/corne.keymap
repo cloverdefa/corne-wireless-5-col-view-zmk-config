@@ -154,7 +154,7 @@
     combos {
         compatible = "zmk,combos";
 
-        Combo_Crtl {
+        Combo_Control {
             bindings = <&kp LCTRL>;
             key-positions = <20 21>;
             layers = <0 2>;
