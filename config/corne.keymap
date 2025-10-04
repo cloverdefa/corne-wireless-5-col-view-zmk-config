@@ -101,7 +101,7 @@
                 <&macro_release>, <&kp LG(LSHFT)>;
         };
 
-        spotlight: spotlight {
+       spotlight: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings =
@@ -110,29 +110,47 @@
                 <&macro_release>, <&kp LCMD>;
        };
 
-        col: tmux_column {
+       move_up: move_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&kp PIPE>;
-        };
+            bindings =
+                <&macro_press>, <&kp LALT>,
+                <&macro_tap>, <&kp UP>,
+                <&macro_release>, <&kp LALT>;
+       }; 
 
-        row: tmux_row {
+       move_down: move_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&kp MINUS>;
-        };
+            bindings =
+                <&macro_press>, <&kp LALT>,
+                <&macro_tap>, <&kp DOWN>,
+                <&macro_release>, <&kp LALT>;
+       }; 
 
-        list: tmux_list {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&kp W>;
-        };
+       col: tmux_column {
+           compatible = "zmk,behavior-macro";
+           #binding-cells = <0>;
+           bindings = <&macro_tap>, <&kp LC(A)>, <&kp PIPE>;
+       };
 
-        tabs: tmux_create {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_tap>, <&kp LC(A)>, <&kp C>;
-        };
+       row: tmux_row {
+           compatible = "zmk,behavior-macro";
+           #binding-cells = <0>;
+           bindings = <&macro_tap>, <&kp LC(A)>, <&kp MINUS>;
+       };
+
+       list: tmux_list {
+           compatible = "zmk,behavior-macro";
+           #binding-cells = <0>;
+           bindings = <&macro_tap>, <&kp LC(A)>, <&kp W>;
+       };
+
+       tabs: tmux_create {
+           compatible = "zmk,behavior-macro";
+           #binding-cells = <0>;
+           bindings = <&macro_tap>, <&kp LC(A)>, <&kp C>;
+       };
     };
 
     combos {
@@ -224,10 +242,10 @@
             label = "MacFunc";
             display-name = "MacFunc";
             bindings = <
-  &kp F1      &kp F2        &kp F3  &kp F4  &kp F5     &kp F6      &kp F7  &kp F8  &kp F9        &kp F10
-  &sk LALT    &none         &none   &none   &none      &to SYS     &none   &none   &kp F11       &kp F12
-  &kp(LG(I))  &openbrowser  &none   &none   &to Mouse  &spotlight  &none   &none   &kp LC(LEFT)  &kp LC(RIGHT)
-                            &trans  &trans  &trans     &trans      &trans  &trans
+  &kp F1      &kp F2  &kp F3  &kp F4  &kp F5     &kp F6      &kp F7      &kp F8    &kp F9        &kp F10
+  &sk LALT    &none   &none   &none   &none      &to SYS     &none       &none     &kp F11       &kp F12
+  &kp(LG(I))  &none   &none   &none   &to Mouse  &spotlight  &move_down  &move_up  &kp LC(LEFT)  &kp LC(RIGHT)
+                      &trans  &trans  &trans     &trans      &trans      &trans
             >;
         };
 
