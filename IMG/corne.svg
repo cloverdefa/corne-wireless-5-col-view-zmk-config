@@ -977,13 +977,9 @@ path.combo {
 </g>
 <g transform="translate(252, 98)" class="key keypos-14">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Alt+C</text>
 </g>
 <g transform="translate(476, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#System">
-<text x="0" y="0" class="key tap layer-activator">System</text>
-</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(532, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1023,6 +1019,9 @@ path.combo {
 </g>
 <g transform="translate(476, 154)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<a href="#System">
+<text x="0" y="0" class="key tap layer-activator">System</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(532, 147)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1136,9 +1135,7 @@ path.combo {
 </g>
 <g transform="translate(476, 98)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#System">
-<text x="0" y="0" class="key tap layer-activator">System</text>
-</a><text x="0" y="24" class="key hold">toggle</text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 70%">&amp;spotlight</tspan></text>
 </g>
 <g transform="translate(532, 91)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
@@ -1178,7 +1175,9 @@ path.combo {
 </g>
 <g transform="translate(476, 154)" class="key keypos-25">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap"><tspan style="font-size: 70%">&amp;spotlight</tspan></text>
+<a href="#System">
+<text x="0" y="0" class="key tap layer-activator">System</text>
+</a><text x="0" y="24" class="key hold">toggle</text>
 </g>
 <g transform="translate(532, 147)" class="key keypos-26">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
