@@ -44,6 +44,9 @@
                 <&macro_release>, <&kp LWIN>,
                 <&macro_pause_for_release>,
 
+                // 等待 執行視窗 完全開啟
+                <&macro_wait_time 150>,
+                
                 // 輸入msedge 後按下Enter執行啟動瀏覽器
                 <&macro_tap>,
                 <&kp M>, <&kp S>, <&kp E>, <&kp D>, <&kp G>, <&kp E>, <&kp RET>;
