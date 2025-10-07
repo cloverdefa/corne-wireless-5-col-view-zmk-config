@@ -78,9 +78,10 @@
                 <&macro_press>, <&kp LCMD>,
                 <&macro_tap>, <&kp SPACE>,
                 <&macro_release>, <&kp LCMD>,
+                <&macro_pause_for_release>,
 
                 // 等待 Spotlight 完全開啟
-                <&macro_wait_time 150>,
+                <&macro_wait_time 80>,
 
                 // 輸入 ghostty.app
                 <&macro_tap>,
@@ -88,7 +89,7 @@
                 <&kp DOT>, <&kp A>, <&kp P>, <&kp P>,
 
                 // 等待 Spotlight 搜尋結果穩定
-                <&macro_wait_time 300>,
+                <&macro_wait_time 200>,
 
                 // 按下 Enter 啟動
                 <&macro_tap>, <&kp RET>;
@@ -101,13 +102,9 @@
             tap-ms = <0>;
             bindings =
 
-                // 按住 CMD+Control 
+                // MacOS視窗全螢幕
                 <&macro_press>, <&kp LG(LCTRL)>,
-
-                // 按下 F 視窗放大 
                 <&macro_tap>, <&kp F>,
-
-                // 釋放 CMD+Control
                 <&macro_release>, <&kp LG(LCTRL)>;
         };
  
@@ -118,13 +115,9 @@
             tap-ms = <0>;
             bindings =
 
-                // 按住 CMD+Shift
+                // MacOS螢幕錄影
                 <&macro_press>, <&kp LG(LSHFT)>,
-
-                // 按下 數字5 啟動錄影
                 <&macro_tap>, <&kp N5>,
-
-                // 釋放 CMD+Shift
                 <&macro_release>, <&kp LG(LSHFT)>;
         };
  
@@ -133,13 +126,9 @@
             #binding-cells = <0>;
             bindings =
 
-                // 按住 Globe+Control
+                // MacOS視窗放大
                 <&macro_press>, <&kp GLOBE>, <&kp LCTRL>,
-
-                // 按下  放大視窗
                 <&macro_tap>, <&kp F>,
-
-                // 釋放 Globe+Control
                 <&macro_release>, <&kp GLOBE>, <&kp LCTRL>;
         };
 
@@ -148,13 +137,9 @@
             #binding-cells = <0>;
             bindings =
 
-                // 按住 Globe+Control
+                // MacOS取消放大視窗恢復原有視窗尺寸
                 <&macro_press>, <&kp GLOBE>, <&kp LCTRL>,
-
-                // 按下 C 取消放大視窗
                 <&macro_tap>, <&kp C>,
-
-                // 釋放 Globe+Control
                 <&macro_release>, <&kp GLOBE>, <&kp LCTRL>;
         };
 
