@@ -89,7 +89,7 @@
                 <&kp DOT>, <&kp A>, <&kp P>, <&kp P>,
 
                 // 等待 Spotlight 搜尋結果穩定
-                <&macro_wait_time 400>,
+                <&macro_wait_time 300>,
 
                 // 按下 Enter 啟動
                 <&macro_tap>, <&kp RET>;
