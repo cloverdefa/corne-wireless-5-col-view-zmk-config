@@ -47,9 +47,13 @@
                 // 等待 執行視窗 完全開啟
                 <&macro_wait_time 150>,
                 
-                // 輸入msedge 後按下Enter執行啟動瀏覽器
+                // 輸入msedge
                 <&macro_tap>,
-                <&kp M>, <&kp S>, <&kp E>, <&kp D>, <&kp G>, <&kp E>, <&kp RET>;
+                <&kp M>, <&kp S>, <&kp E>, <&kp D>, <&kp G>, <&kp E>,
+
+                // 等待 執行視窗 搜尋結果穩定
+                <&macro_wait_time 150>,
+                <&macro_tap>, <&kp RET>;        
         };
 
         ter_win: terminal_windows {
@@ -68,7 +72,7 @@
                 // 等待 執行視窗 完全開啟
                 <&macro_wait_time 150>,
 
-                // 輸入WT 後按下ENTER執行
+                // 輸入WT
                 <&macro_tap>,
                 <&kp W>, <&kp T>,
 
