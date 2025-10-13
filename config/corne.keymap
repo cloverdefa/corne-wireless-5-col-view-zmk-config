@@ -70,7 +70,11 @@
 
                 // 輸入WT 後按下ENTER執行
                 <&macro_tap>,
-                <&kp W>, <&kp T>, <&kp RET>;
+                <&kp W>, <&kp T>,
+
+                // 等待 執行視窗 搜尋結果穩定
+                <&macro_wait_time 150>,
+                <&macro_tap>, <&kp RET>;
         };
 
         ter_mac: terminal_macos {
