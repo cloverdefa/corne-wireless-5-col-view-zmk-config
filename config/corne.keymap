@@ -52,7 +52,9 @@
                 <&kp M>, <&kp S>, <&kp E>, <&kp D>, <&kp G>, <&kp E>,
 
                 // 等待 執行視窗 搜尋結果穩定
-                <&macro_wait_time 150>,
+                <&macro_wait_time 300>,
+
+                // 按下 Enter 啟動        
                 <&macro_tap>, <&kp RET>;        
         };
 
@@ -74,10 +76,11 @@
 
                 // 輸入WT
                 <&macro_tap>,
-                <&kp W>, <&kp T>,
 
                 // 等待 執行視窗 搜尋結果穩定
-                <&macro_wait_time 150>,
+                <&macro_wait_time 300>,
+       
+                // 按下 Enter 啟動        
                 <&macro_tap>, <&kp RET>;
         };
 
