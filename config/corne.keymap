@@ -75,7 +75,7 @@
                 <&macro_wait_time 150>,
 
                 // 輸入WT
-                <&macro_tap>,
+                <&macro_tap>, <&kp W>, <&kp T>,
 
                 // 等待 執行視窗 搜尋結果穩定
                 <&macro_wait_time 300>,
