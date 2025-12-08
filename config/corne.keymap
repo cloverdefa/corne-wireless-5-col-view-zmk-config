@@ -15,11 +15,14 @@
 #define WinNav  1
 #define MacDef  2
 #define MacNav  3
-#define Code    4
-#define WinFunc 5
-#define MacFunc 6
-#define Mouse   7
-#define SYS     8
+#define iOSDef  4
+#define iOSNav  5
+#define Code    6
+#define WinFunc 7
+#define MacFunc 8
+#define iOSFunc 9
+#define Mouse   10
+#define SYS     11
 
 // Mouse Move Speed
 
@@ -284,6 +287,28 @@
                                                     &trans     &trans    &trans       &trans        &trans        &trans
             >;
         };
+     
+        iOSDef_layer {
+            label = "iOSDef";
+            display-name = "iOS";
+            bindings = <
+            &kp Q  &kp W  &kp E         &kp R     &kp T              &kp Y          &kp U            &kp I      &kp O    &kp P
+            &kp A  &kp S  &kp D         &kp F     &kp G              &kp H          &kp J            &kp K      &kp L    &kp SEMI
+            &kp Z  &kp X  &kp C         &kp V     &kp B              &kp N          &kp M            &kp COMMA  &kp DOT  &kp FSLH
+                          &mt LCMD ESC  &mo Code  &mt LSHFT SPACE    &mt LCTRL RET  &lt iOSNav BSPC  &kp TAB
+            >;
+        };
+    
+        iOSNav_layer {
+            label = "iOSNav";
+            display-name = "iOSNav";
+            bindings = <
+            &kp N1              &kp N2              &kp N3     &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+            &kp LG(LC(LS(N4)))  &kp CAPS            &max_mac   &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+            &ter_mac            &kp LG(LC(LS(N5)))  &kp LG(M)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+                                                    &trans     &trans    &trans       &trans        &trans        &trans
+            >;
+        };
     
         Code_layer {
             label = "Code";
@@ -317,6 +342,17 @@
                                 &trans        &trans  &trans       &trans      &trans      &trans
             >;
         };
+     
+        iOSFunc_layer {
+            label = "iOSFunc";
+            display-name = "iOSFunc";
+            bindings = <
+            &kp F1      &kp F2  &kp F3        &kp F4  &kp F5       &kp F6      &kp F7      &kp F8    &kp F9        &kp F10
+            &sk LALT    &none   &winup_mac    &none   &none        &spotlight  &none       &none     &kp F11       &kp F12
+            &kp(LG(I))  &none   &windown_mac  &none   &to Mouse    &to SYS     &move_down  &move_up  &kp LC(LEFT)  &kp LC(RIGHT)
+                                &trans        &trans  &trans       &trans      &trans      &trans
+            >;
+        };
     
         Mouse_layer {
             label = "Mouse";
@@ -336,7 +372,7 @@
             &none  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
             &none  &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
             &none  &none  &none  &none  &bootloader    &bootloader   &none         &none         &none         &none
-                          &none  &none  &to Mouse      &none         &to MacDef    &to WinDef
+                          &none  &none  &to Mouse      &to iOSDef    &to MacDef    &to WinDef
             >;
         };
     };
@@ -345,13 +381,19 @@
         compatible = "zmk,conditional-layers";
     
         win_function {
-            if-layers = <1 4>;
-            then-layer = <5>;
+            if-layers = <1 6>;
+            then-layer = <7>;
         };
     
         mac_function {
-            if-layers = <3 4>;
-            then-layer = <6>;
+            if-layers = <3 6>;
+            then-layer = <8>;
         };
+
+    
+        ios_function {
+            if-layers = <5 6>;
+            then-layer = <9>;
+        };      
     };
 };
