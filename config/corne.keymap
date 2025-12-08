@@ -231,13 +231,13 @@
         Combo_Control {
             bindings = <&kp LCTRL>;
             key-positions = <20 21>;
-            layers = <0 2>;
+            layers = <0 2 4>;
         };
 
         Combo_ESC {
             bindings = <&kp ESC>;
             key-positions = <0 1>;
-            layers = <0 2>;
+            layers = <0 2 4>;
         };
     };
 
