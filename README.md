@@ -1,74 +1,68 @@
 # Corne Wireless 5-Column View ZMK Config
 
-這是一個為 Corne 無線鍵盤設計的 ZMK 配置，支援 5 列鍵盤視圖，並包含多種功能層和自定義巨集。
+此倉庫為 Corne 無線鍵盤的 ZMK 設定，採用 5 列鍵位視圖，提供多層佈局與常用巨集，並可選配 nice!view 顯示與 ZMK Studio。
 
-## 目錄結構
+![Corne 鍵位圖（5 列視圖）](IMG/corne.svg)
 
-- **`config/`**: 包含 ZMK 的主要配置檔案，例如 `corne.keymap`。
-- **`behaviors.dtsi`**: 定義自定義行為。
-- **`macros/`**: 包含巨集的定義。
+## 專案結構
 
-## 功能層
+- `config/corne.keymap`：主要層（WinDef/MacDef/WinNav/MacNav/Code/Func/SYS）、combos 與巨集定義。
+- `config/corne.conf`：藍牙、省電、去彈跳與（可選）Studio 設定。
+- `config/west.yml`：ZMK 專案 manifest（目前固定 `zmk` v0.3）。
+- `build.yaml`：CI 建置矩陣（left/right + nice!view；Studio snippet 可選）。
+- `IMG/corne.svg`：鍵位圖（5 列視圖）。
+- `drawer.py`：以 keymap CLI 由 `config/corne.keymap` 產生 SVG。
 
-### 預設層 (Windows 和 MacOS)
+## 層與巨集概覽
 
-- **Windows Default (WinDef)**: 預設的 Windows 鍵盤佈局。
-- **MacOS Default (MacDef)**: 預設的 MacOS 鍵盤佈局。
+- 預設層：`WinDef`、`MacDef`
+- 導航層：`WinNav`、`MacNav`
+- 其他層：`Code`、`Func`、`SYS`
+- 主要巨集：`ter_win`、`ter_mac`、`max_mac`、`rec_mac`
 
-### 導航層
+## 產生鍵位圖（可選）
 
-- **Windows Navigation (WinNav)**: 提供快速導航鍵，例如 Home、End、Page Up/Down。
-- **MacOS Navigation (MacNav)**: 提供 MacOS 特定的導航鍵。
+若需更新上方鍵位圖，請先安裝提供 `keymap` 指令的 keymap-drawer，之後執行：
 
-### 程式碼層 (Code)
+```bash
+python drawer.py
+```
 
-- 包含常用符號和巨集，例如 `&kp EXCL`、`&kp HASH`。
+說明：腳本會以 `keymap parse` 解析 `config/corne.keymap`，再用 `keymap draw` 產生 `IMG/corne.svg`，並清理中間的 YAML。
 
-### 功能層 (Func)
+## 建置與燒錄
 
-- 提供功能鍵 (F1-F12) 和系統快捷鍵。
+前置：安裝 Zephyr SDK 與 West，並以本倉庫 `config/` 作為 ZMK 設定。
 
-### 系統層 (SYS)
+```bash
+west init -l config && west update
+# 左半
+west build -s zmk/app -d build/left -b nice_nano_v2 -- \
+  -DSHIELD="corne_left nice_view_adapter nice_view" \
+  -DZMK_CONFIG=$PWD/config
+west flash -d build/left
+# 右半
+west build -s zmk/app -d build/right -b nice_nano_v2 -- \
+  -DSHIELD="corne_right nice_view_adapter nice_view" \
+  -DZMK_CONFIG=$PWD/config
+west flash -d build/right
+```
 
-- 包含藍牙配對、重置和啟動引導模式的快捷鍵。
+- 若需啟用 ZMK Studio，可在上述兩側指令尾端加上 `-DSNIPPET=studio-rpc-usb-uart`。
+- CI 版本參考 `build.yaml`；其中 Studio snippet 預設為註解（可視需求啟用）。
 
-## 巨集功能
+## 驗證重點
 
-- **`ter_win`**: 開啟 Windows Terminal。
-- **`ter_mac`**: 開啟 MacOS Terminal。
-- **`max_mac`**: 最大化視窗 (MacOS)。
-- **`min_mac`**: 最小化視窗 (MacOS)。
-- **`rec_mac`**: 開始螢幕錄影 (MacOS)。
+- 層切換：`Code`/`Func`/`SYS`（`&mo`, `&to`）行為正確。
+- 巨集：`ter_win`、`ter_mac`、`max_mac`、`rec_mac` 正常執行。
+- 藍牙：`&bt BT_SEL n`、`&bt BT_CLR`；喚醒/睡眠（`CONFIG_ZMK_IDLE_SLEEP_TIMEOUT`）。
+- 顯示：nice!view 能正常刷新。
 
-## 安裝與使用
+## 貢獻指南
 
-1. 確保已安裝 [ZMK](https://zmk.dev/) 開發環境。
-2. 將此專案克隆到本地：
-
-   ```bash
-   git clone https://github.com/你的帳號/corne-wireless-5-col-view-zmk-config.git
-
-   ```
-
-3. 編譯並燒錄到你的 Corne 鍵盤：
-
-   ```bash
-   west build -p -b corne_left -- -DZMK_CONFIG=$(pwd)/config
-   west flash
-
-   ```
-
-## 貢獻
-
-歡迎提交 Issue 或 Pull Request！請遵循以下步驟：
-
-## Fork 此專案。
-
-創建一個新分支：
-提交更改並推送到你的分支。
-發送 Pull Request。
+- Commit 建議使用 Conventional Commits：`feat:`, `fix:`, `refactor:`, `build:`, `ci:` 等。
+- 每次提交專注單一更動，PR 提供變更摘要、關鍵片段（前/後）或鍵位圖、以及本地驗證步驟。
 
 ## 授權
 
-此專案基於 MIT 授權條款，詳見[MIT License](https://github.com/cloverdefa/corne-wireless-5-col-view-zmk-config/blob/main/LICENSE.md) 授權條款。
-
+本專案採用 MIT 授權，詳見 `LICENSE.md`。
