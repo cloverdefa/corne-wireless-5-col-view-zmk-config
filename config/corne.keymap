@@ -180,9 +180,9 @@
             bindings =
 
                 // 開啟 Spotlight
-                <&macro_press>, <&kp LWIN $kp LALT>,
+                <&macro_press>, <&kp LWIN>, <&kp LALT>,
                 <&macro_tap>, <&kp SPACE>,
-                <&macro_release>, <&kp LWIN &kp LALT>;
+                <&macro_release>, <&kp LWIN>, <&kp LALT>;
         };
       
         move_up: move_up {
