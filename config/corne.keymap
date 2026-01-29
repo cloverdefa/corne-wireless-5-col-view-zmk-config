@@ -63,11 +63,14 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN &kp X>,
+                <&kp LWIN>,
+                <&macro_tap>,
+                <&kp X>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
                 <&kp I>,
                 <&macro_release>,
-                <&kp LWIN &kp X>;
+                <&kp LWIN>;
         };
 
         ter_mac: terminal_macos {
