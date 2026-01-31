@@ -42,14 +42,15 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LG(LALT)>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>,
+                <&kp LG(LALT)>,
                 <&macro_pause_for_release>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp BSPC &kp E &kp D &kp G &kp E &kp RET>;
+                <&kp E &kp D &kp G &kp E &kp RET>;
         };
 
         ter_win: terminal_windows {
@@ -59,14 +60,15 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LG(LALT)>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>,
+                <&kp LG(LALT)>,
                 <&macro_pause_for_release>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp BSPC &kp W &kp T &kp RET>;
+                <&kp W &kp T &kp DOT &kp E &kp X &kp E &kp RET>;
         };
 
         ter_mac: terminal_macos {
@@ -155,11 +157,11 @@
             #binding-cells = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LALT>,
+                <&kp LG(LALT)>,
                 <&macro_tap>,
                 <&kp SPACE>,
                 <&macro_release>,
-                <&kp LALT>;
+                <&kp LG(LALT)>;
         };
 
         move_up: move_up {
