@@ -42,17 +42,14 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN>,
+                <&kp LALT>,
                 <&macro_tap>,
-                <&kp R>,
+                <&kp SPACE>,
                 <&macro_release>,
-                <&kp LWIN>,
+                <&kp LALT>,
                 <&macro_pause_for_release>,
-                <&macro_wait_time 150>,
                 <&macro_tap>,
-                <&kp M &kp S &kp E &kp D &kp G &kp E>,
-                <&macro_wait_time 300>,
-                <&macro_tap>,
+                <&kp E &kp D &kp G &kp E>,
                 <&kp RET>;
         };
 
@@ -63,14 +60,15 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN>,
+                <&kp LALT>,
                 <&macro_tap>,
-                <&kp X>,
+                <&kp SPACE>,
                 <&macro_release>,
-                <&kp LWIN>,
+                <&kp LALT>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp I>;
+                <&kp W &kp T>,
+                <&kp RET>;
         };
 
         ter_mac: terminal_macos {
