@@ -85,7 +85,9 @@
                 <&kp LCMD>,
                 <&macro_pause_for_release>,
                 <&macro_tap>,
-                <&kp BSPC &kp G &kp H &kp O &kp S &kp T &kp T &kp Y &kp DOT &kp A &kp P &kp P &kp RET>;
+                <&kp G &kp H &kp O &kp S &kp T &kp T &kp Y &kp DOT &kp A &kp P &kp P>,
+                <&macro_wait_time 200>,
+                <&kp RET>;
         };
 
         max_mac: windowmax_mac {
