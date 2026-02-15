@@ -84,6 +84,7 @@
                 <&macro_release>,
                 <&kp LCMD>,
                 <&macro_pause_for_release>,
+                <&macro_wait_time 150>,
                 <&macro_tap>,
                 <&kp G &kp H &kp O &kp S &kp T &kp T &kp Y>,
                 <&macro_wait_time 200>,
