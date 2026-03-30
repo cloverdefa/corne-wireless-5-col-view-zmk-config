@@ -60,11 +60,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN>,
+                <&kp RWIN>,
                 <&macro_tap>,
                 <&kp T>,
                 <&macro_release>,
-                <&kp LWIN>;
+                <&kp RWIN>;
         };
 
         ter_mac: terminal_macos {
