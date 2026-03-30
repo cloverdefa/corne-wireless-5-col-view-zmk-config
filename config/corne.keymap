@@ -60,15 +60,11 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LG(LALT)>,
+                <&kp LG>,
                 <&macro_tap>,
-                <&kp SPACE>,
+                <&kp T>,
                 <&macro_release>,
-                <&kp LG(LALT)>,
-                <&macro_pause_for_release>,
-                <&macro_wait_time 150>,
-                <&macro_tap>,
-                <&kp W &kp S &kp L &kp RET>;
+                <&kp LG>;
         };
 
         ter_mac: terminal_macos {
