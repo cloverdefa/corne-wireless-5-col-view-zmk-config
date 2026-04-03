@@ -25,7 +25,7 @@
 若需更新上方鍵位圖，請先安裝提供 `keymap` 指令的 keymap-drawer，之後執行：
 
 ```bash
-python drawer.py
+python main.py
 ```
 
 說明：腳本會以 `keymap parse` 解析 `config/corne.keymap`，再用 `keymap draw` 產生 `IMG/corne.svg`，並清理中間的 YAML。
