@@ -41,12 +41,8 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
-                <&macro_press>,
-                <&kp LC(LALT)>,
                 <&macro_tap>,
-                <&kp E>,
-                <&macro_release>,
-                <&kp LC(LALT)>;
+                <&kp LC(LA(E))>;
         };
 
         ter_win: terminal_windows {
