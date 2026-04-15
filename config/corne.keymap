@@ -283,7 +283,7 @@
             bindings = <
                 &kp N1         &kp N2    &kp N3        &kp N4    &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
                 &kp LG(LS(S))  &kp CAPS  &kp LG(UP)    &kp HOME  &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-                &ter_win       &cal_win  &kp LG(DOWN)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+                &ter_win       &edge     &kp LG(DOWN)  &kp END   &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
                                          &trans        &trans    &trans       &trans        &trans        &trans
             >;
         };
@@ -347,10 +347,10 @@
             label = "WinFunc";
             display-name = "WinFunc";
             bindings = <
-                &kp F1     &kp F2  &kp F3  &kp F4  &kp F5       &kp F6          &kp F7         &kp F8          &kp F9            &kp F10
-                &sk LWIN   &none   &none   &none   &none        &pt_run  &none          &none           &kp F11           &kp F12
-                &kp LG(I)  &edge   &none   &none   &to Mouse    &to SYS         &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
-                                   &trans  &trans  &trans       &trans          &trans         &trans
+                &kp F1     &kp F2    &kp F3  &kp F4  &kp F5       &kp F6   &kp F7         &kp F8          &kp F9            &kp F10
+                &sk LWIN   &none     &none   &none   &none        &pt_run  &none          &none           &kp F11           &kp F12
+                &kp LG(I)  &cal_win  &none   &none   &to Mouse    &to SYS  &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
+                                     &trans  &trans  &trans       &trans   &trans         &trans
             >;
         };
 
