@@ -79,10 +79,7 @@
 
                 <&macro_wait_time 300>,
                 <&macro_tap>,
-                <&kp D &kp E &kp B &kp I &kp A &kp N>,
-
-                <&macro_wait_time 100>,
-                <&kp ENTER>;
+                <&kp W &kp T &kp TAB &kp D &kp ENTER>;
         };
 
         pt_run: powertoy_run {
