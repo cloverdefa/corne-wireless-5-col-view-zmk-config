@@ -57,7 +57,6 @@
                 <&kp E &kp D &kp G &kp E>,
 
                 <&macro_wait_time 100>,
-
                 <&kp ENTER>;
         };
 
@@ -83,20 +82,25 @@
                 <&kp D &kp E &kp B &kp I &kp A &kp N>,
 
                 <&macro_wait_time 100>,
-
                 <&kp ENTER>;
         };
 
         pt_run: powertoy_run {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LG(LALT)>,
+                <&kp LWIN>,
+                <&kp LALT>,
+
                 <&macro_tap>,
                 <&kp SPACE>,
+
                 <&macro_release>,
-                <&kp LG(LALT)>;
+                <&kp LWIN>,
+                <&kp LALT>;
         };
 
         cal_win: calculator_win {
