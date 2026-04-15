@@ -41,8 +41,12 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
+                <&macro_press>,
+                <&kp LG(LALT)
                 <&macro_tap>,
-                <&kp LC(LS(X))>;
+                <&kp E &kp D &kp G &kp E>,
+                <&macro_release>,
+                <&kp LG(LALT)>;
         };
 
         ter_win: terminal_windows {
@@ -51,8 +55,12 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
+                <&macro_press>,
+                <&kp LG(LALT)>,
                 <&macro_tap>,
-                <&kp LC(T)>;
+                <&kp LC(T)>,
+                <&macro_release>,
+                <&kp LG(LALT)>;
         };
 
         pt_run: powertoy_run {
