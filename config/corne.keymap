@@ -49,7 +49,10 @@
 
                 <&macro_wait_time 350>,
                 <&macro_tap>,
-                <&kp E &kp D &kp G &kp E &kp ENTER>;
+                <&kp E &kp D &kp G &kp E>;
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&kp ENTER>;
         };
 
         ter_win: terminal_windows {
@@ -71,7 +74,11 @@
 
                 <&macro_wait_time 350>,
                 <&macro_tap>,
-                <&kp W &kp ENTER &kp ENTER>;
+                <&kp W &kp ENTER>,
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&kp ENTER>;
+
         };
 
         pt_run: powertoy_run {
