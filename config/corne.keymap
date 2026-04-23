@@ -37,14 +37,12 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN>,
                 <&kp LALT>,
 
                 <&macro_tap>,
                 <&kp SPACE>,
 
                 <&macro_release>,
-                <&kp LWIN>,
                 <&kp LALT>,
 
                 <&macro_wait_time 350>,
@@ -62,19 +60,17 @@
             tap-ms = <0>;
             bindings =
                 <&macro_press>,
-                <&kp LWIN>,
                 <&kp LALT>,
 
                 <&macro_tap>,
                 <&kp SPACE>,
 
                 <&macro_release>,
-                <&kp LWIN>,
                 <&kp LALT>,
 
                 <&macro_wait_time 350>,
                 <&macro_tap>,
-                <&kp W &kp ENTER>,
+                <&kp W &kp T>,
                 <&macro_wait_time 100>,
                 <&macro_tap>,
                 <&kp ENTER>;
