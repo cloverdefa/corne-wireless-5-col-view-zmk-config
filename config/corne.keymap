@@ -63,17 +63,21 @@
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
-                <&kp LCTRL>,
-                <&kp LSHFT>,
+                <&kp LALT>,
 
                 <&macro_tap>,
-                <&kp T>,
+                <&kp SPACE>,
 
                 <&macro_release>,
                 <&kp LWIN>,
-                <&kp LCTRL>,
-                <&kp LSHFT>;
+                <&kp LALT>,
 
+                <&macro_wait_time 350>,
+                <&macro_tap>,
+                <&kp W &kp ENTER>,
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&kp ENTER>;
         };
 
         pt_run: powertoy_run {
