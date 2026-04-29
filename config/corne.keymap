@@ -61,8 +61,18 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+                <&kp LALT>,
+
                 <&macro_tap>,
-                <&kp LC(LC(T)) &kp ENTER>;
+                <&kp T>,
+
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+                <&kp LALT>;
 
         };
 
