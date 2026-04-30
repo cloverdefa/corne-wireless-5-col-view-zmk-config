@@ -58,10 +58,16 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
-                <&macro_tap>,
+                <&macro_press>,
                 <&kp LCTRL>,
                 <&kp LWIN>,
+
+                <&macro_tap>,
                 <&kp T>,
+
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
 
                 <&macro_wait_time 100>,
                 <&macro_tap>,
