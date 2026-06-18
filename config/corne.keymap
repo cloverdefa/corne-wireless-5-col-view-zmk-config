@@ -52,7 +52,7 @@
                 <&kp ENTER>;
         };
 
-        edge: start_edge {
+        edge: edge_browser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             wait-ms = <0>;
