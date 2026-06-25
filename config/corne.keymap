@@ -277,15 +277,21 @@
     combos {
         compatible = "zmk,combos";
 
-        Combo_Control {
+        combo_control {
             bindings = <&kp LCTRL>;
             key-positions = <20 21>;
             layers = <0 2 4>;
         };
 
-        Combo_ESC {
+        combo_esc {
             bindings = <&kp ESC>;
             key-positions = <0 1>;
+            layers = <0 2 4>;
+        };
+
+        combo_alt_shift {
+            bindings = <&kp LS(LALT)>;
+            key-positions = <31 33>;
             layers = <0 2 4>;
         };
     };
