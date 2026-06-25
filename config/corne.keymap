@@ -291,7 +291,7 @@
 
         combo_alt_shift {
             bindings = <&kp LS(LALT)>;
-            key-positions = <31 33>;
+            key-positions = <30 32>;
             layers = <0 2 4>;
         };
     };
