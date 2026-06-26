@@ -288,12 +288,6 @@
             key-positions = <0 1>;
             layers = <0 2>;
         };
-
-        combo_alt_shift {
-            bindings = <&kp LS(LALT)>;
-            key-positions = <30 32>;
-            layers = <0 2>;
-        };
     };
 
     keymap {
