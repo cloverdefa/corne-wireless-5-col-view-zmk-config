@@ -175,7 +175,6 @@
                 <&kp LG(LCTRL)>;
         };
 
-
         rec_mac: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -331,10 +330,10 @@
             label = "WinNav";
             display-name = "WinNav";
             bindings = <
-                &kp N1          &kp N2    &kp N3        &kp N4     &kp N5          &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
-                &kp LG(LS(S))   &kp CAPS  &kp LG(UP)    &kp HOME   &kp PG_UP       &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
-                &ter_win_quake  &zen      &kp LG(DOWN)  &kp END    &kp PG_DN       &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
-                                          &trans        &trans     &kp LG(SPACE)   &trans        &trans        &trans
+                &kp N1          &kp N2         &kp N3        &kp N4     &kp N5       &kp N6        &kp N7        &kp N8      &kp N9      &kp N0
+                &kp LG(LS(S))   &kp LG(SPACE)  &kp LG(UP)    &kp HOME   &kp PG_UP    &kp LEFT      &kp DOWN      &kp UP      &kp RIGHT   &kp LC(TAB)
+                &ter_win_quake  &zen           &kp LG(DOWN)  &kp END    &kp PG_DN    &kp C_VOL_DN  &kp C_VOL_UP  &kp C_PREV  &kp C_NEXT  &kp C_PP
+                                               &trans        &trans     &trans       &trans        &trans        &trans
             >;
         };
 
