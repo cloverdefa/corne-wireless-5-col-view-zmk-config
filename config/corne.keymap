@@ -22,11 +22,11 @@
 #define SYS     8
 
 / {
+
     chosen {
+      zmk,matrix_transform = &five_column_transform;
       zmk,physical-layout = &foostan_corne_5col_layout;
     };
-
-    /* chosen { zmk,matrix_transform = &five_column_transform; }; */
 
     macros {
         zen: zen_browser {
