@@ -4,11 +4,18 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
+    - name: M165437
+      url-base: https://github.com/M165437
+
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: v0.3.0
       import: app/west.yml
+
+    - name: nice-view-gem
+      remote: M165437
+      revision: main
 
   self:
     path: config
