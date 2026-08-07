@@ -4,7 +4,7 @@ manifest:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
 
-    - name: M165437
+    - name: m165437
       url-base: https://github.com/M165437
 
   projects:
@@ -14,7 +14,7 @@ manifest:
       import: app/west.yml
 
     - name: nice-view-gem
-      remote: M165437
+      remote: m165437
       revision: main
 
   self:
