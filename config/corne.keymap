@@ -354,7 +354,6 @@
             flavor = "balanced";
             bindings = <&kp>, <&kp>;
         };
-
  
         lh: layer_hold {
             compatible = "zmk,behavior-hold-tap";
