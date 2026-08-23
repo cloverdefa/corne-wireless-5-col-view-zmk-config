@@ -4,11 +4,8 @@ name: Build
 on:
   push:
     branches:
-      - test
-
-  pull_request:
-    branches:
       - main
+      - test
 
 jobs:
   build:
