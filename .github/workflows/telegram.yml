@@ -22,13 +22,10 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             🚀 新的韌體 Release 已建立
-
             📦 儲存庫
             ${{ github.repository }}
-
             🏷️ 版本
             ${{ steps.version.outputs.tag }}
-
             🔗 查看 Release
             https://github.com/${{ github.repository }}/releases/latest            
 

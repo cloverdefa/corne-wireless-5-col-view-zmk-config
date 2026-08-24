@@ -17,10 +17,11 @@ on:
         required: true
         type: choice
         options:
+          - auto
           - patch
           - minor
           - major
-        default: patch
+        default: auto
 
 permissions:
   contents: write
@@ -35,6 +36,7 @@ jobs:
     # workflow_dispatch:
     #   Always allow manual release.
     # ==============================================================
+
     if: >
       github.event_name == 'workflow_dispatch' ||
       github.event.workflow_run.conclusion == 'success'
@@ -45,6 +47,7 @@ jobs:
       # ==============================================================
       # Checkout main
       # ==============================================================
+
       - name: Checkout main
         uses: actions/checkout@v4
         with:
@@ -54,6 +57,7 @@ jobs:
       # ==============================================================
       # Get next version
       # ==============================================================
+
       - name: Get next version
         id: version
         shell: bash
@@ -88,23 +92,127 @@ jobs:
             patch=1
 
             echo "No existing release tag found."
+
           else
             version="${latest_tag#v}"
 
             IFS='.' read -r major minor patch <<< "$version"
 
+            echo "Latest tag: $latest_tag"
+
             # --------------------------------------------------------
             # Determine release type
+            #
+            # Manual:
+            #   auto
+            #   patch
+            #   minor
+            #   major
+            #
+            # Automatic:
+            #   fix:                patch
+            #   feat:               minor
+            #   feat!:              major
+            #   BREAKING CHANGE:    major
+            #   docs/chore/etc.     no release
             # --------------------------------------------------------
 
             if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
               release_type="${{ inputs.release_type }}"
+
+              echo "Manual release type: $release_type"
+
             else
-              release_type="patch"
+              release_type="none"
+
+              # ------------------------------------------------------
+              # Find commits since latest release
+              # ------------------------------------------------------
+
+              echo "Analyzing commits since $latest_tag..."
+
+              while IFS= read -r commit; do
+                echo "Commit:"
+                echo "$commit"
+
+                # ----------------------------------------------------
+                # MAJOR
+                #
+                # Examples:
+                #   feat!: ...
+                #   fix!: ...
+                #   refactor!: ...
+                #
+                # Also:
+                #   BREAKING CHANGE:
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' ||
+                  printf '%s\n' "$commit" |
+                  grep -Eq 'BREAKING CHANGE:'; then
+
+                  release_type="major"
+                  continue
+                fi
+
+                # ----------------------------------------------------
+                # MINOR
+                #
+                # Examples:
+                #   feat: ...
+                #   feat(scope): ...
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^feat(\([^)]*\))?:'; then
+
+                  if [ "$release_type" != "major" ]; then
+                    release_type="minor"
+                  fi
+
+                  continue
+                fi
+
+                # ----------------------------------------------------
+                # PATCH
+                #
+                # Examples:
+                #   fix: ...
+                #   fix(scope): ...
+                # ----------------------------------------------------
+
+                if printf '%s\n' "$commit" |
+                  grep -Eq '^fix(\([^)]*\))?:'; then
+
+                  if [ "$release_type" = "none" ]; then
+                    release_type="patch"
+                  fi
+
+                  continue
+                fi
+
+              done < <(
+                git log "$latest_tag..HEAD" \
+                  --pretty=format:'%s%n%b%n---'
+              )
+
+              echo "Automatically detected release type: $release_type"
             fi
 
-            echo "Latest tag: $latest_tag"
-            echo "Release type: $release_type"
+            # --------------------------------------------------------
+            # No release required
+            # --------------------------------------------------------
+
+            if [ "$release_type" = "none" ]; then
+              echo "No release required."
+              echo "should_release=false" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
+
+            # --------------------------------------------------------
+            # Calculate next version
+            # --------------------------------------------------------
 
             case "$release_type" in
               patch)
@@ -120,6 +228,11 @@ jobs:
                 major=$((major + 1))
                 minor=0
                 patch=0
+                ;;
+
+              auto)
+                echo "::error::'auto' is only valid for automatic release."
+                exit 1
                 ;;
 
               *)
@@ -141,16 +254,21 @@ jobs:
             exit 1
           fi
 
+          echo "Release type: ${release_type:-initial}"
           echo "Next version: $version"
           echo "Next tag: $tag"
 
+          echo "should_release=true" >> "$GITHUB_OUTPUT"
+          echo "release_type=${release_type:-initial}" >> "$GITHUB_OUTPUT"
           echo "version=$version" >> "$GITHUB_OUTPUT"
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
       # ==============================================================
       # Download firmware artifact from Build workflow
       # ==============================================================
+
       - name: Download firmware
+        if: steps.version.outputs.should_release == 'true'
         uses: actions/download-artifact@v4
         with:
           name: firmware
@@ -161,7 +279,9 @@ jobs:
       # ==============================================================
       # Show firmware files
       # ==============================================================
+
       - name: Show firmware files
+        if: steps.version.outputs.should_release == 'true'
         shell: bash
         run: |
           echo "Firmware files:"
@@ -170,7 +290,9 @@ jobs:
       # ==============================================================
       # Create firmware ZIP
       # ==============================================================
+
       - name: Create firmware ZIP
+        if: steps.version.outputs.should_release == 'true'
         shell: bash
         run: |
           cd firmware
@@ -183,7 +305,9 @@ jobs:
       # ==============================================================
       # Create GitHub Release
       # ==============================================================
+
       - name: Create Release
+        if: steps.version.outputs.should_release == 'true'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ steps.version.outputs.tag }}
