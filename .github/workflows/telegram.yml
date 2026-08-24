@@ -18,12 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
-        with:
-          ref: main
-          fetch-depth: 0
-
       - name: Get latest release tag
         id: version
         shell: bash
@@ -54,10 +48,10 @@ jobs:
           to: ${{ secrets.TELEGRAM_ID }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            🚀 新的韌體 Release 已建立
+            🚀 新的韌體已建立
             📦 儲存庫
             ${{ github.repository }}
             🏷️ 版本
             ${{ steps.version.outputs.tag }}
-            🔗 查看 Release
-            https://github.com/${{ github.repository }}/releases/latest
+            🔗 查看 GitHub Actions
+            ${{ github.event.workflow_run.html_url }}
