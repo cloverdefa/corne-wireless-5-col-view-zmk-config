@@ -3,7 +3,7 @@ name: Telegram Notification
 on:
   workflow_run:
     workflows:
-      - Build
+      - Release
     types:
       - completed
     branches:
@@ -12,9 +12,42 @@ on:
 jobs:
   notify:
     name: Send Telegram Notification
+
+    if: github.event.workflow_run.conclusion == 'success'
+
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Get latest release tag
+        id: version
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          git fetch --tags --force
+
+          latest_tag="$(
+            git tag --list 'v*.*.*' |
+            grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
+            sort -V |
+            tail -n 1 || true
+          )"
+
+          if [ -z "$latest_tag" ]; then
+            echo "::error::No release tag found."
+            exit 1
+          fi
+
+          echo "Latest release tag: $latest_tag"
+
+          echo "tag=$latest_tag" >> "$GITHUB_OUTPUT"
+
       - name: Send Telegram notification
         uses: appleboy/telegram-action@v1.0.1
         with:
@@ -27,5 +60,4 @@ jobs:
             🏷️ 版本
             ${{ steps.version.outputs.tag }}
             🔗 查看 Release
-            https://github.com/${{ github.repository }}/releases/latest            
-
+            https://github.com/${{ github.repository }}/releases/latest
