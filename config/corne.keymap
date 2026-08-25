@@ -188,11 +188,6 @@
                 <&macro_tap>,
                 <&kp G>,
                 <&kp H>,
-                <&kp O>,
-                <&kp S>,
-                <&kp T>,
-                <&kp T>,
-                <&kp Y>,
                 <&kp ENTER>;
         };
 
