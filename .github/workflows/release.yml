@@ -20,11 +20,11 @@ jobs:
     # ==============================================================
     # 僅允許：
     # 1. 手動觸發 (workflow_dispatch)
-    # 2. PR 被成功合併，且來源分支為 'test'、目標分支為 'main'
+    # 2. main 分支的 Build workflow 成功完成
     # ==============================================================
     if: >
       github.event_name == 'workflow_dispatch' ||
-      github.event.pull_request.merged == true
+      github.event.workflow_run.conclusion == 'success'
 
     runs-on: ubuntu-latest
 
