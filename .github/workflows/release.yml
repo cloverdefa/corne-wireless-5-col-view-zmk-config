@@ -1,27 +1,19 @@
 name: Release
 
 on:
-  pull_request:
+  workflow_run:
+    workflows:
+      - Build
     types:
-      - closed
+      - completed
     branches:
       - main
 
-  workflow_dispatch:
-    inputs:
-      release_type:
-        description: Release version type
-        required: true
-        type: choice
-        options:
-          - auto
-          - patch
-          - minor
-          - major
-        default: auto
+  workflow_dispatch: {}
 
 permissions:
   contents: write
+  actions: read
 
 jobs:
   release:
@@ -52,175 +44,154 @@ jobs:
           fetch-depth: 0
 
       # ==============================================================
-      # Get next version
+      # Fetch tags
       # ==============================================================
 
-      - name: Get next version
+      - name: Fetch tags
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --tags --force
+
+      # ==============================================================
+      # Determine next version
+      #
+      # 規則（精簡版，無手動選擇，優先序 major > minor > patch）：
+      #   - 沒有任何 tag                -> 第一版 v0.1.0
+      #   - commit 含 "MAJOR CHANGE:"   -> major + 1, minor/patch 歸零
+      #   - commit 含 feat: / !: /
+      #     BREAKING CHANGE:            -> minor + 1, patch 歸零
+      #   - 其他情況（含 fix、chore 等）-> patch + 1
+      #
+      # 注意：
+      #   - "MAJOR CHANGE:" 是刻意獨立於 Conventional Commits 規範的
+      #     "BREAKING CHANGE:" 之外的自訂標記，因為這裡 "!:" 與
+      #     "BREAKING CHANGE:" 已經被指定對應到 minor，需要另一個
+      #     不衝突的標記來觸發 major。
+      #   - 每次符合觸發條件都會發版（即使只是 chore/docs），
+      #     這是刻意簡化後的行為。
+      # ==============================================================
+
+      - name: Determine next version
         id: version
         shell: bash
         run: |
           set -euo pipefail
 
-          git fetch --tags --force
-
-          # ----------------------------------------------------------
-          # Find latest semantic version tag
-          # ----------------------------------------------------------
-
-          latest_tag="$(
+          LATEST_VERSION="$(
             git tag --list 'v*.*.*' |
             grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
             sort -V |
             tail -n 1 || true
           )"
 
-          # ----------------------------------------------------------
-          # First release
-          # ----------------------------------------------------------
-
-          if [ -z "$latest_tag" ]; then
-            major=1
-            minor=0
-            patch=1
-
+          if [[ -z "$LATEST_VERSION" ]]; then
             echo "No existing release tag found."
+            NEXT_VERSION="v0.1.0"
 
           else
-            version="${latest_tag#v}"
+            echo "Latest tag: $LATEST_VERSION"
 
-            IFS='.' read -r major minor patch <<< "$version"
+            VERSION_WITHOUT_V="${LATEST_VERSION#v}"
+            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION_WITHOUT_V"
 
-            echo "Latest tag: $latest_tag"
+            # ----------------------------------------------------------
+            # 讀取完整 commit 訊息（含 body/footer），而非只有標題行，
+            # 並用嚴格的格式比對，避免 "feature: ..." 這類非規範訊息
+            # 被誤判成 "feat:"
+            # ----------------------------------------------------------
 
-            # --------------------------------------------------------
-            # Determine release type
-            # --------------------------------------------------------
+            BUMP="patch"
 
-            if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-              release_type="${{ inputs.release_type }}"
-              echo "Manual release type: $release_type"
+            while IFS= read -r line; do
+              if printf '%s\n' "$line" | grep -Eq '^MAJOR CHANGE:'; then
+                BUMP="major"
+                break
+              fi
 
-            else
-              release_type="none"
+              if printf '%s\n' "$line" | grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' \
+                || printf '%s\n' "$line" | grep -Eq '^BREAKING CHANGE:' \
+                || printf '%s\n' "$line" | grep -Eq '^feat(\([^)]*\))?:'; then
+                BUMP="minor"
+              fi
+            done < <(git log "${LATEST_VERSION}..HEAD" --pretty=format:'%s%n%b%n---')
 
-              echo "Analyzing commits since $latest_tag..."
-
-              while IFS= read -r commit; do
-                echo "Commit:"
-                echo "$commit"
-
-                # MAJOR
-                if printf '%s\n' "$commit" |
-                  grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' ||
-                  printf '%s\n' "$commit" |
-                  grep -Eq 'BREAKING CHANGE:'; then
-
-                  release_type="major"
-                  continue
-                fi
-
-                # MINOR
-                if printf '%s\n' "$commit" |
-                  grep -Eq '^feat(\([^)]*\))?:'; then
-
-                  if [ "$release_type" != "major" ]; then
-                    release_type="minor"
-                  fi
-
-                  continue
-                fi
-
-                # PATCH
-                if printf '%s\n' "$commit" |
-                  grep -Eq '^fix(\([^)]*\))?:'; then
-
-                  if [ "$release_type" = "none" ]; then
-                    release_type="patch"
-                  fi
-
-                  continue
-                fi
-
-              done < <(
-                git log "$latest_tag..HEAD" \
-                  --pretty=format:'%s%n%b%n---'
-              )
-
-              echo "Automatically detected release type: $release_type"
-            fi
-
-            # --------------------------------------------------------
-            # No release required
-            # --------------------------------------------------------
-
-            if [ "$release_type" = "none" ]; then
-              echo "No release required."
-              echo "should_release=false" >> "$GITHUB_OUTPUT"
-              exit 0
-            fi
-
-            # --------------------------------------------------------
-            # Calculate next version
-            # --------------------------------------------------------
-
-            case "$release_type" in
-              patch)
-                patch=$((patch + 1))
-                ;;
-
-              minor)
-                minor=$((minor + 1))
-                patch=0
-                ;;
-
+            case "$BUMP" in
               major)
-                major=$((major + 1))
-                minor=0
-                patch=0
+                echo "Found MAJOR CHANGE commit -> bumping major."
+                NEXT_VERSION="v$((MAJOR + 1)).0.0"
                 ;;
-
-              auto)
-                echo "::error::'auto' is only valid for automatic release."
-                exit 1
+              minor)
+                echo "Found feat / breaking change commit -> bumping minor."
+                NEXT_VERSION="v${MAJOR}.$((MINOR + 1)).0"
                 ;;
-
               *)
-                echo "::error::Invalid release type: $release_type"
-                exit 1
+                echo "No feat/major commit found -> bumping patch."
+                NEXT_VERSION="v${MAJOR}.${MINOR}.$((PATCH + 1))"
                 ;;
             esac
           fi
 
-          version="${major}.${minor}.${patch}"
-          tag="v${version}"
-
           # ----------------------------------------------------------
-          # Prevent duplicate tag
+          # 防止重複 tag
           # ----------------------------------------------------------
 
-          if git rev-parse "$tag" >/dev/null 2>&1; then
-            echo "::error::Tag $tag already exists."
+          if git rev-parse "$NEXT_VERSION" >/dev/null 2>&1; then
+            echo "::error::Tag $NEXT_VERSION already exists."
             exit 1
           fi
 
-          echo "Release type: ${release_type:-initial}"
-          echo "Next version: $version"
-          echo "Next tag: $tag"
-
-          echo "should_release=true" >> "$GITHUB_OUTPUT"
-          echo "release_type=${release_type:-initial}" >> "$GITHUB_OUTPUT"
-          echo "version=$version" >> "$GITHUB_OUTPUT"
-          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "Next version: $NEXT_VERSION"
+          echo "VERSION=${NEXT_VERSION}" >> "$GITHUB_OUTPUT"
 
       # ==============================================================
-      # Create GitHub Release
+      # Download firmware artifact from Build workflow
       # ==============================================================
 
-      - name: Create Release
-        if: steps.version.outputs.should_release == 'true'
-        uses: softprops/action-gh-release@v3
+      - name: Download firmware
+        uses: actions/download-artifact@v8
         with:
-          tag_name: ${{ steps.version.outputs.tag }}
-          target_commitish: main
-          name: ${{ steps.version.outputs.tag }}
-          generate_release_notes: true
+          name: firmware
+          path: firmware
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          run-id: ${{ github.event.workflow_run.id }}
+
+      # ==============================================================
+      # Show firmware files
+      # ==============================================================
+
+      - name: Show firmware files
+        shell: bash
+        run: |
+          echo "Firmware files:"
+          find firmware -type f -print
+
+      # ==============================================================
+      # Create firmware ZIP
+      # ==============================================================
+
+      - name: Create firmware ZIP
+        shell: bash
+        run: |
+          cd firmware
+          zip -r "../firmware.zip" .
+          cd ..
+
+          echo "Created firmware.zip:"
+          ls -lh firmware.zip
+
+      # ==============================================================
+      # Create Release and Push Tag
+      # ==============================================================
+
+      - name: Create Release and Push Tag
+        uses: ncipollo/release-action@v1
+        with:
+          tag: ${{ steps.version.outputs.VERSION }}
+          name: ${{ steps.version.outputs.VERSION }}
+          commit: main
+          artifacts: firmware.zip
+          generateReleaseNotes: true
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+
