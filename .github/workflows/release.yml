@@ -22,9 +22,12 @@ permissions:
   contents: write
   actions: read
 
-
 jobs:
-  release:
+  # ==================================================================
+  # Job 1: Determine release version
+  # ==================================================================
+  version:
+    name: Determine Version
 
     # ==============================================================
     # Only allow:
@@ -41,6 +44,11 @@ jobs:
       )
 
     runs-on: ubuntu-latest
+
+    outputs:
+      version: ${{ steps.version.outputs.VERSION }}
+      bump: ${{ steps.version.outputs.BUMP }}
+      target_sha: ${{ steps.version.outputs.TARGET_SHA }}
 
     steps:
 
@@ -482,6 +490,17 @@ jobs:
             echo "TARGET_SHA=${{ steps.target.outputs.TARGET_SHA }}"
           } >> "$GITHUB_OUTPUT"
 
+  # ==================================================================
+  # Job 2: Package firmware and create GitHub Release
+  # ==================================================================
+  release:
+    name: Create Release
+
+    needs: version
+
+    runs-on: ubuntu-latest
+
+    steps:
 
       # ============================================================
       # Download firmware artifact from Build workflow
@@ -545,9 +564,9 @@ jobs:
       - name: Create Release and Push Tag
         uses: ncipollo/release-action@v1
         with:
-          tag: ${{ steps.version.outputs.VERSION }}
-          name: ${{ steps.version.outputs.VERSION }}
-          commit: ${{ steps.version.outputs.TARGET_SHA }}
+          tag: ${{ needs.version.outputs.version }}
+          name: ${{ needs.version.outputs.version }}
+          commit: ${{ needs.version.outputs.target_sha }}
           artifacts: ${{ github.event_name == 'workflow_run' && 'firmware.zip' || '' }}
           generateReleaseNotes: true
           token: ${{ secrets.GITHUB_TOKEN }}
