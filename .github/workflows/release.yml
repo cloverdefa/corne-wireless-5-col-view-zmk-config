@@ -1,6 +1,10 @@
 name: Release
 
 on:
+  # ==============================================================
+  # Automatic release:
+  #   Build workflow successfully completed on main
+  # ==============================================================
   workflow_run:
     workflows:
       - Build
@@ -9,64 +13,118 @@ on:
     branches:
       - main
 
+  # ==============================================================
+  # Manual release
+  # ==============================================================
   workflow_dispatch: {}
 
 permissions:
   contents: write
   actions: read
 
+
 jobs:
   release:
+
     # ==============================================================
-    # 僅允許：
-    # 1. 手動觸發 (workflow_dispatch)
-    # 2. main 分支的 Build workflow 成功完成
+    # Only allow:
+    #
+    # 1. workflow_dispatch
+    #
+    # 2. Build workflow successfully completed
     # ==============================================================
     if: >
       github.event_name == 'workflow_dispatch' ||
-      github.event.workflow_run.conclusion == 'success'
+      (
+        github.event_name == 'workflow_run' &&
+        github.event.workflow_run.conclusion == 'success'
+      )
 
     runs-on: ubuntu-latest
 
     steps:
-      # ==============================================================
-      # Checkout main
-      # ==============================================================
 
-      - name: Checkout main
+      # ============================================================
+      # Determine checkout commit
+      #
+      # workflow_run:
+      #   Use the exact commit that triggered Build.
+      #
+      # workflow_dispatch:
+      #   Use the current main branch.
+      # ============================================================
+
+      - name: Determine target commit
+        id: target
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "workflow_run" ]]; then
+            TARGET_SHA="${{ github.event.workflow_run.head_sha }}"
+          else
+            TARGET_SHA="${{ github.sha }}"
+          fi
+
+          echo "Target commit: $TARGET_SHA"
+          echo "TARGET_SHA=$TARGET_SHA" >> "$GITHUB_OUTPUT"
+
+
+      # ============================================================
+      # Checkout target commit
+      # ============================================================
+
+      - name: Checkout target commit
         uses: actions/checkout@v7
         with:
-          ref: main
+          ref: ${{ steps.target.outputs.TARGET_SHA }}
           fetch-depth: 0
 
-      # ==============================================================
+
+      # ============================================================
       # Fetch tags
-      # ==============================================================
+      # ============================================================
 
       - name: Fetch tags
         shell: bash
         run: |
           set -euo pipefail
+
           git fetch --tags --force
 
-      # ==============================================================
+          echo "Available release tags:"
+          git tag --list 'v*.*.*' |
+            grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
+            sort -V ||
+            true
+
+
+      # ============================================================
       # Determine next version
       #
-      # 規則（精簡版，無手動選擇，優先序 major > minor > patch）：
-      #   - 沒有任何 tag                -> 第一版 v0.1.0
-      #   - commit 含 "MAJOR CHANGE:"   -> major + 1, minor/patch 歸零
-      #   - commit 含 feat: / !: /
-      #     BREAKING CHANGE:            -> minor + 1, patch 歸零
-      #   - 其他情況（含 fix、chore 等）-> patch + 1
+      # Version rules:
       #
-      # 注意：
-      #   - "MAJOR CHANGE:" 是刻意獨立於 Conventional Commits 規範的
-      #     "BREAKING CHANGE:" 之外的自訂標記，因為這裡 "!:" 與
-      #     "BREAKING CHANGE:" 已經被指定對應到 minor，需要另一個
-      #     不衝突的標記來觸發 major。
-      #   - 每次符合觸發條件都會發版（即使只是 chore/docs），
-      #     這是刻意簡化後的行為。
-      # ==============================================================
+      #   No tag
+      #     → v0.1.0
+      #
+      #   MAJOR CHANGE:
+      #     → major + 1
+      #
+      #   feat:
+      #   feat(scope):
+      #   <type>!:
+      #   <type>(scope)!:
+      #   BREAKING CHANGE:
+      #     → minor + 1
+      #
+      #   Everything else
+      #     → patch + 1
+      #
+      # Priority:
+      #   major > minor > patch
+      #
+      # Every successful Build produces a release.
+      # ============================================================
 
       - name: Determine next version
         id: version
@@ -74,77 +132,370 @@ jobs:
         run: |
           set -euo pipefail
 
-          LATEST_VERSION="$(
+
+          # ==========================================================
+          # Functions
+          # ==========================================================
+
+          get_latest_tag() {
+
             git tag --list 'v*.*.*' |
-            grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
-            sort -V |
-            tail -n 1 || true
-          )"
+              grep -E '^v[0-9]+\.[0-9]+\.[0-9]+$' |
+              sort -V |
+              tail -n 1 ||
+              true
+          }
 
-          if [[ -z "$LATEST_VERSION" ]]; then
-            echo "No existing release tag found."
-            NEXT_VERSION="v0.1.0"
 
-          else
-            echo "Latest tag: $LATEST_VERSION"
+          get_commit_bump() {
+            local sha="$1"
+            local subject
+            local body
 
-            VERSION_WITHOUT_V="${LATEST_VERSION#v}"
-            IFS='.' read -r MAJOR MINOR PATCH <<< "$VERSION_WITHOUT_V"
+            subject="$(git show -s --format='%s' "$sha")"
+            body="$(git show -s --format='%b' "$sha")"
 
-            # ----------------------------------------------------------
-            # 讀取完整 commit 訊息（含 body/footer），而非只有標題行，
-            # 並用嚴格的格式比對，避免 "feature: ..." 這類非規範訊息
-            # 被誤判成 "feat:"
-            # ----------------------------------------------------------
+            echo ""
+            echo "----------------------------------------"
+            echo "Commit : $sha"
+            echo "Subject: $subject"
 
-            BUMP="patch"
+            # ======================================================
+            # MAJOR
+            #
+            # Custom marker:
+            #   MAJOR CHANGE:
+            #
+            # Must start at the beginning of a line.
+            # ======================================================
 
-            while IFS= read -r line; do
-              if printf '%s\n' "$line" | grep -Eq '^MAJOR CHANGE:'; then
-                BUMP="major"
+            if printf '%s\n' "$subject" "$body" |
+              grep -Eq '^MAJOR CHANGE:'; then
+
+              echo "Detected: MAJOR"
+              echo "major"
+              return
+            fi
+
+
+            # ======================================================
+            # MINOR
+            #
+            # Conventional Commit:
+            #   feat:
+            #   feat(scope):
+            #
+            # Breaking syntax:
+            #   feat!:
+            #   fix!:
+            #   chore!:
+            #   feat(scope)!:
+            #
+            # Footer:
+            #   BREAKING CHANGE:
+            #
+            # NOTE:
+            #   According to the current release rules,
+            #   these trigger MINOR rather than MAJOR.
+            # ======================================================
+
+            if printf '%s\n' "$subject" |
+              grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+              return
+            fi
+
+            if printf '%s\n' "$subject" |
+              grep -Eq '^feat(\([^)]*\))?:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+              return
+            fi
+
+            if printf '%s\n' "$body" |
+              grep -Eq '^BREAKING CHANGE:'; then
+
+              echo "Detected: MINOR"
+              echo "minor"
+              return
+            fi
+
+
+            # ======================================================
+            # PATCH
+            #
+            # All remaining commits trigger PATCH.
+            #
+            # This intentionally includes:
+            #   fix
+            #   chore
+            #   docs
+            #   refactor
+            #   style
+            #   test
+            #   ci
+            #   build
+            #   perf
+            #   etc.
+            #
+            # This matches the current simplified release rule:
+            # every successful Build produces a release.
+            # ======================================================
+
+            echo "Detected: PATCH"
+            echo "patch"
+          }
+
+
+          get_release_bump() {
+            local commit_range="$1"
+            local bump="patch"
+            local commit_bump
+            local sha
+
+            # ------------------------------------------------------
+            # Get individual commit SHA.
+            #
+            # Unlike parsing git log output, every line is exactly
+            # one commit. No delimiter or multi-line parsing needed.
+            # ------------------------------------------------------
+
+            while IFS= read -r sha; do
+
+              [[ -z "$sha" ]] && continue
+
+              commit_bump="$(get_commit_bump "$sha" | tail -n 1)"
+
+              case "$commit_bump" in
+
+                major)
+                  bump="major"
+                  ;;
+
+                minor)
+                  if [[ "$bump" != "major" ]]; then
+                    bump="minor"
+                  fi
+                  ;;
+
+                patch)
+                  # patch is the default
+                  ;;
+
+                *)
+                  echo "::error::Unknown bump level: $commit_bump"
+                  exit 1
+                  ;;
+              esac
+
+
+              # ----------------------------------------------------
+              # MAJOR has highest priority.
+              # No need to inspect remaining commits.
+              # ----------------------------------------------------
+
+              if [[ "$bump" == "major" ]]; then
+                echo "Highest bump level reached: MAJOR"
                 break
               fi
 
-              if printf '%s\n' "$line" | grep -Eq '^[a-zA-Z0-9_-]+(\([^)]*\))?!:' \
-                || printf '%s\n' "$line" | grep -Eq '^BREAKING CHANGE:' \
-                || printf '%s\n' "$line" | grep -Eq '^feat(\([^)]*\))?:'; then
-                BUMP="minor"
-              fi
-            done < <(git log "${LATEST_VERSION}..HEAD" --pretty=format:'%s%n%b%n---')
+            done < <(git rev-list "$commit_range")
 
-            case "$BUMP" in
+
+            echo "$bump"
+          }
+
+
+          calculate_next_version() {
+            local latest_tag="$1"
+            local bump="$2"
+
+            # ------------------------------------------------------
+            # First release
+            # ------------------------------------------------------
+
+            if [[ -z "$latest_tag" ]]; then
+              echo "v0.1.0"
+              return
+            fi
+
+
+            # ------------------------------------------------------
+            # Parse current version
+            # ------------------------------------------------------
+
+            local version="${latest_tag#v}"
+
+            IFS='.' read -r major minor patch <<< "$version"
+
+
+            # ------------------------------------------------------
+            # Apply bump
+            # ------------------------------------------------------
+
+            case "$bump" in
+
               major)
-                echo "Found MAJOR CHANGE commit -> bumping major."
-                NEXT_VERSION="v$((MAJOR + 1)).0.0"
+                major=$((major + 1))
+                minor=0
+                patch=0
                 ;;
+
               minor)
-                echo "Found feat / breaking change commit -> bumping minor."
-                NEXT_VERSION="v${MAJOR}.$((MINOR + 1)).0"
+                minor=$((minor + 1))
+                patch=0
                 ;;
+
+              patch)
+                patch=$((patch + 1))
+                ;;
+
               *)
-                echo "No feat/major commit found -> bumping patch."
-                NEXT_VERSION="v${MAJOR}.${MINOR}.$((PATCH + 1))"
+                echo "::error::Invalid bump level: $bump"
+                exit 1
                 ;;
             esac
+
+
+            echo "v${major}.${minor}.${patch}"
+          }
+
+
+          # ==========================================================
+          # Find latest release tag
+          # ==========================================================
+
+          LATEST_TAG="$(get_latest_tag)"
+
+
+          if [[ -n "$LATEST_TAG" ]]; then
+            echo "Latest tag: $LATEST_TAG"
+          else
+            echo "Latest tag: none"
           fi
 
-          # ----------------------------------------------------------
-          # 防止重複 tag
-          # ----------------------------------------------------------
 
-          if git rev-parse "$NEXT_VERSION" >/dev/null 2>&1; then
-            echo "::error::Tag $NEXT_VERSION already exists."
+          # ==========================================================
+          # Determine commit range
+          #
+          # First release:
+          #   Analyze entire repository history.
+          #
+          # Existing release:
+          #   Analyze commits after latest release.
+          # ==========================================================
+
+          if [[ -n "$LATEST_TAG" ]]; then
+            COMMIT_RANGE="${LATEST_TAG}..${{ steps.target.outputs.TARGET_SHA }}"
+          else
+            COMMIT_RANGE="${{ steps.target.outputs.TARGET_SHA }}"
+          fi
+
+
+          echo "Commit range: $COMMIT_RANGE"
+
+
+          # ==========================================================
+          # Determine bump
+          # ==========================================================
+
+          BUMP="$(get_release_bump "$COMMIT_RANGE" | tail -n 1)"
+
+
+          echo ""
+          echo "========================================"
+          echo "Detected bump: $BUMP"
+          echo "========================================"
+
+
+          # ==========================================================
+          # Calculate next version
+          # ==========================================================
+
+          NEXT_VERSION="$(calculate_next_version "$LATEST_TAG" "$BUMP")"
+
+
+          # ==========================================================
+          # Validate version
+          # ==========================================================
+
+          if ! printf '%s\n' "$NEXT_VERSION" |
+            grep -Eq '^v[0-9]+\.[0-9]+\.[0-9]+$'; then
+
+            echo "::error::Invalid generated version: $NEXT_VERSION"
             exit 1
           fi
 
-          echo "Next version: $NEXT_VERSION"
-          echo "VERSION=${NEXT_VERSION}" >> "$GITHUB_OUTPUT"
 
-      # ==============================================================
+          # ==========================================================
+          # Prevent duplicate local tag
+          # ==========================================================
+
+          if git tag --list "$NEXT_VERSION" |
+            grep -Fxq "$NEXT_VERSION"; then
+
+            echo "::error::Tag $NEXT_VERSION already exists locally."
+            exit 1
+          fi
+
+
+          # ==========================================================
+          # Prevent duplicate remote tag
+          # ==========================================================
+
+          if git ls-remote \
+            --tags \
+            origin \
+            "refs/tags/$NEXT_VERSION" |
+            grep -q "$NEXT_VERSION"; then
+
+            echo "::error::Tag $NEXT_VERSION already exists on origin."
+            exit 1
+          fi
+
+
+          # ==========================================================
+          # Display release information
+          # ==========================================================
+
+          echo ""
+          echo "========================================"
+          echo "Release information"
+          echo "========================================"
+          echo "Latest tag : ${LATEST_TAG:-none}"
+          echo "Bump       : $BUMP"
+          echo "Version    : $NEXT_VERSION"
+          echo "Commit     : ${{ steps.target.outputs.TARGET_SHA }}"
+          echo "========================================"
+
+
+          # ==========================================================
+          # GitHub Actions outputs
+          # ==========================================================
+
+          {
+            echo "VERSION=$NEXT_VERSION"
+            echo "BUMP=$BUMP"
+            echo "TARGET_SHA=${{ steps.target.outputs.TARGET_SHA }}"
+          } >> "$GITHUB_OUTPUT"
+
+
+      # ============================================================
       # Download firmware artifact from Build workflow
-      # ==============================================================
+      #
+      # workflow_run:
+      #   Download artifact from the exact Build run.
+      #
+      # workflow_dispatch:
+      #   There is no workflow_run artifact.
+      #   Therefore manual execution skips this step.
+      # ============================================================
 
       - name: Download firmware
+        if: github.event_name == 'workflow_run'
         uses: actions/download-artifact@v8
         with:
           name: firmware
@@ -152,42 +503,51 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      # ==============================================================
+
+      # ============================================================
       # Show firmware files
-      # ==============================================================
+      # ============================================================
 
       - name: Show firmware files
+        if: github.event_name == 'workflow_run'
         shell: bash
         run: |
+          set -euo pipefail
+
           echo "Firmware files:"
           find firmware -type f -print
 
-      # ==============================================================
+
+      # ============================================================
       # Create firmware ZIP
-      # ==============================================================
+      # ============================================================
 
       - name: Create firmware ZIP
+        if: github.event_name == 'workflow_run'
         shell: bash
         run: |
+          set -euo pipefail
+
           cd firmware
+
           zip -r "../firmware.zip" .
+
           cd ..
 
           echo "Created firmware.zip:"
           ls -lh firmware.zip
 
-      # ==============================================================
-      # Create Release and Push Tag
-      # ==============================================================
+
+      # ============================================================
+      # Create GitHub Release and push tag
+      # ============================================================
 
       - name: Create Release and Push Tag
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.version.outputs.VERSION }}
           name: ${{ steps.version.outputs.VERSION }}
-          commit: main
-          artifacts: firmware.zip
+          commit: ${{ steps.version.outputs.TARGET_SHA }}
+          artifacts: ${{ github.event_name == 'workflow_run' && 'firmware.zip' || '' }}
           generateReleaseNotes: true
           token: ${{ secrets.GITHUB_TOKEN }}
-
-
