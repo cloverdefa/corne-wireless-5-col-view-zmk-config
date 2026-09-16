@@ -28,8 +28,8 @@
       zmk,physical-layout = &foostan_corne_5col_layout;
     };
 
-    #define MACRO_WAIT_MS 40
-    #define MACRO_TAP_MS  40
+    #define MACRO_WAIT_MS 30
+    #define MACRO_TAP_MS  30
 
     macros {
         zen: zen_browser {
