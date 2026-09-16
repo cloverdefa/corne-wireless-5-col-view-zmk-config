@@ -47,7 +47,7 @@
                 <&kp LALT>,
 
                 <&macro_pause_for_release>,
-                <&macro_wait_time 500>,
+                <&macro_wait_time 300>,
                 <&macro_tap>,
                 <&kp Z>,
                 <&kp E>,
@@ -58,8 +58,8 @@
         mzen: mac_zen_browser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -82,8 +82,8 @@
         edg: edge_browser {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -109,8 +109,8 @@
         twin: terminal_windows {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
@@ -132,8 +132,8 @@
         twinq: terminal_windows_quake {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
@@ -152,8 +152,8 @@
         ptr: powertoy_run {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LWIN>,
@@ -170,8 +170,8 @@
         tmac: terminal_macos {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -194,8 +194,8 @@
         mmac: windowmax_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LCTRL)>,
@@ -208,8 +208,8 @@
         recm: screenrecord_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LG(LSHFT)>,
@@ -222,8 +222,8 @@
         wupm: windowup_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp GLOBE>,
@@ -240,8 +240,8 @@
         wdnm: windowdown_mac {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp GLOBE>,
@@ -258,8 +258,8 @@
         spot: spotlight {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LCMD>,
@@ -272,8 +272,8 @@
         mvu: move_up {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LALT>,
@@ -286,8 +286,8 @@
         mvd: move_down {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings =
                 <&macro_press>,
                 <&kp LALT>,
@@ -300,8 +300,8 @@
         col: tmux_column {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings = 
                 <&macro_tap>,
                 <&kp LC(A)>,
@@ -311,8 +311,8 @@
         row: tmux_row {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings = 
                 <&macro_tap>,
                 <&kp LC(A)>,
@@ -322,8 +322,8 @@
         lst: tmux_list {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings = 
                 <&macro_tap>,
                 <&kp LC(A)>,
@@ -333,8 +333,8 @@
         ttab: tmux_create {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            wait-ms = <5>;
-            tap-ms = <5>;
+            wait-ms = <40>;
+            tap-ms = <40>;
             bindings = 
                 <&macro_tap>,
                 <&kp LC(A)>,
