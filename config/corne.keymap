@@ -132,6 +132,30 @@
                 <&kp ENTER>;
         };
 
+        twinp: terminal_windows_powershell {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <MACRO_WAIT_MS>;
+            tap-ms = <MACRO_TAP_MS>;
+            bindings =
+                <&macro_press>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+
+                <&macro_tap>,
+                <&kp T>,
+
+                <&macro_release>,
+                <&kp LCTRL>,
+                <&kp LWIN>,
+
+                <&macro_wait_time 100>,
+                <&macro_tap>,
+                <&kp P>,
+                <&kp ENTER>;
+        };
+
+
         ptr: powertoy_run {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -430,7 +454,7 @@
             display-name = "WinFunc";
             bindings = <
                 &kp F1     &kp F2  &kp F3  &kp F4  &kp F5       &kp F6      &kp F7         &kp F8          &kp F9            &kp F10
-                &sk LWIN   &trans  &trans  &trans  &trans       &ptr        &trans         &trans          &kp F11           &kp F12
+                &sk LWIN   &trans  &trans  &trans  &twinp       &ptr        &trans         &trans          &kp F11           &kp F12
                 &kp LG(I)  &twin   &trans  &trans  &to Mouse    &to System  &kp LG(LC(D))  &kp LG(LC(F4))  &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))
                                    &trans  &trans  &trans       &trans      &trans         &trans
             >;
