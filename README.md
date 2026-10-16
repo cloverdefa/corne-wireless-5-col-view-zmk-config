@@ -1,148 +1,90 @@
 # Corne Wireless 5-Column View ZMK Config
 
-此倉庫為 Corne 無線鍵盤的 ZMK 設定，採用 5 列鍵位視圖，提供多層佈局、常用巨集，並支援 nice!view 顯示與 ZMK Studio。
+這是給 **Corne Wireless、Nice!Nano v2** 使用的 ZMK 設定。鍵盤採用 5 列實體配置，並包含 Windows/macOS 鍵位層、導航與符號層、滑鼠控制、藍牙管理和多個快捷鍵巨集。
 
-![Corne 鍵位圖（5 列視圖）](IMG/corne.svg)
+![Corne 鍵位圖](IMG/corne.svg)
 
-## 專案結構
+## 鍵位層
 
-* `config/corne.keymap`：主要層（WinDef/MacDef/WinNav/MacNav/Code/Func/SYS）、combos 與巨集定義。
-* `config/corne.conf`：藍牙、省電、去彈跳與 ZMK Studio 等設定。
-* `config/west.yml`：ZMK 專案 manifest，指定 ZMK 與相關依賴版本。
-* `build.yaml`：GitHub Actions 建置矩陣，包含 left/right 與 nice!view 設定。
-* `IMG/corne.svg`：鍵位圖（5 列視圖）。
-* `drawer.py`：使用 `keymap-drawer` 將 `config/corne.keymap` 產生為 SVG。
+| 層 | 用途 |
+| --- | --- |
+| `WinDef` | Windows 預設 QWERTY 層；拇指鍵可輸入 Esc、Space、Enter、Backspace、Tab，並可進入 `Code` 或 `WinNav`。 |
+| `WinNav` | 數字列、游標與頁面導航、音量/媒體控制，以及 Windows 快捷鍵。 |
+| `MacDef` | macOS 預設 QWERTY 層，拇指修飾鍵依 macOS 調整。 |
+| `MacNav` | 數字列、游標與頁面導航、音量/媒體控制，以及 macOS 快捷鍵。 |
+| `Code` | 常用符號、括號、引號與 tmux 快捷鍵。 |
+| `WinFunc` | Windows 功能鍵及系統快捷鍵；與 `WinNav`、`Code` 同時啟用時由 conditional layer 自動啟用。 |
+| `MacFunc` | macOS 功能鍵及系統快捷鍵；與 `MacNav`、`Code` 同時啟用時由 conditional layer 自動啟用。 |
+| `Mouse` | 指標移動、滾輪與滑鼠按鍵。 |
+| `System` | 藍牙清除/選槽、重設與進入 bootloader，也可切換 Windows/macOS 預設層。 |
 
-## 層與巨集概覽
+`WinDef` 與 `MacDef` 是由 `&to` 切換的基礎層。導航、Code、Mouse 等層依鍵位使用 momentary 或切換行為；詳細位置與綁定請看 `config/corne.keymap`，鍵位圖則列出各層配置。
 
-* 預設層：`WinDef`、`MacDef`
-* 導航層：`WinNav`、`MacNav`
-* 其他層：`Code`、`Func`、`SYS`
-* 主要巨集：`ter_win`、`ter_mac`、`max_mac`、`rec_mac`
+## 巨集與組合鍵
 
-## GitHub Actions 建置
+keymap 定義了瀏覽器啟動（Zen、Edge）、終端機啟動（Windows Terminal、PowerShell、macOS Terminal）、PowerToys Run、視窗管理、截圖/錄影、Spotlight 與 tmux 操作等巨集。部分巨集依賴主機端快捷鍵和應用程式設定。
 
-本專案採用 **GitHub Actions** 自動建置 ZMK 韌體。
+另有 `Esc`、`Tab` 和 `Ctrl` 組合鍵；它們只在 `WinDef`、`MacDef` 層生效。組合鍵位置與判定時間以 keymap 中的 combo 設定為準。
 
-每次推送變更後，GitHub Actions 會依照 `build.yaml` 中的建置矩陣產生對應韌體，包含：
+## 硬體與韌體建置
 
-* Corne 左半部
-* Corne 右半部
-* nice!view 顯示
-* 其他於 `build.yaml` 中啟用的建置選項
+`build.yaml` 定義兩個 Nice!Nano v2 建置目標：
 
-建置完成後，可在 GitHub Actions 對應的 workflow run 中取得產生的韌體 artifacts。
+- `corne-left`：`corne_left` + `nice_view_adapter` + `nice_view`
+- `corne-right`：`corne_right` + `nice_view_adapter` + `nice_view`
 
-### 建置設定
+兩個目標都包含 nice!view。ZMK Studio 的 `studio-rpc-usb-uart` snippet 在 `build.yaml` 中目前是註解，`corne.conf` 中 Studio 設定也預設關閉。
 
-主要建置設定位於 `build.yaml`：
+此 repo 提供給 ZMK 建置流程使用的 `build.yaml`，但 repo 本身未包含 GitHub Actions workflow。若已接上能讀取此建置矩陣的 CI，請在該 CI workflow run 下載 `corne-left`、`corne-right` artifacts；否則可依下方方式本機建置。
 
-```yaml
-include:
-  - board: nice_nano_v2
-    shield: corne_left nice_view_adapter nice_view
+### 本機建置
 
-  - board: nice_nano_v2
-    shield: corne_right nice_view_adapter nice_view
-```
+需要安裝 ZMK 所需的 west、Zephyr/SDK 工具鏈。manifest 位於 `config/west.yml`，目前指定 ZMK `v0.3`。
 
-實際建置項目以目前 `build.yaml` 內容為準。
+在 repo 根目錄初始化並更新 west workspace：
 
-若需要啟用 ZMK Studio，則可依需求在 `build.yaml` 中加入對應的 Studio snippet。
-
-## 韌體更新
-
-1. 修改 `config/corne.keymap`、`config/corne.conf` 或其他 ZMK 設定。
-2. Commit 並 push 到 GitHub。
-3. GitHub Actions 自動執行建置。
-4. 等待 workflow 完成。
-5. 從 workflow run 的 Artifacts 下載對應的 `.uf2` 韌體。
-6. 分別將左、右半部對應的韌體燒錄至 Nice!Nano v2。
-
-> 建置產物以 GitHub Actions 為主要來源，不需要在本機安裝完整 Zephyr SDK 或執行 `west build`。
-
-## 本地建置與除錯
-
-如果需要在本機進行 ZMK 開發或除錯，可以使用 `west` 建置。
-
-首先初始化 ZMK workspace：
-
-```bash
+```sh
 west init -l config
 west update
 ```
 
-左半部：
+建置左半部：
 
-```bash
+```sh
 west build -s zmk/app -d build/left -b nice_nano_v2 -- \
   -DSHIELD="corne_left nice_view_adapter nice_view" \
-  -DZMK_CONFIG=$PWD/config
+  -DZMK_CONFIG="$PWD/config"
 ```
 
-右半部：
+建置右半部：
 
-```bash
+```sh
 west build -s zmk/app -d build/right -b nice_nano_v2 -- \
   -DSHIELD="corne_right nice_view_adapter nice_view" \
-  -DZMK_CONFIG=$PWD/config
+  -DZMK_CONFIG="$PWD/config"
 ```
 
-如需啟用 ZMK Studio，可在建置參數中加入：
+建置產物的位置依 west/Zephyr 版本與建置設定而異；請從各 build 目錄中取出對應的 `.uf2`，並燒錄至相應半部。
 
-```text
--DSNIPPET=studio-rpc-usb-uart
-```
+## 設定檔
 
-本地建置主要用於開發與問題排查，正式韌體建置仍以 GitHub Actions 為準。
+- `config/corne.keymap`：矩陣與實體配置選擇、9 個層、巨集、combos、hold-tap 行為及 conditional layers。
+- `config/corne.conf`：藍牙連線參數、睡眠、按鍵 debounce、鍵盤名稱與 pointing 支援。鍵盤名稱為 `Corne-5`，閒置 900000 ms（15 分鐘）後睡眠。
+- `config/west.yml`：west manifest，指定 ZMK `v0.3`。
+- `build.yaml`：左右半部及 nice!view 的建置矩陣。
+- `main.py`：呼叫 `keymap` CLI 解析 keymap 並繪製 SVG。
+- `IMG/corne.svg`：產生的鍵位圖。
 
-## 產生鍵位圖
+## 更新鍵位圖
 
-若需更新 README 中的鍵位圖，請先安裝提供 `keymap` 指令的 `keymap-drawer`，之後執行：
+安裝提供 `keymap` CLI 的 `keymap-drawer` 後，在 repo 根目錄執行：
 
-```bash
+```sh
 python main.py
 ```
 
-腳本會：
-
-1. 使用 `keymap parse` 解析 `config/corne.keymap`
-2. 使用 `keymap draw` 產生 SVG
-3. 將結果輸出至 `IMG/corne.svg`
-4. 清理產生過程中的中間 YAML 檔案
-
-更新鍵位配置後，建議同步重新產生鍵位圖。
-
-## 驗證重點
-
-* **層切換**：確認 `WinDef`、`MacDef`、`WinNav`、`MacNav`、`Code`、`Func`、`SYS` 的切換行為正常。
-* **Combos**：確認各組合鍵觸發行為正常。
-* **巨集**：確認 `ter_win`、`ter_mac`、`max_mac`、`rec_mac` 正常執行。
-* **藍牙**：確認 `&bt BT_SEL n`、`&bt BT_CLR` 等功能正常。
-* **省電**：確認睡眠與喚醒行為正常，並驗證 `CONFIG_ZMK_IDLE_SLEEP_TIMEOUT` 設定。
-* **nice!view**：確認顯示器能正常啟動與更新。
-* **GitHub Actions**：確認 CI 建置成功，並能產生左右半部對應的韌體 artifacts。
-
-## 貢獻指南
-
-Commit 建議使用 Conventional Commits，例如：
-
-* `feat:`：新增功能
-* `fix:`：修正問題
-* `refactor:`：重構
-* `build:`：建置相關變更
-* `ci:`：CI/CD 相關變更
-* `docs:`：文件更新
-
-每次提交應盡量專注於單一變更。Pull Request 建議提供：
-
-* 變更摘要
-* 相關設定或 keymap 變更
-* 更新後的鍵位圖（如適用）
-* GitHub Actions 建置結果
-* 實際鍵盤驗證結果
+腳本會解析 `config/corne.keymap` 並更新 `IMG/corne.svg`，中間 YAML 檔案會在成功後刪除。
 
 ## 授權
 
-本專案採用 MIT 授權，詳見 `LICENSE.md`。
-
+本專案採用 MIT License，詳見 [LICENSE.md](LICENSE.md)。
