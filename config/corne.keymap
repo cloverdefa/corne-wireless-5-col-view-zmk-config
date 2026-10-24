@@ -90,14 +90,12 @@
             bindings =
                 <&macro_press>,
                 <&kp LCTRL>,
-                <&kp LSHFT>,
                 
                 <&macro_tap>,
                 <&kp SPACE>,
                 
                 <&macro_release>,
-                <&kp LCTRL>,
-                <&kp LSHFT>;
+                <&kp LCTRL>;
         };
 
 
