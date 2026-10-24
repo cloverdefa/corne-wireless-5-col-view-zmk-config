@@ -95,8 +95,9 @@
                 <&kp SPACE>,
                 
                 <&macro_release>,
-                <&kp LCTRL>,
+                <&kp LCTRL>;
         };
+
 
         twin: terminal_windows {
             compatible = "zmk,behavior-macro";
