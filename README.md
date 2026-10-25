@@ -2,7 +2,7 @@
 
 這是給 **Corne Wireless、Nice!Nano v2** 使用的 ZMK 設定。鍵盤採用 5 列實體配置，並包含 Windows/macOS 鍵位層、導航與符號層、滑鼠控制、藍牙管理和多個快捷鍵巨集。
 
-![Corne 鍵位圖](IMG/corne.svg)
+![Corne 鍵位圖](assets/corne.svg)
 
 ## 鍵位層
 
