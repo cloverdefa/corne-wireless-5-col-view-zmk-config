@@ -49,7 +49,7 @@ def main():
     base_dir = Path(".")
     keymap_file = base_dir / "config/corne.keymap"
     yaml_file = base_dir / "corne_keymap.yaml"
-    svg_file = base_dir / "IMG/corne.svg"
+    svg_file = base_dir / "assets/corne.svg"
 
     # 生成 SVG
     generate_svg(keymap_file, svg_file, yaml_file)
