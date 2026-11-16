@@ -8,7 +8,7 @@
 
 | 層 | 用途 |
 | --- | --- |
-| `WinDef` | Windows 預設 QWERTY 層；拇指鍵可輸入 Esc、Space、Enter、Backspace、Tab，並可進入 `Code` 或 `Nav`。 |
+| `Def` | Windows 預設 QWERTY 層；拇指鍵可輸入 Esc、Space、Enter、Backspace、Tab，並可進入 `Code` 或 `Nav`。 |
 | `Nav` | 數字列、游標與頁面導航、音量/媒體控制，以及 Windows 快捷鍵（截圖、輸入法切換、視窗最大化/最小化、終端機、瀏覽器）。 |
 | `Code` | 常用符號、括號、引號與 tmux 快捷鍵。 |
 | `Func` | F1–F12、終端機、PowerToys Run、視窗移動、虛擬桌面等系統快捷鍵；同時啟用 `Nav` 與 `Code` 時由 conditional layer 自動啟用。 |
