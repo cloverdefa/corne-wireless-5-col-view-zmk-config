@@ -17,7 +17,7 @@
 
 ### 層切換方式
 
-- `WinDef` 是唯一的基礎層。
+- `Def` 是唯一的基礎層。
 - `Code`：按住左拇指的 `&mo Code`。
 - `Nav`：按住右拇指的 `&lh Nav BSPC`（點按為 Backspace，按住為 `Nav`）。
 - `Func`：同時按住 `Code` 與 `Nav` 的拇指鍵（tri-layer）。
@@ -85,7 +85,7 @@ west build -s zmk/app -d build/right -b nice_nano_v2 -- \
 - `config/west.yml`：west manifest，指定 ZMK `v0.3`。
 - `build.yaml`：左右半部及 nice!view 的建置矩陣。
 - `main.py`：呼叫 `keymap` CLI 解析 keymap 並繪製 SVG。
-- `IMG/corne.svg`：產生的鍵位圖。
+- `assets/corne.svg`：產生的鍵位圖。
 
 ## 更新鍵位圖
 
