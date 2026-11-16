@@ -1,6 +1,6 @@
 # Corne Wireless 5-Column View ZMK Config
 
-這是給 **Corne Wireless、Nice!Nano v2** 使用的 ZMK 設定。鍵盤採用 5 列實體配置，並包含 Windows/macOS 鍵位層、導航與符號層、滑鼠控制、藍牙管理和多個快捷鍵巨集。
+這是給 **Corne Wireless、Nice!Nano v2** 使用的 ZMK 設定。鍵盤採用 5 列實體配置，目前專注於 Windows，包含導航與符號層、滑鼠控制、藍牙管理和多個快捷鍵巨集。
 
 ![Corne 鍵位圖](assets/corne.svg)
 
@@ -8,23 +8,35 @@
 
 | 層 | 用途 |
 | --- | --- |
-| `WinDef` | Windows 預設 QWERTY 層；拇指鍵可輸入 Esc、Space、Enter、Backspace、Tab，並可進入 `Code` 或 `WinNav`。 |
-| `WinNav` | 數字列、游標與頁面導航、音量/媒體控制，以及 Windows 快捷鍵。 |
-| `MacDef` | macOS 預設 QWERTY 層，拇指修飾鍵依 macOS 調整。 |
-| `MacNav` | 數字列、游標與頁面導航、音量/媒體控制，以及 macOS 快捷鍵。 |
+| `WinDef` | Windows 預設 QWERTY 層；拇指鍵可輸入 Esc、Space、Enter、Backspace、Tab，並可進入 `Code` 或 `Nav`。 |
+| `Nav` | 數字列、游標與頁面導航、音量/媒體控制，以及 Windows 快捷鍵（截圖、輸入法切換、視窗最大化/最小化、終端機、瀏覽器）。 |
 | `Code` | 常用符號、括號、引號與 tmux 快捷鍵。 |
-| `WinFunc` | Windows 功能鍵及系統快捷鍵；與 `WinNav`、`Code` 同時啟用時由 conditional layer 自動啟用。 |
-| `MacFunc` | macOS 功能鍵及系統快捷鍵；與 `MacNav`、`Code` 同時啟用時由 conditional layer 自動啟用。 |
+| `Func` | F1–F12、終端機、PowerToys Run、視窗移動、虛擬桌面等系統快捷鍵；同時啟用 `Nav` 與 `Code` 時由 conditional layer 自動啟用。 |
 | `Mouse` | 指標移動、滾輪與滑鼠按鍵。 |
-| `System` | 藍牙清除/選槽、重設與進入 bootloader，也可切換 Windows/macOS 預設層。 |
+| `System` | 藍牙清除/選槽、重設與進入 bootloader。 |
 
-`WinDef` 與 `MacDef` 是由 `&to` 切換的基礎層。導航、Code、Mouse 等層依鍵位使用 momentary 或切換行為；詳細位置與綁定請看 `config/corne.keymap`，鍵位圖則列出各層配置。
+### 層切換方式
+
+- `WinDef` 是唯一的基礎層。
+- `Code`：按住左拇指的 `&mo Code`。
+- `Nav`：按住右拇指的 `&lh Nav BSPC`（點按為 Backspace，按住為 `Nav`）。
+- `Func`：同時按住 `Code` 與 `Nav` 的拇指鍵（tri-layer）。
+- `Mouse` / `System`：在 `Func` 層使用 `&to Mouse`、`&to System` 進入，並以各層內的 `&to WinDef` 返回 `WinDef`。
+
+詳細位置與綁定請看 `config/corne.keymap`，鍵位圖則列出各層配置。
 
 ## 巨集與組合鍵
 
-keymap 定義了瀏覽器啟動（Zen、Edge）、終端機啟動（Windows Terminal、PowerShell、macOS Terminal）、PowerToys Run、視窗管理、截圖/錄影、Spotlight 與 tmux 操作等巨集。部分巨集依賴主機端快捷鍵和應用程式設定。
+keymap 定義了以下巨集：
 
-另有 `Esc`、`Tab` 和 `Ctrl` 組合鍵；它們只在 `WinDef`、`MacDef` 層生效。組合鍵位置與判定時間以 keymap 中的 combo 設定為準。
+- **啟動程式**：Zen 瀏覽器（透過 PowerToys Run）、Windows Terminal、PowerShell、PowerToys Run
+- **輸入法**：`Win + Space` 切換輸入法
+- **視窗管理**：`Alt + J` / `Alt + K` 移動視窗
+- **tmux**：切欄、切列、視窗列表、建立新分頁
+
+部分巨集依賴主機端快捷鍵和應用程式設定（例如 PowerToys Run 的啟動快捷鍵）。
+
+另有 `Esc`、`Tab` 和 `Ctrl` 組合鍵；它們只在 `WinDef` 層生效，不會在 `Code` 等其他層誤觸發。組合鍵位置與判定時間以 keymap 中的 combo 設定為準。
 
 ## 硬體與韌體建置
 
@@ -68,7 +80,7 @@ west build -s zmk/app -d build/right -b nice_nano_v2 -- \
 
 ## 設定檔
 
-- `config/corne.keymap`：矩陣與實體配置選擇、9 個層、巨集、combos、hold-tap 行為及 conditional layers。
+- `config/corne.keymap`：矩陣與實體配置選擇、6 個層、巨集、combos、hold-tap 行為及 conditional layers。
 - `config/corne.conf`：藍牙連線參數、睡眠、按鍵 debounce、鍵盤名稱與 pointing 支援。鍵盤名稱為 `Corne-5`，閒置 900000 ms（15 分鐘）後睡眠。
 - `config/west.yml`：west manifest，指定 ZMK `v0.3`。
 - `build.yaml`：左右半部及 nice!view 的建置矩陣。
