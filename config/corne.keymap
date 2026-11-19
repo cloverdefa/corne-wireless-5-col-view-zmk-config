@@ -11,8 +11,8 @@
 
 // Layers
 
-#define Def  0
-#define Nav  1
+#define Def     0
+#define Nav     1
 #define Code    2
 #define Func    3
 #define Mouse   4
