@@ -18,8 +18,8 @@
 #define Mouse   4
 #define System  5
 
-#define MACRO_WAIT_MS 30
-#define MACRO_TAP_MS  30
+#define MACRO_WAIT_MS 15
+#define MACRO_TAP_MS  20
 
 / {
     chosen {
@@ -149,7 +149,7 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <100>;  // 連打時 Space/Enter 一律當 tap，避免誤觸 Shift/Ctrl
+            require-prior-idle-ms = <120>;  // 連打時 Space/Enter 一律當 tap，避免誤觸 Shift/Ctrl
         };
 
         lh: layer_hold {
