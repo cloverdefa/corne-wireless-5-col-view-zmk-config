@@ -198,7 +198,7 @@
             display-name = "Code";
             bindings = <
                 &kp EXCL  &kp AT      &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
-                &tmx W    &tmx PIPE   &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &trans
+                &tmx W    &tmx PIPE   &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(LA(B))
                 &tmx C    &tmx MINUS  &kp TILDE  &kp PLUS   &kp UNDER    &kp LBKT   &kp RBKT  &kp PIPE  &kp BSLH  &kp DEL
                                       &trans     &trans     &trans       &trans     &trans    &trans
             >;
