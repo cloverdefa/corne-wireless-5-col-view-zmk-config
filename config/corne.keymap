@@ -11,12 +11,12 @@
 
 // Layers
 
-#define Def     0
-#define Nav     1
-#define Code    2
-#define Func    3
-#define Mouse   4
-#define System  5
+#define Base       0
+#define Nav        1
+#define Symbols    2
+#define Functions  3
+#define Mouse      4
+#define System     5
 
 #define MACRO_WAIT_MS 15
 #define MACRO_TAP_MS  20
@@ -25,7 +25,6 @@
     chosen {
       zmk,physical-layout = &foostan_corne_5col_layout;
     };
-
 
     macros {
         zen: zen_browser {
@@ -158,7 +157,7 @@
             quick-tap-ms = <150>;
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-            require-prior-idle-ms = <120>;  // 連打時 Alt/SPACE 一律當 tap，避免誤觸 ESC/SHIFT
+            require-prior-idle-ms = <120>;
         };
 
         em: enter_mod {
@@ -183,13 +182,13 @@
     keymap {
         compatible = "zmk,keymap";
 
-        Def {
-            display-name = "Def";
+        Base {
+            display-name = "Base";
             bindings = <
-                &kp Q  &kp W  &kp E         &kp R     &kp T              &kp Y          &kp U         &kp I      &kp O    &kp P
-                &kp A  &kp S  &kp D         &kp F     &kp G              &kp H          &kp J         &kp K      &kp L    &kp SEMI
-                &kp Z  &kp X  &kp C         &kp V     &kp B              &kp N          &kp M         &kp COMMA  &kp DOT  &kp FSLH
-                              &tm LALT ESC  &mo Code  &tm LSHFT SPACE    &em LCTRL RET  &lh Nav BSPC  &kp TAB
+                &kp Q  &kp W  &kp E         &kp R        &kp T              &kp Y          &kp U         &kp I      &kp O    &kp P
+                &kp A  &kp S  &kp D         &kp F        &kp G              &kp H          &kp J         &kp K      &kp L    &kp SEMI
+                &kp Z  &kp X  &kp C         &kp V        &kp B              &kp N          &kp M         &kp COMMA  &kp DOT  &kp FSLH
+                              &tm LALT ESC  &mo Symbols  &tm LSHFT SPACE    &em LCTRL RET  &lh Nav BSPC  &kp TAB
             >;
         };
 
@@ -203,8 +202,8 @@
             >;
         };
 
-        Code {
-            display-name = "Code";
+        Symbols {
+            display-name = "Symbols";
             bindings = <
                 &kp EXCL  &kp AT      &kp HASH   &kp DLLR   &kp PRCNT    &kp CARET  &kp AMPS  &kp STAR  &kp LPAR  &kp RPAR
                 &tmx W    &tmx PIPE   &kp GRAVE  &kp MINUS  &kp EQUAL    &kp LBRC   &kp RBRC  &kp SQT   &kp DQT   &kp LC(LA(B))
@@ -213,8 +212,8 @@
             >;
         };
 
-        Func {
-            display-name = "Func";
+        Functions {
+            display-name = "Functions";
             bindings = <
                 &kp F1    &kp F2     &kp F3   &kp F4  &kp F5       &kp F6      &kp F7         &kp F8          &kp F9            &kp F10
                 &sk LWIN  &kp F11    &kp F12  &trans  &trans       &ptr        &kp LA(J)      &kp LA(K)       &trans            &kp LA(F4)
@@ -229,7 +228,7 @@
                 &kp ESC  &none  &none   &none  &none      &none           &none           &none         &none            &none
                 &none    &none  &none   &none  &none      &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &none
                 &none    &none  &none   &none  &none      &none           &msc SCRL_DOWN  &msc SCRL_UP  &none            &none
-                                &trans  &none  &to Def    &mkp LCLK       &mkp RCLK       &mkp MCLK
+                                &trans  &none  &to Base   &mkp LCLK       &mkp RCLK       &mkp MCLK
             >;
         };
 
@@ -239,7 +238,7 @@
                 &studio_unlock  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
                 &none           &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
                 &none           &none  &none  &none  &bootloader    &bootloader   &none         &none         &none         &none
-                                       &none  &none  &to Def        &trans        &trans        &trans
+                                       &none  &none  &to Base       &trans        &trans        &trans
             >;
         };
     };
@@ -247,7 +246,7 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        win_function {
+        functions {
             if-layers = <1 2>;
             then-layer = <3>;
         };
