@@ -21,11 +21,16 @@
 #define MACRO_WAIT_MS 15
 #define MACRO_TAP_MS  20
 
+/* Physical Layout */
+&foostan_corne_5col_layout {
+    transform = <&five_column_transform>;
+};
+
 / {
     chosen {
-      zmk,matrix_transform = &five_column_transform;
       zmk,physical-layout = &foostan_corne_5col_layout;
     };
+
 
     macros {
         zen: zen_browser {
@@ -227,10 +232,10 @@
         System {
             display-name = "System";
             bindings = <
-                &none  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-                &none  &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
-                &none  &none  &none  &none  &bootloader    &bootloader   &none         &none         &none         &none
-                              &none  &none  &to Def        &trans        &trans        &trans
+                &studio_unlock  &none  &none  &none  &bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
+                &none           &none  &none  &none  &sys_reset     &sys_reset    &none         &none         &none         &none
+                &none           &none  &none  &none  &bootloader    &bootloader   &none         &none         &none         &none
+                                       &none  &none  &to Def        &trans        &trans        &trans
             >;
         };
     };
