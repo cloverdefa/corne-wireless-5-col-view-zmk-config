@@ -39,9 +39,9 @@ keymap 定義了以下巨集：
 
 - **啟動程式**：
   - `zen`：透過 `Win + Alt + Space`（PowerToys Run）輸入 `zen` 啟動 Zen 瀏覽器
-  - `twin`：`Ctrl + Win + T` 後輸入 `D` + `Enter`，啟動 Windows Terminal
+  - `twin`：`Ctrl + Win + T` 後輸入 `D` + `Enter`，啟動 Windows Terminal (Debian)
   - `twinp`：`Ctrl + Win + T` 後輸入 `P` + `Enter`，啟動 Windows Terminal（PowerShell）
-  - `ptr`：`Win + Alt + Space`，開啟 PowerToys Run
+  - `ptr`：`Win + Alt + Space`，開啟 PowerToys 命令選擇區
 - **tmux**：`tmx` 先送出 prefix `Ctrl + A`，再送出參數按鍵（`W` 視窗列表、`|` 切欄、`-` 切列、`C` 建立新視窗）。
 - **視窗管理**：`Alt + J` / `Alt + K` 移動視窗，`Alt + F4` 關閉視窗。
 - **虛擬桌面**：`Win + Ctrl + D` 新增、`Win + Ctrl + F4` 關閉、`Win + Ctrl + ←/→` 切換。
