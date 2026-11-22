@@ -1,0 +1,7 @@
+# west建構資料夾
+.west/
+zmk/
+zephyr/
+modules/
+build/
+firmware/
