@@ -9,6 +9,7 @@ IMAGE="${ZMK_IMAGE:-zmkfirmware/zmk-build-arm:stable}"
 OUT_DIR="firmware"
 PRISTINE="${PRISTINE:-0}"   # PRISTINE=1 ./build.zsh 強制全新建置
 
+rm -rf "$OUT_DIR"
 mkdir -p "$OUT_DIR"
 
 docker run --rm -i \
